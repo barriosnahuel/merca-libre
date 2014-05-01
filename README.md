@@ -1,4 +1,4 @@
-merca-libre
+merca-libre by "GOODTIMES"
 ===========
 
 It's just a repo for academic purposes
