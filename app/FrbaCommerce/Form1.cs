@@ -6,21 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using FrbaCommerce.Servicios;
+using FrbaCommerce.ABM_Rol;
 
 namespace FrbaCommerce
 {
-    public partial class Form1 : Form
+    public partial class frmPrincipal : Form
     {
-        public Form1()
+        public frmPrincipal()
         {
             InitializeComponent();
+        }
 
-            DataSet ds = Roles.ObtenerRoles();
-
-            gridRoles.AutoGenerateColumns = true;
-            gridRoles.DataSource = ds.Tables[0];
-
+        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMRoles abmRoles = new frmABMRoles();
+            abmRoles.Show();
         }
     }
 }

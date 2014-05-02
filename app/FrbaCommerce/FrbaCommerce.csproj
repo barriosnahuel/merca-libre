@@ -48,58 +48,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abm Cliente\Form1.cs">
+    <Compile Include="Vistas\Abm Cliente\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Cliente\Form1.Designer.cs">
+    <Compile Include="Vistas\Abm Cliente\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Empresa\Form1.cs">
+    <Compile Include="Vistas\Abm Empresa\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Empresa\Form1.Designer.cs">
+    <Compile Include="Vistas\Abm Empresa\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\Form1.cs">
+    <Compile Include="Vistas\ABM Rol\abmRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\Form1.Designer.cs">
+    <Compile Include="Vistas\ABM Rol\abmRol.Designer.cs">
+      <DependentUpon>abmRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Abm Rubro\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Rubro\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rubro\Form1.cs">
+    <Compile Include="Vistas\Abm Visibilidad\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Rubro\Form1.Designer.cs">
+    <Compile Include="Vistas\Abm Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.cs">
+    <Compile Include="Vistas\Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.Designer.cs">
+    <Compile Include="Vistas\Calificar Vendedor\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar Vendedor\Form1.cs">
+    <Compile Include="Vistas\Comprar-Ofertar\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar Vendedor\Form1.Designer.cs">
+    <Compile Include="Vistas\Comprar-Ofertar\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Comprar-Ofertar\Form1.cs">
+    <Compile Include="Vistas\Editar Publicacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Comprar-Ofertar\Form1.Designer.cs">
+    <Compile Include="Vistas\Editar Publicacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editar Publicacion\Form1.cs">
+    <Compile Include="Vistas\Facturar Publicaciones\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturar Publicaciones\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturar Publicaciones\Form1.Designer.cs">
+    <Compile Include="Vistas\Facturar Publicaciones\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -108,36 +108,37 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generar Publicacion\Form1.cs">
+    <Compile Include="Vistas\Generar Publicacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Publicacion\Form1.Designer.cs">
+    <Compile Include="Vistas\Generar Publicacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Preguntas\Form1.cs">
+    <Compile Include="Vistas\Gestion de Preguntas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Preguntas\Form1.Designer.cs">
+    <Compile Include="Vistas\Gestion de Preguntas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.cs">
+    <Compile Include="Vistas\Historial Cliente\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.Designer.cs">
+    <Compile Include="Vistas\Historial Cliente\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.cs">
+    <Compile Include="Vistas\Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.Designer.cs">
+    <Compile Include="Vistas\Listado Estadistico\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\Form1.cs">
+    <Compile Include="Vistas\Login\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Form1.Designer.cs">
+    <Compile Include="Vistas\Login\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\Rol.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -147,6 +148,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ABM Rol\abmRol.resx">
+      <DependentUpon>abmRol.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -161,10 +165,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Registro de Usuario\Form1.cs">
+    <Compile Include="Vistas\Registro de Usuario\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro de Usuario\Form1.Designer.cs">
+    <Compile Include="Vistas\Registro de Usuario\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Roles.cs" />
@@ -174,9 +178,6 @@
       <Project>{8D5A5C75-FDF3-44D4-AEC7-F0606380D48A}</Project>
       <Name>Utiles</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modelos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

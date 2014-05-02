@@ -5,33 +5,62 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using Utiles;
+using FrbaCommerce.Modelos;
 
 namespace FrbaCommerce.Servicios
 {
     class Roles
     {
 
-        public static Int32 ObtenerCantidad()
+        private static Rol getRol(SqlDataReader lector)
         {
-            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT COUNT(*) FROM gd_esquema.Maestra");
-            lector.Read();
+            Rol unRol = new Rol();
+            unRol.id = lector.GetInt32(lector.GetOrdinal("ID"));
+            unRol.nombre = lector.GetString(lector.GetOrdinal("NOMBRE"));
+            unRol.habilitado = lector.GetBoolean(lector.GetOrdinal("HABILITADO"));
+            unRol.eliminado = lector.GetBoolean(lector.GetOrdinal("ELIMINADO"));
 
-            Int32 cantidad = 0;
+            return unRol;
+        }
+
+        public static List<Rol> ObtenerTodos()
+        {
+            List<Rol> listaRoles = new List<Rol>();
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT * FROM ROL WHERE ELIMINADO = 0");
+
             if (lector.HasRows)
             {
-                cantidad = lector.GetInt32(0);
+                while (lector.Read())
+                {
+                    Rol unRol = getRol(lector);
+                    listaRoles.Add(unRol);
+                }
             }
 
             lector.Close();
 
-            return cantidad;
+            return listaRoles;
         }
 
-        public static DataSet ObtenerRoles()
+        public static List<Rol> Buscar(String nombre)
         {
-            DataSet ds = BasesDeDatos.ObtenerDataSet("SELECT TOP 5 * FROM gd_esquema.Maestra");
-            
-            return ds;
+            List<Rol> listaRoles = new List<Rol>();
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT * FROM ROL WHERE ELIMINADO = 0 AND NOMBRE like '%" + nombre + "%'");
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Rol unRol = getRol(lector);
+                    listaRoles.Add(unRol);
+                }
+            }
+
+            lector.Close();
+
+            return listaRoles;
         }
 
     }
