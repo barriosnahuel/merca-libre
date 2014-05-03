@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelos\Funcion.cs" />
+    <Compile Include="Servicios\Funciones.cs" />
     <Compile Include="Vistas\Abm Cliente\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -33,11 +33,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSacar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.lstFuncionesNoAgregadas = new System.Windows.Forms.ListBox();
             this.lstFuncionesAgregadas = new System.Windows.Forms.ListBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -65,11 +65,11 @@
             // 
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnSacar);
+            this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.lstFuncionesNoAgregadas);
             this.groupBox1.Controls.Add(this.lstFuncionesAgregadas);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.chkHabilitado);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -97,23 +97,25 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Funciones del Rol";
             // 
-            // button2
+            // btnSacar
             // 
-            this.button2.Location = new System.Drawing.Point(163, 203);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSacar.Location = new System.Drawing.Point(163, 203);
+            this.btnSacar.Name = "btnSacar";
+            this.btnSacar.Size = new System.Drawing.Size(60, 23);
+            this.btnSacar.TabIndex = 6;
+            this.btnSacar.Text = ">";
+            this.btnSacar.UseVisualStyleBackColor = true;
+            this.btnSacar.Click += new System.EventHandler(this.btnSacar_Click);
             // 
-            // button1
+            // btnAgregar
             // 
-            this.button1.Location = new System.Drawing.Point(163, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "<";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAgregar.Location = new System.Drawing.Point(163, 143);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(60, 23);
+            this.btnAgregar.TabIndex = 5;
+            this.btnAgregar.Text = "<";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lstFuncionesNoAgregadas
             // 
@@ -131,17 +133,17 @@
             this.lstFuncionesAgregadas.Size = new System.Drawing.Size(148, 186);
             this.lstFuncionesAgregadas.TabIndex = 4;
             // 
-            // checkBox1
+            // chkHabilitado
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(9, 48);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(73, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Habilitado";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkHabilitado.AutoSize = true;
+            this.chkHabilitado.Checked = true;
+            this.chkHabilitado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkHabilitado.Location = new System.Drawing.Point(9, 48);
+            this.chkHabilitado.Name = "chkHabilitado";
+            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
+            this.chkHabilitado.TabIndex = 3;
+            this.chkHabilitado.Text = "Habilitado";
+            this.chkHabilitado.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -182,11 +184,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSacar;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ListBox lstFuncionesNoAgregadas;
         private System.Windows.Forms.ListBox lstFuncionesAgregadas;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkHabilitado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombre;
     }
