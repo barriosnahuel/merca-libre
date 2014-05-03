@@ -25,23 +25,23 @@ namespace FrbaCommerce.ABM_Rol
             {
                 txtNombre.Text = unRol.nombre;
                 chkHabilitado.Checked = unRol.habilitado;
-
-                List<Funcion> fadd = Funciones.ObtenerPorRol(unRol.id);
-                foreach (var item in fadd)
-	            {
-                    funcionesAgregadas.Add(item);	 
-	            }
-                lstFuncionesAgregadas.DataSource = funcionesAgregadas;
-                lstFuncionesAgregadas.DisplayMember = "nombre";
-
-                List<Funcion> fNotadd = Funciones.ObtenerNotRol(unRol.id);
-                foreach (var item in fNotadd)
-                {
-                    funcionesNoAgregadas.Add(item);
-                }                
-                lstFuncionesNoAgregadas.DataSource = funcionesNoAgregadas;
-                lstFuncionesNoAgregadas.DisplayMember = "nombre";
             }
+
+            List<Funcion> fadd = Funciones.ObtenerPorRol(unRol.id);
+            foreach (var item in fadd)
+            {
+                funcionesAgregadas.Add(item);	 
+            }
+            lstFuncionesAgregadas.DataSource = funcionesAgregadas;
+            lstFuncionesAgregadas.DisplayMember = "nombre";
+
+            List<Funcion> fNotadd = Funciones.ObtenerNotRol(unRol.id);
+            foreach (var item in fNotadd)
+            {
+                funcionesNoAgregadas.Add(item);
+            }                
+            lstFuncionesNoAgregadas.DataSource = funcionesNoAgregadas;
+            lstFuncionesNoAgregadas.DisplayMember = "nombre";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
