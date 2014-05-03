@@ -60,5 +60,17 @@ namespace FrbaCommerce.ABM_Rol
             funcionesAgregadas.Remove(selectedItem);
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Text = "";
+            chkHabilitado.Checked = true;
+            List<Funcion> auxList = funcionesAgregadas.ToList();
+            funcionesAgregadas.Clear();
+            foreach (var item in auxList)
+            {
+                funcionesNoAgregadas.Add(item);
+            }                
+        }
+
     }
 }
