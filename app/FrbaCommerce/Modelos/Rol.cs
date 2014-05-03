@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FrbaCommerce.Modelos
 {
-    class Rol
+    public class Rol
     {
 
         Int32 _id;

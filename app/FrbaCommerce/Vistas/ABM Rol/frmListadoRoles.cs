@@ -13,7 +13,7 @@ namespace FrbaCommerce.ABM_Rol
 {
     public partial class frmListadoRoles : Form
     {
-        public frmListadoRoles()
+        public frmListadoRoles(Boolean funcion) //si funcion es true es modificar, si es false es eliminar
         {
             InitializeComponent();
 
@@ -43,8 +43,14 @@ namespace FrbaCommerce.ABM_Rol
 
             gridRoles.Columns.Add(colNombre);
             gridRoles.Columns.Add(colHabilitado);
-            gridRoles.Columns.Add(colSeleccionar);
-            gridRoles.Columns.Add(colEliminar);            
+            if (funcion)
+            {
+                gridRoles.Columns.Add(colSeleccionar);
+            }
+            else
+            {
+                gridRoles.Columns.Add(colEliminar);
+            }
 
             gridRoles.DataSource = listaRoles;            
         }
@@ -57,15 +63,26 @@ namespace FrbaCommerce.ABM_Rol
 
         private void gridRoles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == gridRoles.Columns["Seleccionar"].Index && e.RowIndex >= 0)
-            {
-                MessageBox.Show("Seleccionar");
+            if (e.RowIndex >= 0)
+            {                
+                if (gridRoles.Columns.Contains("Seleccionar") && e.ColumnIndex == gridRoles.Columns["Seleccionar"].Index)
+                {
+                    Rol rolSeleccionado = (Rol)gridRoles.CurrentRow.DataBoundItem;
+                    frmAltaRol altaRol = new frmAltaRol(rolSeleccionado);
+                    this.Hide();
+                    altaRol.Show();
+                }
+                else
+                {
+                    if (gridRoles.Columns.Contains("Eliminar") && e.ColumnIndex == gridRoles.Columns["Eliminar"].Index)
+                    {
+                        MessageBox.Show("Eliminar");
+                    }
+                }
             }
-            if (e.ColumnIndex == gridRoles.Columns["Eliminar"].Index && e.RowIndex >= 0)
-            {
-                MessageBox.Show("Eliminar");
-            }
+
         }
+
 
     }
 }

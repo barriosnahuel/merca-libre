@@ -1,4 +1,4 @@
-﻿namespace FrbaCommerce.Vistas.ABM_Rol
+﻿namespace FrbaCommerce.ABM_Rol
 {
     partial class frmAltaRol
     {
@@ -134,6 +134,8 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(9, 48);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(73, 17);
@@ -166,7 +168,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAltaRol";
-            this.Text = "Form1";
+            this.Text = "Alta de Rol";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
