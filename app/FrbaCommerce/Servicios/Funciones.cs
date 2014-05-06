@@ -45,7 +45,7 @@ namespace FrbaCommerce.Servicios
         {
             List<Funcion> listaFunciones = new List<Funcion>();
 
-            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT * FROM FUNCIONALIDAD F JOIN FUNCIONALIDAD_X_ROL FR ON F.ID = FR.FUNCIONALIDAD_ID WHERE FR.ROL_ID = " + idRol);
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT F.* FROM FUNCIONALIDAD F JOIN FUNCIONALIDAD_X_ROL FR ON F.ID = FR.FUNCIONALIDAD_ID WHERE FR.ROL_ID = " + idRol);
 
             if (lector.HasRows)
             {
@@ -65,7 +65,7 @@ namespace FrbaCommerce.Servicios
         {
             List<Funcion> listaFunciones = new List<Funcion>();
 
-            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT * FROM FUNCIONALIDAD F JOIN FUNCIONALIDAD_X_ROL FR ON F.ID = FR.FUNCIONALIDAD_ID WHERE FR.ROL_ID <> " + idRol);
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT F.* FROM FUNCIONALIDAD F LEFT JOIN FUNCIONALIDAD_X_ROL FR ON F.ID = FR.FUNCIONALIDAD_ID WHERE FR.ROL_ID <> "+idRol+" OR FR.ROL_ID IS NULL");
 
             if (lector.HasRows)
             {
