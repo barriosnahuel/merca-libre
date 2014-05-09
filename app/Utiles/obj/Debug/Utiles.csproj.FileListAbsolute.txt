@@ -1,4 +1,3 @@
-C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\bin\Debug\Utiles.exe.config
 C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\bin\Debug\Utiles.exe
 C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\bin\Debug\Utiles.pdb
 C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Debug\ResolveAssemblyReference.cache
