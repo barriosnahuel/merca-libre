@@ -48,7 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelos\Cliente.cs" />
+    <Compile Include="Modelos\Empresa.cs" />
     <Compile Include="Modelos\Funcion.cs" />
+    <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Servicios\Funciones.cs" />
     <Compile Include="Vistas\Abm Cliente\Form1.cs">
       <SubType>Form</SubType>
@@ -163,6 +166,18 @@
     <EmbeddedResource Include="Vistas\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Mensajes\VentanaError.resx">
+      <DependentUpon>VentanaError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.resx">
+      <DependentUpon>RegistroPasoDosCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoDosEmpresa.resx">
+      <DependentUpon>RegistroPasoDosEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoUno.resx">
+      <DependentUpon>RegistroPasoUno.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -176,11 +191,29 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Vistas\Registro de Usuario\Form1.cs">
+    <Compile Include="Vistas\Mensajes\VentanaError.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Registro de Usuario\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Vistas\Mensajes\VentanaError.Designer.cs">
+      <DependentUpon>VentanaError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.Designer.cs">
+      <DependentUpon>RegistroPasoDosCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosEmpresa.Designer.cs">
+      <DependentUpon>RegistroPasoDosEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoUno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoUno.Designer.cs">
+      <DependentUpon>RegistroPasoUno.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Roles.cs" />
   </ItemGroup>

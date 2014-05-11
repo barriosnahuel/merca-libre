@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ABM_Rol;
 using FrbaCommerce.Modelos;
+using FrbaCommerce.Registro_de_Usuario;
 
 namespace FrbaCommerce
 {
@@ -36,6 +37,12 @@ namespace FrbaCommerce
             nuevoRol.id = -1;
             frmAltaRol altaRol = new frmAltaRol(nuevoRol);
             altaRol.Show();
+        }
+
+        private void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroPasoUno form = new RegistroPasoUno();
+            form.Show();
         }
 
     }
