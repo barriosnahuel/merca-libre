@@ -26,8 +26,8 @@ namespace FrbaCommerce.Servicios
         public static List<Rol> ObtenerTodos()
         {
             List<Rol> listaRoles = new List<Rol>();
-
-            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT * FROM ROL WHERE ELIMINADO = 0");
+            //GOODTIMES.[ListarRoles]
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT * FROM GOODTIMES.ROL WHERE ELIMINADO = 0");
 
             if (lector.HasRows)
             {
@@ -46,8 +46,8 @@ namespace FrbaCommerce.Servicios
         public static List<Rol> Buscar(String nombre)
         {
             List<Rol> listaRoles = new List<Rol>();
-
-            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT * FROM ROL WHERE ELIMINADO = 0 AND NOMBRE like '%" + nombre + "%'");
+            //BuscarRolPorNombre
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT * FROM GOODTIMES.ROL WHERE ELIMINADO = 0 AND NOMBRE like '%" + nombre + "%'");
 
             if (lector.HasRows)
             {

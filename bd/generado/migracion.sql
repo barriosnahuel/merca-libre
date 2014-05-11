@@ -63,17 +63,27 @@ OPEN maestra_cursor
 FETCH NEXT FROM maestra_cursor 
 INTO @Publ_Cli_Dni,@Publ_Cli_Apeliido,@Publ_Cli_Nombre,@Publ_Cli_Fecha_Nac,@Publ_Cli_Mail,@Publ_Cli_Dom_Calle,@Publ_Cli_Nro_Calle,@Publ_Cli_Piso,@Publ_Cli_Depto,@Publ_Cli_Cod_Postal,@Publ_Empresa_Razon_Social,@Publ_Empresa_Cuit,@Publ_Empresa_Fecha_Creacion,@Publ_Empresa_Mail,@Publ_Empresa_Dom_Calle,@Publ_Empresa_Nro_Calle,@Publ_Empresa_Piso,@Publ_Empresa_Depto,@Publ_Empresa_Cod_Postal,@Publicacion_Cod,@Publicacion_Descripcion,@Publicacion_Stock,@Publicacion_Fecha,@Publicacion_Fecha_Venc,@Publicacion_Precio,@Publicacion_Tipo,@Publicacion_Visibilidad_Cod,@Publicacion_Visibilidad_Desc,@Publicacion_Visibilidad_Precio,@Publicacion_Visibilidad_Porcentaje,@Publicacion_Estado,@Publicacion_Rubro_Descripcion,@Cli_Dni,@Cli_Apeliido,@Cli_Nombre,@Cli_Fecha_Nac,@Cli_Mail,@Cli_Dom_Calle,@Cli_Nro_Calle,@Cli_Piso,@Cli_Depto,@Cli_Cod_Postal,@Compra_Fecha,@Compra_Cantidad,@Oferta_Fecha,@Oferta_Monto,@Calificacion_Codigo,@Calificacion_Cant_Estrellas,@Calificacion_Descripcion,@Item_Factura_Monto,@Item_Factura_Cantidad,@Factura_Nro,@Factura_Fecha,@Factura_Total,@Forma_Pago_Desc
 
+DECLARE @Current_Publicacion_Cod numeric(18, 0);
 WHILE @@FETCH_STATUS = 0
 BEGIN
 
-	IF @Publ_Cli_Dni IS NOT NULL
-	BEGIN
-		SELECT @Publ_Cli_Dni;
+	IF @Current_Publicacion_Cod <> @Publicacion_Cod
+	BEGIN	
+		IF @Publ_Cli_Dni IS NOT NULL
+		BEGIN
+			-- Guardar publicacion asociarla al cliente
+		END
+		IF @Publ_Empresa_Razon_Social IS NOT NULL
+		BEGIN
+			-- Guardar publicacion y asociarla a la empresa
+		END		
 	END
-	IF @Publ_Empresa_Razon_Social IS NOT NULL
+
+	IF @Cli_Dni is not null AND @Oferta_Fecha is null AND @Calificacion_Codigo is null 
 	BEGIN
-		SELECT @Publ_Empresa_Razon_Social;
-	END
+		-- Guardar compra del cliente
+	END 
+
 	
 	FETCH NEXT FROM maestra_cursor 
     INTO @Publ_Cli_Dni,@Publ_Cli_Apeliido,@Publ_Cli_Nombre,@Publ_Cli_Fecha_Nac,@Publ_Cli_Mail,@Publ_Cli_Dom_Calle,@Publ_Cli_Nro_Calle,@Publ_Cli_Piso,@Publ_Cli_Depto,@Publ_Cli_Cod_Postal,@Publ_Empresa_Razon_Social,@Publ_Empresa_Cuit,@Publ_Empresa_Fecha_Creacion,@Publ_Empresa_Mail,@Publ_Empresa_Dom_Calle,@Publ_Empresa_Nro_Calle,@Publ_Empresa_Piso,@Publ_Empresa_Depto,@Publ_Empresa_Cod_Postal,@Publicacion_Cod,@Publicacion_Descripcion,@Publicacion_Stock,@Publicacion_Fecha,@Publicacion_Fecha_Venc,@Publicacion_Precio,@Publicacion_Tipo,@Publicacion_Visibilidad_Cod,@Publicacion_Visibilidad_Desc,@Publicacion_Visibilidad_Precio,@Publicacion_Visibilidad_Porcentaje,@Publicacion_Estado,@Publicacion_Rubro_Descripcion,@Cli_Dni,@Cli_Apeliido,@Cli_Nombre,@Cli_Fecha_Nac,@Cli_Mail,@Cli_Dom_Calle,@Cli_Nro_Calle,@Cli_Piso,@Cli_Depto,@Cli_Cod_Postal,@Compra_Fecha,@Compra_Cantidad,@Oferta_Fecha,@Oferta_Monto,@Calificacion_Codigo,@Calificacion_Cant_Estrellas,@Calificacion_Descripcion,@Item_Factura_Monto,@Item_Factura_Cantidad,@Factura_Nro,@Factura_Fecha,@Factura_Total,@Forma_Pago_Desc
