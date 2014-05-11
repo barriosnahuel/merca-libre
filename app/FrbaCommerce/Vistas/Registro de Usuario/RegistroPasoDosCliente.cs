@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Modelos;
+using FrbaCommerce.Util;
 
 namespace FrbaCommerce.Vistas.Registro_de_Usuario
 {
@@ -59,8 +60,69 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
 
         private Boolean validate()
         {
+            if (!validateEmptyFields())
+            {
+                return false;
+            }
+
             //TODO Validar que el telefono no exista previamente.
             //TODO Validar que el TIPO Y NUMERO de DOCUMENTO no exista previamente.
+            return true;
+        }
+
+        private Boolean validateEmptyFields()
+        {
+            
+            if(!FormValidate.StringIsNullOrEmpty(nombre.Text, "nombre"))
+            {
+                return false;
+            }
+
+            if(!FormValidate.StringIsNullOrEmpty(apellido.Text, "apellido"))
+            {
+                return false;
+            }
+
+            if(!FormValidate.StringIsNullOrEmpty(tipoDoc.Text, "tipo de documento"))
+            {
+                return false;
+            }
+
+            if(!FormValidate.StringIsNullOrEmpty(documento.Text, "documento"))
+            {
+                return false;
+            }
+
+            if(!FormValidate.StringIsNullOrEmpty(mail.Text, "mail"))
+            {
+                return false;
+            }
+
+            if(!FormValidate.StringIsNullOrEmpty(telefono.Text, "telefono"))
+            {
+                return false;
+            }
+
+            if(!FormValidate.StringIsNullOrEmpty(codigoPostal.Text, "codigopPostal"))
+            {
+                return false;
+            }
+
+            if(!FormValidate.StringIsNullOrEmpty(direccion.Text, "direccion"))
+            {
+                return false;
+            }
+
+            if(!FormValidate.StringIsNullOrEmpty(localidad.Text, "localidad"))
+            {
+                return false;
+            }
+
+            if (!FormValidate.StringIsNullOrEmpty(apellido.Text, "apellido"))
+            {
+                return false;
+            }
+
             return true;
         }
 

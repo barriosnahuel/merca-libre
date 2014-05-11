@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Abm_Cliente
 {
-    public partial class Form1 : Form
+    public partial class ListadoBusqueda : Form
     {
-        public Form1()
+        public ListadoBusqueda()
         {
             InitializeComponent();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

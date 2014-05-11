@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Vistas.Registro_de_Usuario;
+using FrbaCommerce.Util;
 
 namespace FrbaCommerce.Registro_de_Usuario
 {
@@ -50,19 +51,37 @@ namespace FrbaCommerce.Registro_de_Usuario
 
         private Boolean validate()
         {
-            if (password1.Text.Equals(password2.Text))
+
+            if (!validateEmptyFields())
             {
-                return true;
-            }
-            else
-            {
-                VentanaError ventanaError = new VentanaError("Los password deben ser iguales");
-                ventanaError.Show();
                 return false;
             }
 
             //TODO Verificar si el usuario existe en la base de datos.
 
+            return true;
+        }
+
+        private Boolean validateEmptyFields()
+        {
+            if (!FormValidate.StringIsNullOrEmpty(username.Text, "username"))
+            {
+                return false;
+            }
+            if (!FormValidate.StringIsNullOrEmpty(password1.Text, "password"))
+            {
+                return false;
+            }
+            if (!FormValidate.StringIsNullOrEmpty(password2.Text, "re-password"))
+            {
+                return false;
+            }
+            if (!FormValidate.StringIsNullOrEmpty(rol.SelectedItem.ToString(), "rol"))
+            {
+                return false;
+            }
+
+            return true;
         }
 
     }
