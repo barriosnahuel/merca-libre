@@ -16,9 +16,19 @@ namespace FrbaCommerce.Abm_Cliente
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void clean_button_Click(object sender, EventArgs e)
         {
-
+            nombre.Text = "";
+            apellido.Text = "";
+            mail.Text = "";
+            tipoDoc.Text = "";
+            documento.Text = "";
         }
+
+        private void search_button_Click(object sender, EventArgs e)
+        {
+            //TODO invocar servicio de busqueda
+        }
+
     }
 }

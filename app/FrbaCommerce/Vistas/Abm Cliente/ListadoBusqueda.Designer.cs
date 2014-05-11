@@ -40,12 +40,23 @@
             this.documento = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.search_button = new System.Windows.Forms.Button();
+            this.clean_button = new System.Windows.Forms.Button();
+            this.modify_button = new System.Windows.Forms.Button();
+            this.delete_button = new System.Windows.Forms.Button();
+            this.add_button = new System.Windows.Forms.Button();
+            this.listadoClientes = new System.Windows.Forms.DataGridView();
+            this.nombre_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDoc_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documento_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mail_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccion_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoPostal_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaNacimiento_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listadoClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // nombre
@@ -145,73 +156,139 @@
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // button1
+            // search_button
             // 
-            this.button1.Location = new System.Drawing.Point(437, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.search_button.Location = new System.Drawing.Point(437, 93);
+            this.search_button.Name = "search_button";
+            this.search_button.Size = new System.Drawing.Size(113, 23);
+            this.search_button.TabIndex = 29;
+            this.search_button.Text = "Buscar";
+            this.search_button.UseVisualStyleBackColor = true;
+            this.search_button.Click += new System.EventHandler(this.search_button_Click);
             // 
-            // button2
+            // clean_button
             // 
-            this.button2.Location = new System.Drawing.Point(12, 93);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 23);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "Borrar todo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.clean_button.Location = new System.Drawing.Point(12, 93);
+            this.clean_button.Name = "clean_button";
+            this.clean_button.Size = new System.Drawing.Size(113, 23);
+            this.clean_button.TabIndex = 30;
+            this.clean_button.Text = "Borrar todo";
+            this.clean_button.UseVisualStyleBackColor = true;
+            this.clean_button.Click += new System.EventHandler(this.clean_button_Click);
             // 
-            // button3
+            // modify_button
             // 
-            this.button3.Location = new System.Drawing.Point(317, 413);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 23);
-            this.button3.TabIndex = 31;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.modify_button.Location = new System.Drawing.Point(317, 415);
+            this.modify_button.Name = "modify_button";
+            this.modify_button.Size = new System.Drawing.Size(113, 23);
+            this.modify_button.TabIndex = 31;
+            this.modify_button.Text = "Modificar";
+            this.modify_button.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // delete_button
             // 
-            this.button4.Location = new System.Drawing.Point(197, 413);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 23);
-            this.button4.TabIndex = 32;
-            this.button4.Text = "Dar de baja";
-            this.button4.UseVisualStyleBackColor = true;
+            this.delete_button.Location = new System.Drawing.Point(197, 415);
+            this.delete_button.Name = "delete_button";
+            this.delete_button.Size = new System.Drawing.Size(113, 23);
+            this.delete_button.TabIndex = 32;
+            this.delete_button.Text = "Dar de baja";
+            this.delete_button.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // add_button
             // 
-            this.button5.Location = new System.Drawing.Point(437, 413);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 23);
-            this.button5.TabIndex = 33;
-            this.button5.Text = "Crear";
-            this.button5.UseVisualStyleBackColor = true;
+            this.add_button.Location = new System.Drawing.Point(437, 415);
+            this.add_button.Name = "add_button";
+            this.add_button.Size = new System.Drawing.Size(113, 23);
+            this.add_button.TabIndex = 33;
+            this.add_button.Text = "Agregar";
+            this.add_button.UseVisualStyleBackColor = true;
+            // 
+            // listadoClientes
+            // 
+            this.listadoClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listadoClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombre_col,
+            this.apellido_col,
+            this.tipoDoc_col,
+            this.documento_col,
+            this.mail_col,
+            this.telefono_col,
+            this.direccion_col,
+            this.codigoPostal_col,
+            this.fechaNacimiento_col});
+            this.listadoClientes.Location = new System.Drawing.Point(12, 122);
+            this.listadoClientes.Name = "listadoClientes";
+            this.listadoClientes.Size = new System.Drawing.Size(538, 285);
+            this.listadoClientes.TabIndex = 34;
+            // 
+            // nombre_col
+            // 
+            this.nombre_col.HeaderText = "Nombre";
+            this.nombre_col.Name = "nombre_col";
+            // 
+            // apellido_col
+            // 
+            this.apellido_col.HeaderText = "Apellido";
+            this.apellido_col.Name = "apellido_col";
+            // 
+            // tipoDoc_col
+            // 
+            this.tipoDoc_col.HeaderText = "Tipo";
+            this.tipoDoc_col.Name = "tipoDoc_col";
+            // 
+            // documento_col
+            // 
+            this.documento_col.HeaderText = "Nº Documento";
+            this.documento_col.Name = "documento_col";
+            // 
+            // mail_col
+            // 
+            this.mail_col.HeaderText = "E-mail";
+            this.mail_col.Name = "mail_col";
+            // 
+            // telefono_col
+            // 
+            this.telefono_col.HeaderText = "Teléfono";
+            this.telefono_col.Name = "telefono_col";
+            // 
+            // direccion_col
+            // 
+            this.direccion_col.HeaderText = "Dirección";
+            this.direccion_col.Name = "direccion_col";
+            // 
+            // codigoPostal_col
+            // 
+            this.codigoPostal_col.HeaderText = "Código Postal";
+            this.codigoPostal_col.Name = "codigoPostal_col";
+            // 
+            // fechaNacimiento_col
+            // 
+            this.fechaNacimiento_col.HeaderText = "Fecha de Nacimiento";
+            this.fechaNacimiento_col.Name = "fechaNacimiento_col";
             // 
             // ListadoBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 446);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.add_button);
+            this.Controls.Add(this.listadoClientes);
+            this.Controls.Add(this.delete_button);
+            this.Controls.Add(this.modify_button);
+            this.Controls.Add(this.clean_button);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.search_button);
             this.Name = "ListadoBusqueda";
-            this.Text = "Form1";
+            this.Text = "Listado de clientes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listadoClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,10 +306,20 @@
         private System.Windows.Forms.TextBox documento;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button search_button;
+        private System.Windows.Forms.Button clean_button;
+        private System.Windows.Forms.Button modify_button;
+        private System.Windows.Forms.Button delete_button;
+        private System.Windows.Forms.Button add_button;
+        private System.Windows.Forms.DataGridView listadoClientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDoc_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documento_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mail_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccion_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoPostal_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimiento_col;
     }
 }
