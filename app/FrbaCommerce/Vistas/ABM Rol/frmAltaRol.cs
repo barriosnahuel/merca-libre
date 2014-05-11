@@ -19,6 +19,8 @@ namespace FrbaCommerce.ABM_Rol
         public frmAltaRol(Rol unRol)
         {
             InitializeComponent();
+            funcionesAgregadas.Clear();
+            funcionesNoAgregadas.Clear();
 
             //Si el rol que viene tiene id = -1 Entonces es una alta, sino es modificacion
             if (unRol.id != -1)
@@ -71,6 +73,7 @@ namespace FrbaCommerce.ABM_Rol
                 funcionesNoAgregadas.Add(item);
             }                
         }
+
 
     }
 }

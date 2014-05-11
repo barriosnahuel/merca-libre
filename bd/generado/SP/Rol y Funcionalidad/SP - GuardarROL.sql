@@ -1,0 +1,42 @@
+/****** Object:  StoredProcedure [GOODTIMES].[GUARDAR_ROL]    Script Date: 05/11/2014 15:02:08 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [GOODTIMES].[GUARDAR_ROL]
+	@ID int,
+	@NOMBRE nvarchar(100),
+	@HABILITADO bit,
+	@ELIMINADO bit
+AS
+BEGIN
+	SET NOCOUNT ON;
+	
+	if @ID = -1 BEGIN
+	INSERT INTO [GOODTIMES].[ROL]
+           ([NOMBRE]
+           ,[HABILITADO]
+           ,[ELIMINADO])
+     VALUES
+           (@NOMBRE ,@HABILITADO , 0)
+	SELECT @@Identity AS ID
+	END
+	ELSE begin
+		
+		UPDATE [GOODTIMES].[ROL]
+	   SET [NOMBRE] = @NOMBRE
+		  ,[HABILITADO] = @HABILITADO
+		  ,[ELIMINADO] = @ELIMINADO
+	 WHERE @ID = ID
+	
+	SELECT @ID
+	END
+	
+	
+END
+
+GO
+
+
