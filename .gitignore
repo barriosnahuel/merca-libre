@@ -5,3 +5,5 @@ app/Utiles/bin
 app/Utiles/obj
 
 bd/recibido/resultado_output.txt
+
+*.suo
