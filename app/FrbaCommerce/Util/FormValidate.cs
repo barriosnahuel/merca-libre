@@ -12,7 +12,7 @@ namespace FrbaCommerce.Util
         {
             if (String.IsNullOrEmpty(parameter))
             {
-                VentanaError ventanaError = new VentanaError("El campo " + parameterName + " no puede ser vacio.");
+                VentanaMensaje ventanaError = new VentanaMensaje("El campo " + parameterName + " no puede ser vacio.");
                 ventanaError.Show();
                 return false;
             }

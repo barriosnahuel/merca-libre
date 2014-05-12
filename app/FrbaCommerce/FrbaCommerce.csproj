@@ -52,13 +52,15 @@
     <Compile Include="Modelos\Empresa.cs" />
     <Compile Include="Modelos\Funcion.cs" />
     <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="Servicios\Clientes.cs" />
+    <Compile Include="Servicios\Empresas.cs" />
     <Compile Include="Servicios\Funciones.cs" />
     <Compile Include="Util\FormValidate.cs" />
-    <Compile Include="Vistas\Abm Cliente\ListadoBusqueda.cs">
+    <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Abm Cliente\ListadoBusqueda.Designer.cs">
-      <DependentUpon>ListadoBusqueda.cs</DependentUpon>
+    <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.Designer.cs">
+      <DependentUpon>ListadoBusquedaClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Abm Empresa\Form1.cs">
       <SubType>Form</SubType>
@@ -158,8 +160,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusqueda.resx">
-      <DependentUpon>ListadoBusqueda.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusquedaClientes.resx">
+      <DependentUpon>ListadoBusquedaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ABM Rol\frmListadoRoles.resx">
       <DependentUpon>frmListadoRoles.cs</DependentUpon>

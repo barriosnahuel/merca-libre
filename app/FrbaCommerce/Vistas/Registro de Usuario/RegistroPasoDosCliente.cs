@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Util;
+using FrbaCommerce.Servicios;
 
 namespace FrbaCommerce.Vistas.Registro_de_Usuario
 {
@@ -37,11 +38,14 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
                 cliente.codigo_postal = codigoPostal.Text;
                 cliente.direccion = direccion.Text;
                 cliente.localidad = localidad.Text;
-                cliente.fecha_nac = Convert.ToDateTime(fecha.Value.ToString());
+                cliente.fecha_nacimiento = Convert.ToDateTime(fecha.Value.ToString());
                 cliente.habilitado = true;
                 cliente.eliminado = false;
                 cliente.login_fallidos = 0;
-                // TODO Invocar service para persistir los datos.
+                Clientes.crearCliente(cliente);
+                VentanaMensaje ventanaMensaje = new VentanaMensaje("El usuario cliente se creó con exito");
+                ventanaMensaje.Show();
+                this.Close();
             }
         }
 
