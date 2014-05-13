@@ -16,11 +16,14 @@ namespace FrbaCommerce.ABM_Rol
         private static BindingList<Funcion> funcionesAgregadas = new BindingList<Funcion>();
         private static BindingList<Funcion> funcionesNoAgregadas = new BindingList<Funcion>();
 
+        private Rol rol;
+
         public frmAdministarFuncionesRol(Rol unRol)
         {
             InitializeComponent();
             funcionesAgregadas.Clear();
             funcionesNoAgregadas.Clear();
+            rol = unRol;
 
             //Si el rol que viene tiene id = -1 Entonces es una alta, sino es modificacion
             if (unRol.id != -1)
@@ -52,6 +55,8 @@ namespace FrbaCommerce.ABM_Rol
 
             funcionesAgregadas.Add(selectedItem);
             funcionesNoAgregadas.Remove(selectedItem);
+            Roles.agregarFuncionalidad(rol, selectedItem);
+            
         }
 
         private void btnSacar_Click(object sender, EventArgs e)
@@ -60,6 +65,8 @@ namespace FrbaCommerce.ABM_Rol
 
             funcionesNoAgregadas.Add(selectedItem);
             funcionesAgregadas.Remove(selectedItem);
+            
+            Roles.quitarFuncionalidad(rol, selectedItem);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

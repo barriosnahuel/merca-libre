@@ -139,6 +139,7 @@ namespace Utiles
             Text,
             StoreProcedure
         }
+
         public static bool EscribirEnBase(string SQL, TiposEscritura Descripcion, List<SqlParameter> Parametros)
         {
 
@@ -167,15 +168,9 @@ namespace Utiles
 
             comando.Connection = ObtenerConexion();
 
-            try
-            {
-                comando.ExecuteReader();
+                comando.ExecuteReader().Close();
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+           
         }
 
         public static bool EscribirEnBase(string SQL)

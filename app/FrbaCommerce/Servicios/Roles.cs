@@ -104,5 +104,38 @@ namespace FrbaCommerce.Servicios
             BasesDeDatos.EscribirEnBase("GoodTimes.CrearRol", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
 
         }
+
+        internal static void quitarFuncionalidad(Rol rol, Funcion funcionalidad)
+        {
+
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter parametro;
+
+            parametro = new SqlParameter("@ROL_ID", SqlDbType.Int, 100);
+            parametro.Value = rol.id;
+            parametros.Add(parametro);
+
+            parametro = new SqlParameter("@FUNCIONALIDAD_ID", SqlDbType.Int, 100);
+            parametro.Value = funcionalidad.id;
+            parametros.Add(parametro);
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.QuitarFuncionalidadARol", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
+
+        internal static void agregarFuncionalidad(Rol rol, Funcion funcionalidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter parametro;
+
+            parametro = new SqlParameter("@ROL_ID", SqlDbType.Int, 100);
+            parametro.Value = rol.id;
+            parametros.Add(parametro);
+
+            parametro = new SqlParameter("@FUNCIONALIDAD_ID", SqlDbType.Int, 100);
+            parametro.Value = funcionalidad.id;
+            parametros.Add(parametro);
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.AgregarFuncionalidadARol", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
     }
 }
