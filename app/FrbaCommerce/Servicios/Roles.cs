@@ -79,13 +79,13 @@ namespace FrbaCommerce.Servicios
 
         }
 
-        internal static void crearRol(Rol rol)
+        internal static void guardarRol(Rol rol)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter parametro;
 
             parametro = new SqlParameter("@ID", SqlDbType.Int, 100);
-            parametro.Value = int.Parse("-1");
+            parametro.Value = rol.id;
 
             parametros.Add(parametro);
 

@@ -83,11 +83,10 @@ namespace FrbaCommerce.ABM_Rol
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            rol.nombre = txtNombre.Text;
+            rol.habilitado = chkHabilitado.Checked;
+            Roles.guardarRol(rol);
         }
-
-
-
 
     }
 }

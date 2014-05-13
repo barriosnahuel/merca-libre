@@ -23,9 +23,10 @@ namespace FrbaCommerce.Vistas.ABM_Rol
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             rol = new Rol();
+            rol.id = int.Parse("-1");
             rol.nombre = txtNombre.Text;
             rol.habilitado = chkHabilitado.Checked;
-            Roles.crearRol(rol);
+            Roles.guardarRol(rol);
 
             this.Close();
         }
