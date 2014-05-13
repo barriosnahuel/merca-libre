@@ -7,10 +7,11 @@ namespace FrbaCommerce.Modelos
 {
     class Cliente : Usuario
     {
+        public Int32 cliente_id { get; set; }
         public String nombre { get; set; }
         public String apellido { get; set; }
         public String dni { get; set; }
         public String dni_tipo { get; set; }
-        public DateTime fecha_nac { get; set; }
+        public DateTime fecha_nacimiento { get; set; }
     }
 }

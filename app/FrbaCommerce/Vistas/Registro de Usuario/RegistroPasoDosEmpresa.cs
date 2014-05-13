@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Util;
+using FrbaCommerce.Servicios;
 
 namespace FrbaCommerce.Vistas.Registro_de_Usuario
 {
@@ -34,8 +35,11 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
                 empresa.codigo_postal = codigoPostal.Text;
                 empresa.direccion = direccion.Text;
                 empresa.localidad = localidad.Text;
-                empresa.cuit = cuit.Text;
-                //TODO invocar servicio para crear la empresa.
+                empresa.cuit = Int64.Parse(cuit.Text);
+                Empresas.crearEmpresa(empresa);
+                VentanaMensaje ventanaMensaje = new VentanaMensaje("El usuario empresa se creó con exito");
+                ventanaMensaje.Show();
+                this.Close();
             }
         }
 

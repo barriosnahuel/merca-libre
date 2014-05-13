@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaCommerce.ABM_Rol;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Registro_de_Usuario;
+using FrbaCommerce.Abm_Cliente;
 
 namespace FrbaCommerce
 {
@@ -42,6 +43,12 @@ namespace FrbaCommerce
         private void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RegistroPasoUno form = new RegistroPasoUno();
+            form.Show();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListadoBusquedaClientes form = new ListadoBusquedaClientes();
             form.Show();
         }
 

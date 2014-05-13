@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce.Vistas.Registro_de_Usuario
 {
-    partial class VentanaError
+    partial class VentanaMensaje
     {
         /// <summary>
         /// Variable del diseñador requerida.

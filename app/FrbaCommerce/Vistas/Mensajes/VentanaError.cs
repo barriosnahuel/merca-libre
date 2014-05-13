@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Vistas.Registro_de_Usuario
 {
-    public partial class VentanaError : Form
+    public partial class VentanaMensaje : Form
     {
-        public VentanaError(String textoMensaje)
+        public VentanaMensaje(String textoMensaje)
         {
             InitializeComponent();
             mensaje.Text = textoMensaje;
