@@ -68,17 +68,23 @@
     <Compile Include="Vistas\Abm Empresa\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ABM Rol\frmAltaRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\frmAltaRol.Designer.cs">
+      <DependentUpon>frmAltaRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\ABM Rol\frmListadoRoles.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\ABM Rol\frmListadoRoles.Designer.cs">
       <DependentUpon>frmListadoRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\ABM Rol\frmAltaRol.cs">
+    <Compile Include="Vistas\ABM Rol\frmAdministarFuncionesRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\ABM Rol\frmAltaRol.Designer.cs">
-      <DependentUpon>frmAltaRol.cs</DependentUpon>
+    <Compile Include="Vistas\ABM Rol\frmAdministarFuncionesRol.Designer.cs">
+      <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Abm Rubro\Form1.cs">
       <SubType>Form</SubType>
@@ -163,11 +169,14 @@
     <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusquedaClientes.resx">
       <DependentUpon>ListadoBusquedaClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ABM Rol\frmAltaRol.resx">
+      <DependentUpon>frmAltaRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ABM Rol\frmListadoRoles.resx">
       <DependentUpon>frmListadoRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\ABM Rol\frmAltaRol.resx">
-      <DependentUpon>frmAltaRol.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\ABM Rol\frmAdministarFuncionesRol.resx">
+      <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

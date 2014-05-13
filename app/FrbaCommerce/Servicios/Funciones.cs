@@ -45,9 +45,16 @@ namespace FrbaCommerce.Servicios
         public static List<Funcion> ObtenerPorRol(Int32 idRol)
         {
             List<Funcion> listaFunciones = new List<Funcion>();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter parametro;
+
+            parametro = new SqlParameter("@ID_ROL", SqlDbType.Int, 100);
+            parametro.Value = idRol;
+            parametros.Add(parametro);
+
 
             //ListarFuncionalidadPorRol
-            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("SELECT F.* FROM GOODTIMES.FUNCIONALIDAD F JOIN GOODTIMES.FUNCIONALIDAD_X_ROL FR ON F.ID = FR.FUNCIONALIDAD_ID WHERE FR.ROL_ID = " + idRol);
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.ListarFuncionalidadPorRol", BasesDeDatos.Tipos.StoreProcedure, parametros);
 
             if (lector.HasRows)
             {

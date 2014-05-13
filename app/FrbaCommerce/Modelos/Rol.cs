@@ -12,6 +12,13 @@ namespace FrbaCommerce.Modelos
         String _nombre;
         Boolean _habilitado;
         Boolean _eliminado;
+        List<Funcion> _funciones;
+
+        public Rol()
+        {
+            _funciones = new List<Funcion>();
+        }
+
 
         public Int32 id
         {
@@ -35,6 +42,12 @@ namespace FrbaCommerce.Modelos
         {
             get { return _eliminado; }
             set { _eliminado = value; }
+        }
+
+        public List<Funcion> funciones
+        {
+            get { return _funciones; }
+            set { _funciones = value; }
         }
 
 

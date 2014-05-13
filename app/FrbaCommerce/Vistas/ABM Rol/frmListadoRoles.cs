@@ -68,7 +68,7 @@ namespace FrbaCommerce.ABM_Rol
                 if (gridRoles.Columns.Contains("Seleccionar") && e.ColumnIndex == gridRoles.Columns["Seleccionar"].Index)
                 {
                     Rol rolSeleccionado = (Rol)gridRoles.CurrentRow.DataBoundItem;
-                    frmAltaRol altaRol = new frmAltaRol(rolSeleccionado);
+                    frmAdministarFuncionesRol altaRol = new frmAdministarFuncionesRol(rolSeleccionado);
                     this.Hide();
                     altaRol.Show();
                 }

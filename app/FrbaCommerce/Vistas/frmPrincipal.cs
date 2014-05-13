@@ -10,6 +10,7 @@ using FrbaCommerce.ABM_Rol;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Registro_de_Usuario;
 using FrbaCommerce.Abm_Cliente;
+using FrbaCommerce.Vistas.ABM_Rol;
 
 namespace FrbaCommerce
 {
@@ -34,9 +35,7 @@ namespace FrbaCommerce
 
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rol nuevoRol = new Rol();
-            nuevoRol.id = -1;
-            frmAltaRol altaRol = new frmAltaRol(nuevoRol);
+            frmAltaRol altaRol = new frmAltaRol();
             altaRol.Show();
         }
 

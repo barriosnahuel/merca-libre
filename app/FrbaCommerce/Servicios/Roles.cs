@@ -63,5 +63,31 @@ namespace FrbaCommerce.Servicios
             return listaRoles;
         }
 
+
+        internal static void crearRol(Rol rol)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter parametro;
+
+            parametro = new SqlParameter("@ID", SqlDbType.Int, 100);
+            parametro.Value = int.Parse("-1");
+
+            parametros.Add(parametro);
+
+            parametro = new SqlParameter("@NOMBRE", SqlDbType.VarChar, 100);
+            parametro.Value = rol.nombre;
+            parametros.Add(parametro);
+
+            parametro = new SqlParameter("@HABILITADO", SqlDbType.Bit);
+            parametro.Value = rol.habilitado;
+            parametros.Add(parametro);
+
+            parametro = new SqlParameter("@ELIMINADO", SqlDbType.Bit);
+            parametro.Value = int.Parse("-1");
+            parametros.Add(parametro);
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.CrearRol", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+
+        }
     }
 }
