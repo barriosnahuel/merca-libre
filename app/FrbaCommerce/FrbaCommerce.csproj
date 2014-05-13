@@ -86,77 +86,11 @@
     <Compile Include="Vistas\ABM Rol\frmAdministarFuncionesRol.Designer.cs">
       <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Abm Rubro\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Abm Rubro\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Abm Visibilidad\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Abm Visibilidad\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Calificar Vendedor\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Calificar Vendedor\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Comprar-Ofertar\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Comprar-Ofertar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Editar Publicacion\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Editar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Facturar Publicaciones\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Facturar Publicaciones\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\frmPrincipal.designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Generar Publicacion\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Generar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Gestion de Preguntas\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Gestion de Preguntas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Historial Cliente\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Historial Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Listado Estadistico\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Listado Estadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Login\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Login\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Rol.cs" />
     <Compile Include="Program.cs" />
@@ -237,6 +171,19 @@
       <Project>{8D5A5C75-FDF3-44D4-AEC7-F0606380D48A}</Project>
       <Name>Utiles</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vistas\Abm Rubro\" />
+    <Folder Include="Vistas\Abm Visibilidad\" />
+    <Folder Include="Vistas\Calificar Vendedor\" />
+    <Folder Include="Vistas\Comprar-Ofertar\" />
+    <Folder Include="Vistas\Editar Publicacion\" />
+    <Folder Include="Vistas\Facturar Publicaciones\" />
+    <Folder Include="Vistas\Generar Publicacion\" />
+    <Folder Include="Vistas\Gestion de Preguntas\" />
+    <Folder Include="Vistas\Historial Cliente\" />
+    <Folder Include="Vistas\Listado Estadistico\" />
+    <Folder Include="Vistas\Login\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
