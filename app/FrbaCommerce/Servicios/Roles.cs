@@ -63,6 +63,21 @@ namespace FrbaCommerce.Servicios
             return listaRoles;
         }
 
+        
+        internal static void eliminarRol(Rol rol) {
+
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter parametro;
+
+            parametro = new SqlParameter("@ID", SqlDbType.Int, 100);
+            parametro.Value = rol.id;
+
+            parametros.Add(parametro);
+        
+            //BajaRol
+            BasesDeDatos.EscribirEnBase("GoodTimes.BajaRol", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+
+        }
 
         internal static void crearRol(Rol rol)
         {

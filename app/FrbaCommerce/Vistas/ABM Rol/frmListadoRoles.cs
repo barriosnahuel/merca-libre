@@ -68,15 +68,20 @@ namespace FrbaCommerce.ABM_Rol
                 if (gridRoles.Columns.Contains("Seleccionar") && e.ColumnIndex == gridRoles.Columns["Seleccionar"].Index)
                 {
                     Rol rolSeleccionado = (Rol)gridRoles.CurrentRow.DataBoundItem;
-                    frmAdministarFuncionesRol altaRol = new frmAdministarFuncionesRol(rolSeleccionado);
+                    frmAdministarFuncionesRol administrarFuncionesRol = new frmAdministarFuncionesRol(rolSeleccionado);
                     this.Hide();
-                    altaRol.Show();
+                    administrarFuncionesRol.Show();
                 }
                 else
                 {
                     if (gridRoles.Columns.Contains("Eliminar") && e.ColumnIndex == gridRoles.Columns["Eliminar"].Index)
                     {
-                        MessageBox.Show("Eliminar");
+                        Rol rolSeleccionado = (Rol)gridRoles.CurrentRow.DataBoundItem;
+
+                        Roles.eliminarRol(rolSeleccionado);
+                        this.Close();
+                        
+                        
                     }
                 }
             }
