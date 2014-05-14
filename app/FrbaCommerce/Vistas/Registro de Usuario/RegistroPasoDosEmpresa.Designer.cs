@@ -47,6 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cuit = new System.Windows.Forms.TextBox();
+            this.fecha = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label10
@@ -60,6 +62,7 @@
             // 
             // localidad
             // 
+            this.localidad.AcceptsTab = true;
             this.localidad.Location = new System.Drawing.Point(129, 161);
             this.localidad.MaxLength = 100;
             this.localidad.Name = "localidad";
@@ -77,6 +80,7 @@
             // 
             // direccion
             // 
+            this.direccion.AcceptsTab = true;
             this.direccion.Location = new System.Drawing.Point(129, 135);
             this.direccion.MaxLength = 100;
             this.direccion.Name = "direccion";
@@ -94,6 +98,7 @@
             // 
             // codigoPostal
             // 
+            this.codigoPostal.AcceptsTab = true;
             this.codigoPostal.Location = new System.Drawing.Point(129, 110);
             this.codigoPostal.MaxLength = 100;
             this.codigoPostal.Name = "codigoPostal";
@@ -111,6 +116,7 @@
             // 
             // telefono
             // 
+            this.telefono.AcceptsTab = true;
             this.telefono.Location = new System.Drawing.Point(129, 84);
             this.telefono.MaxLength = 100;
             this.telefono.Name = "telefono";
@@ -128,6 +134,7 @@
             // 
             // mail
             // 
+            this.mail.AcceptsTab = true;
             this.mail.Location = new System.Drawing.Point(129, 58);
             this.mail.MaxLength = 100;
             this.mail.Name = "mail";
@@ -138,7 +145,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(150, 219);
+            this.label5.Location = new System.Drawing.Point(150, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 13);
             this.label5.TabIndex = 45;
@@ -146,7 +153,7 @@
             // 
             // borrar_button
             // 
-            this.borrar_button.Location = new System.Drawing.Point(20, 214);
+            this.borrar_button.Location = new System.Drawing.Point(20, 245);
             this.borrar_button.Name = "borrar_button";
             this.borrar_button.Size = new System.Drawing.Size(75, 23);
             this.borrar_button.TabIndex = 44;
@@ -156,7 +163,7 @@
             // 
             // crear_button
             // 
-            this.crear_button.Location = new System.Drawing.Point(222, 214);
+            this.crear_button.Location = new System.Drawing.Point(222, 245);
             this.crear_button.Name = "crear_button";
             this.crear_button.Size = new System.Drawing.Size(75, 23);
             this.crear_button.TabIndex = 43;
@@ -175,6 +182,7 @@
             // 
             // razonSocial
             // 
+            this.razonSocial.AcceptsTab = true;
             this.razonSocial.Location = new System.Drawing.Point(129, 6);
             this.razonSocial.MaxLength = 100;
             this.razonSocial.Name = "razonSocial";
@@ -183,6 +191,7 @@
             // 
             // nombre
             // 
+            this.nombre.AcceptsTab = true;
             this.nombre.Location = new System.Drawing.Point(129, 32);
             this.nombre.MaxLength = 100;
             this.nombre.Name = "nombre";
@@ -209,17 +218,39 @@
             // 
             // cuit
             // 
+            this.cuit.AcceptsTab = true;
             this.cuit.Location = new System.Drawing.Point(129, 186);
             this.cuit.MaxLength = 100;
             this.cuit.Name = "cuit";
             this.cuit.Size = new System.Drawing.Size(156, 20);
             this.cuit.TabIndex = 61;
             // 
+            // fecha
+            // 
+            this.fecha.Location = new System.Drawing.Point(129, 211);
+            this.fecha.MaxDate = new System.DateTime(2109, 7, 11, 0, 0, 0, 0);
+            this.fecha.MinDate = new System.DateTime(1899, 7, 21, 0, 0, 0, 0);
+            this.fecha.Name = "fecha";
+            this.fecha.Size = new System.Drawing.Size(156, 20);
+            this.fecha.TabIndex = 64;
+            this.fecha.Value = new System.DateTime(2014, 5, 10, 0, 0, 0, 0);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 211);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "Fecha de nacimiento";
+            // 
             // RegistroPasoDosEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 245);
+            this.ClientSize = new System.Drawing.Size(325, 275);
+            this.Controls.Add(this.fecha);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cuit);
             this.Controls.Add(this.label10);
@@ -267,5 +298,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox cuit;
+        private System.Windows.Forms.DateTimePicker fecha;
+        private System.Windows.Forms.Label label3;
     }
 }

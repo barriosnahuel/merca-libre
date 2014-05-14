@@ -43,8 +43,7 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
                 cliente.eliminado = false;
                 cliente.login_fallidos = 0;
                 Clientes.crearCliente(cliente);
-                VentanaMensaje ventanaMensaje = new VentanaMensaje("El usuario cliente se creó con exito");
-                ventanaMensaje.Show();
+                MessageBox.Show("El usuario cliente se creó con exito", "Exito");
                 this.Close();
             }
         }
@@ -69,8 +68,17 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
                 return false;
             }
 
-            //TODO Validar que el telefono no exista previamente.
-            //TODO Validar que el TIPO Y NUMERO de DOCUMENTO no exista previamente.
+            if (Clientes.buscarClientePorTelefono(telefono.Text) != null)
+            {
+                MessageBox.Show("Existe un cliente con el telefono: " + telefono.Text, "Error de validacion.");
+                return false;
+            }
+
+            if (Clientes.buscarClientePorDNITipoYDNI(tipoDoc.Text, documento.Text) != null)
+            {
+                MessageBox.Show("Existe un cliente con el Tipo y Nº de Documento: " + tipoDoc.Text + " - " + documento.Text, "Error de validación.");
+                return false;
+            }
             return true;
         }
 

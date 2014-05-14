@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FrbaCommerce.Vistas.Registro_de_Usuario;
+using System.Windows.Forms;
 
 namespace FrbaCommerce.Util
 {
@@ -12,8 +13,7 @@ namespace FrbaCommerce.Util
         {
             if (String.IsNullOrEmpty(parameter))
             {
-                VentanaMensaje ventanaError = new VentanaMensaje("El campo " + parameterName + " no puede ser vacio.");
-                ventanaError.Show();
+                MessageBox.Show("El campo " + parameterName + " no puede ser vacio.", "Error al validar el campo.");
                 return false;
             }
             return true;

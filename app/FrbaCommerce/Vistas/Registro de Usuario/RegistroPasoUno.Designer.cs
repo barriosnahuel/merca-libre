@@ -113,6 +113,7 @@
             this.rol.Name = "rol";
             this.rol.Size = new System.Drawing.Size(121, 21);
             this.rol.TabIndex = 8;
+            this.rol.TabStop = false;
             this.rol.Text = "Cliente";
             // 
             // siguiente_button

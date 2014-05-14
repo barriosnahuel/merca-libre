@@ -7,7 +7,7 @@ namespace FrbaCommerce.Modelos
 {
     class Usuario
     {
-        public Int32 id { get; set; }
+        public Int64 id { get; set; }
         public Int32 login_fallidos { get; set; }
         public String username { get; set; }
         public String password { get; set; }

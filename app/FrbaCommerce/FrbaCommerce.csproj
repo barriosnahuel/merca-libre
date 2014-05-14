@@ -55,18 +55,13 @@
     <Compile Include="Servicios\Clientes.cs" />
     <Compile Include="Servicios\Empresas.cs" />
     <Compile Include="Servicios\Funciones.cs" />
+    <Compile Include="Servicios\Usuarios.cs" />
     <Compile Include="Util\FormValidate.cs" />
     <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.Designer.cs">
       <DependentUpon>ListadoBusquedaClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Abm Empresa\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Abm Empresa\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\ABM Rol\frmAltaRol.cs">
       <SubType>Form</SubType>
@@ -115,9 +110,6 @@
     <EmbeddedResource Include="Vistas\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Mensajes\VentanaError.resx">
-      <DependentUpon>VentanaError.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.resx">
       <DependentUpon>RegistroPasoDosCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,12 +131,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Vistas\Mensajes\VentanaError.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Mensajes\VentanaError.Designer.cs">
-      <DependentUpon>VentanaError.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.cs">
       <SubType>Form</SubType>
@@ -173,6 +159,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Vistas\Abm Empresa\" />
     <Folder Include="Vistas\Abm Rubro\" />
     <Folder Include="Vistas\Abm Visibilidad\" />
     <Folder Include="Vistas\Calificar Vendedor\" />

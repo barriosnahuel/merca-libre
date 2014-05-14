@@ -35,10 +35,10 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
                 empresa.codigo_postal = codigoPostal.Text;
                 empresa.direccion = direccion.Text;
                 empresa.localidad = localidad.Text;
+                empresa.fecha_creacion = Convert.ToDateTime(fecha.Value.ToString());
                 empresa.cuit = Int64.Parse(cuit.Text);
                 Empresas.crearEmpresa(empresa);
-                VentanaMensaje ventanaMensaje = new VentanaMensaje("El usuario empresa se creó con exito");
-                ventanaMensaje.Show();
+                MessageBox.Show("El usuario empresa se creó con exito", "Exito");
                 this.Close();
             }
         }
@@ -50,8 +50,17 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
                 return false;
             }
 
-            //TODO Validar si ya existe una empresa con la razon social.
-            //TODO Validar si ya existe una empresa con el cuit.
+            if (Empresas.buscarEmpresaPorCuit(Int64.Parse(cuit.Text)) != null)
+            {
+                MessageBox.Show("Existe una empresa con el cuit: " + cuit.Text, "Error en la validacion");
+                return false;
+            }
+
+            if (Empresas.buscarEmpresaPorRazonSocial(razonSocial.Text) != null)
+            {
+                MessageBox.Show("Existe una empresa con la razon social: " + razonSocial.Text, "Error en la validacion");
+                return false;
+            }
             return true;
         }
 

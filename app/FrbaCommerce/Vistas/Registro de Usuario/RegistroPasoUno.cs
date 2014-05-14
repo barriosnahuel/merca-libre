@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Vistas.Registro_de_Usuario;
 using FrbaCommerce.Util;
+using FrbaCommerce.Servicios;
 
 namespace FrbaCommerce.Registro_de_Usuario
 {
@@ -39,13 +40,19 @@ namespace FrbaCommerce.Registro_de_Usuario
                 {
                     RegistroPasoDosCliente siguienteVentana = new RegistroPasoDosCliente(username.Text, password2.Text);
                     siguienteVentana.Show();
+                    this.Close();
                 }
                 else if (rolText.Equals(EMPRESA))
                 {
                     RegistroPasoDosEmpresa siguienteVentana = new RegistroPasoDosEmpresa(username.Text, password2.Text);
                     siguienteVentana.Show();
+                    this.Close();
                 }
-                this.Close();
+                else
+                {
+                    MessageBox.Show("No existe el rol elegido.", "Error");
+                }
+                
             }
         }
 
@@ -57,7 +64,17 @@ namespace FrbaCommerce.Registro_de_Usuario
                 return false;
             }
 
-            //TODO Verificar si el usuario existe en la base de datos.
+            if (password1.Text != password2.Text)
+            {
+                MessageBox.Show("El password y el re-password deben ser iguales.", "Error de validación.");
+                return false;
+            }
+
+            if (Usuarios.buscarUsuarioPorUsername(username.Text) != null)
+            {
+                MessageBox.Show("Existe un usuario con el username: " + username.Text, "Error de validación.");
+                return false;
+            }
 
             return true;
         }

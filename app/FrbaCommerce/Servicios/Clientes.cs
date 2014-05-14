@@ -128,11 +128,60 @@ namespace FrbaCommerce.Servicios
             BasesDeDatos.EscribirEnBase("GoodTimes.CrearCliente",BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
 
+        public static Cliente buscarClientePorTelefono(string telefono)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro;
+            parametro = new SqlParameter("@TELEFONO", SqlDbType.VarChar, 100);
+            parametro.Value = telefono;
+            parametros.Add(parametro);
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarClientePorTelefono", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            Cliente cliente = null;
+            if (lector.HasRows)
+            {
+                lector.Read();
+                cliente = getClienteFromSqlReader(lector);
+            }
+
+            lector.Close();
+
+            return cliente;
+        }
+
+        public static Cliente buscarClientePorDNITipoYDNI(string tipo_documento, string documento)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro;
+            parametro = new SqlParameter("@DNI_TIPO", SqlDbType.VarChar, 100);
+            parametro.Value = tipo_documento;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@DNI", SqlDbType.VarChar, 100);
+            parametro.Value = documento;
+            parametros.Add(parametro);
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarClientePorDNITipoYDNI", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            Cliente cliente = null;
+            if (lector.HasRows)
+            {
+                lector.Read();
+                cliente = getClienteFromSqlReader(lector);
+            }
+
+            lector.Close();
+
+            return cliente;
+        }
+
         private static Cliente getClienteFromSqlReader(SqlDataReader lector)
         {
             Cliente cliente = new Cliente();
-            cliente.id = lector.GetInt32(lector.GetOrdinal("ID"));
-            cliente.cliente_id = lector.GetInt32(lector.GetOrdinal("CLIENTE_ID"));
+            cliente.id = lector.GetInt64(lector.GetOrdinal("ID"));
+            cliente.cliente_id = lector.GetInt64(lector.GetOrdinal("CLIENTE_ID"));
             cliente.nombre = lector.GetString(lector.GetOrdinal("NOMBRE"));
             cliente.username = lector.GetString(lector.GetOrdinal("USERNAME"));
             cliente.mail = lector.GetString(lector.GetOrdinal("MAIL"));
@@ -146,8 +195,11 @@ namespace FrbaCommerce.Servicios
             cliente.dni_tipo = lector.GetString(lector.GetOrdinal("DNI_TIPO"));
             cliente.dni = lector.GetString(lector.GetOrdinal("DNI"));
             cliente.fecha_nacimiento = lector.GetDateTime(lector.GetOrdinal("FECHA_NAC"));
+            cliente.login_fallidos = lector.GetInt32(lector.GetOrdinal("LOGIN_FALLIDOS"));
 
             return cliente;
         }
+
+        
     }
 }

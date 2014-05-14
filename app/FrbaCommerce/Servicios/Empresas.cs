@@ -59,5 +59,71 @@ namespace FrbaCommerce.Servicios
 
             BasesDeDatos.EscribirEnBase("GoodTimes.CrearEmpresa", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
+
+        public static Empresa buscarEmpresaPorCuit(long cuit)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro;
+            parametro = new SqlParameter("@CUIT", SqlDbType.BigInt, 100);
+            parametro.Value = cuit;
+            parametros.Add(parametro);
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarEmpresaPorCuit", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            Empresa empresa = null;
+            if (lector.HasRows)
+            {
+                lector.Read();
+                empresa = getEmpresaFromSqlReader(lector);
+            }
+
+            lector.Close();
+
+            return empresa;
+        }
+
+        public static Empresa buscarEmpresaPorRazonSocial(string razonSocial)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro;
+            parametro = new SqlParameter("@RAZON_SOCIAL", SqlDbType.VarChar, 100);
+            parametro.Value = razonSocial;
+            parametros.Add(parametro);
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarEmpresaPorRazonSocial", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            Empresa empresa = null;
+            if (lector.HasRows)
+            {
+                lector.Read();
+                empresa = getEmpresaFromSqlReader(lector);
+            }
+
+            lector.Close();
+
+            return empresa;
+        }
+
+        private static Empresa getEmpresaFromSqlReader(SqlDataReader lector)
+        {
+            Empresa empresa = new Empresa();
+            empresa.id = lector.GetInt64(lector.GetOrdinal("ID"));
+            empresa.cuit = lector.GetInt64(lector.GetOrdinal("CUIT"));
+            empresa.razon_social = lector.GetString(lector.GetOrdinal("RAZON_SOCIAL"));
+            empresa.username = lector.GetString(lector.GetOrdinal("USERNAME"));
+            empresa.mail = lector.GetString(lector.GetOrdinal("MAIL"));
+            empresa.habilitado = lector.GetBoolean(lector.GetOrdinal("HABILITADO"));
+            empresa.eliminado = lector.GetBoolean(lector.GetOrdinal("ELIMINADO"));
+            empresa.localidad = lector.GetString(lector.GetOrdinal("LOCALIDAD"));
+            empresa.direccion = lector.GetString(lector.GetOrdinal("DIRECCION"));
+            empresa.telefono = lector.GetString(lector.GetOrdinal("TELEFONO"));
+            empresa.codigo_postal = lector.GetString(lector.GetOrdinal("CODIGO_POSTAL"));
+            empresa.nombreContacto = lector.GetString(lector.GetOrdinal("CONTACTO"));
+            empresa.fecha_creacion = lector.GetDateTime(lector.GetOrdinal("FECHA_CREACION"));
+
+            return empresa;
+        }
     }
 }

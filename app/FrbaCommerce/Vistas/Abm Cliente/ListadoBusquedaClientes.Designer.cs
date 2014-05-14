@@ -46,13 +46,15 @@
             this.delete_button = new System.Windows.Forms.Button();
             this.add_button = new System.Windows.Forms.Button();
             this.listadoClientes = new System.Windows.Forms.DataGridView();
-            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni_tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni_tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo_postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,6 +195,7 @@
             this.modify_button.TabIndex = 31;
             this.modify_button.Text = "Modificar";
             this.modify_button.UseVisualStyleBackColor = true;
+            this.modify_button.Click += new System.EventHandler(this.modify_button_Click);
             // 
             // delete_button
             // 
@@ -216,13 +219,15 @@
             // 
             this.listadoClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_cliente,
+            this.cliente_id,
             this.id,
+            this.Username,
             this.nombre,
             this.apellido,
-            this.dni_tipo,
-            this.documento,
+            this.password,
             this.mail,
+            this.dni,
+            this.dni_tipo,
             this.telefono,
             this.direccion,
             this.codigo_postal,
@@ -233,17 +238,24 @@
             this.listadoClientes.Size = new System.Drawing.Size(538, 285);
             this.listadoClientes.TabIndex = 34;
             // 
-            // id_cliente
+            // cliente_id
             // 
-            this.id_cliente.HeaderText = "id_cliente";
-            this.id_cliente.Name = "id_cliente";
-            this.id_cliente.Visible = false;
+            this.cliente_id.DataPropertyName = "cliente_id";
+            this.cliente_id.HeaderText = "cliente_id";
+            this.cliente_id.Name = "cliente_id";
+            this.cliente_id.Visible = false;
             // 
             // id
             // 
             this.id.HeaderText = "id";
             this.id.Name = "id";
             this.id.Visible = false;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
             // 
             // nombre
             // 
@@ -257,23 +269,30 @@
             this.apellido.HeaderText = "Apellido";
             this.apellido.Name = "apellido";
             // 
-            // dni_tipo
+            // password
             // 
-            this.dni_tipo.DataPropertyName = "dni_tipo";
-            this.dni_tipo.HeaderText = "Tipo";
-            this.dni_tipo.Name = "dni_tipo";
-            // 
-            // documento
-            // 
-            this.documento.DataPropertyName = "documento";
-            this.documento.HeaderText = "Nº Documento";
-            this.documento.Name = "documento";
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "Password";
+            this.password.Name = "password";
+            this.password.Visible = false;
             // 
             // mail
             // 
             this.mail.DataPropertyName = "mail";
             this.mail.HeaderText = "E-mail";
             this.mail.Name = "mail";
+            // 
+            // dni
+            // 
+            this.dni.DataPropertyName = "dni";
+            this.dni.HeaderText = "Nº Documento";
+            this.dni.Name = "dni";
+            // 
+            // dni_tipo
+            // 
+            this.dni_tipo.DataPropertyName = "dni_tipo";
+            this.dni_tipo.HeaderText = "Tipo";
+            this.dni_tipo.Name = "dni_tipo";
             // 
             // telefono
             // 
@@ -305,7 +324,7 @@
             this.habilitado.HeaderText = "Habilitado";
             this.habilitado.Name = "habilitado";
             // 
-            // ListadoBusqueda
+            // ListadoBusquedaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -317,7 +336,7 @@
             this.Controls.Add(this.clean_button);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.search_button);
-            this.Name = "ListadoBusqueda";
+            this.Name = "ListadoBusquedaClientes";
             this.Text = "Listado de clientes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -345,13 +364,15 @@
         private System.Windows.Forms.Button delete_button;
         private System.Windows.Forms.Button add_button;
         private System.Windows.Forms.DataGridView listadoClientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cliente_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dni_tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn password;
         private System.Windows.Forms.DataGridViewTextBoxColumn mail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dni_tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_postal;
