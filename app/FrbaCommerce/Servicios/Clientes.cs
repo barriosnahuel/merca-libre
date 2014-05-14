@@ -200,6 +200,12 @@ namespace FrbaCommerce.Servicios
             return cliente;
         }
 
-        
+
+
+        internal static void actualizarCliente(Cliente cliente)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

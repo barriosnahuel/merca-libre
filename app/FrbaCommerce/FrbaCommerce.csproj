@@ -56,6 +56,7 @@
     <Compile Include="Servicios\Empresas.cs" />
     <Compile Include="Servicios\Funciones.cs" />
     <Compile Include="Servicios\Usuarios.cs" />
+    <Compile Include="Util\ClienteValidaciones.cs" />
     <Compile Include="Util\FormValidate.cs" />
     <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.cs">
       <SubType>Form</SubType>

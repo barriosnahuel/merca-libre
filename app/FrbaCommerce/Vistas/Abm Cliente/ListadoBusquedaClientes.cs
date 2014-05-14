@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaCommerce.Servicios;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Vistas.Registro_de_Usuario;
+using FrbaCommerce.Util;
 
 namespace FrbaCommerce.Abm_Cliente
 {
@@ -42,9 +43,30 @@ namespace FrbaCommerce.Abm_Cliente
         listadoClientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount == 1)
             {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                Cliente cliente = new Cliente();
 
-                MessageBox.Show(listadoClientes.SelectedRows[0].Index.ToString(), "Selected Rows");
+                cliente.id = (Int64)listadoClientes.SelectedRows[0].Cells["id"].Value;
+                cliente.username = (String)listadoClientes.SelectedRows[0].Cells["username"].Value;
+                cliente.habilitado = (Boolean)listadoClientes.SelectedRows[0].Cells["habilitado"].Value;
+                cliente.eliminado = (Boolean)listadoClientes.SelectedRows[0].Cells["eliminado"].Value;
+                cliente.mail = (String)listadoClientes.SelectedRows[0].Cells["mail"].Value;
+                cliente.telefono = (String)listadoClientes.SelectedRows[0].Cells["telefono"].Value;
+                cliente.direccion = (String)listadoClientes.SelectedRows[0].Cells["direccion"].Value;
+                cliente.codigo_postal = (String)listadoClientes.SelectedRows[0].Cells["codigo_postal"].Value;
+                cliente.localidad = (String)listadoClientes.SelectedRows[0].Cells["localidad"].Value;
+
+                cliente.cliente_id = (Int64)listadoClientes.SelectedRows[0].Cells["cliente_id"].Value;
+                cliente.nombre = (String)listadoClientes.SelectedRows[0].Cells["nombre"].Value;
+                cliente.apellido = (String)listadoClientes.SelectedRows[0].Cells["apellido"].Value;
+                cliente.dni = (String)listadoClientes.SelectedRows[0].Cells["dni"].Value;
+                cliente.dni_tipo = (String)listadoClientes.SelectedRows[0].Cells["dni_tipo"].Value;
+                cliente.fecha_nacimiento = (DateTime)listadoClientes.SelectedRows[0].Cells["fecha_nacimiento"].Value;
+
+                if (ClienteValidaciones.validate(cliente))
+                {
+                    Clientes.actualizarCliente(cliente);
+                    MessageBox.Show("Actualizaste el cliente con exito", "Exito");
+                }
             }
             else
             {

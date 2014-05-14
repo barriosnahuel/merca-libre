@@ -247,6 +247,7 @@
             // 
             // id
             // 
+            this.id.DataPropertyName = "id";
             this.id.HeaderText = "id";
             this.id.Name = "id";
             this.id.Visible = false;
