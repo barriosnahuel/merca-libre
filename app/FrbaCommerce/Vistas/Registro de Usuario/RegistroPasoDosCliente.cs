@@ -41,7 +41,7 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
             cliente.habilitado = true;
             cliente.eliminado = false;
             cliente.login_fallidos = 0;
-            if (ClienteValidaciones.validate(cliente))
+            if (ClienteValidaciones.validate(cliente, true))
             {
                 Clientes.crearCliente(cliente);
                 MessageBox.Show("El usuario cliente se creó con exito", "Exito");

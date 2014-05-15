@@ -43,6 +43,7 @@ namespace FrbaCommerce.Abm_Cliente
         listadoClientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount == 1)
             {
+                if (!confirmacionPorMensaje()) return;
                 Cliente cliente = new Cliente();
 
                 cliente.id = (Int64)listadoClientes.SelectedRows[0].Cells["id"].Value;
@@ -62,9 +63,12 @@ namespace FrbaCommerce.Abm_Cliente
                 cliente.dni_tipo = (String)listadoClientes.SelectedRows[0].Cells["dni_tipo"].Value;
                 cliente.fecha_nacimiento = (DateTime)listadoClientes.SelectedRows[0].Cells["fecha_nacimiento"].Value;
 
-                if (ClienteValidaciones.validate(cliente))
+                cliente.login_fallidos = 0;
+
+                if (ClienteValidaciones.validate(cliente, false))
                 {
                     Clientes.actualizarCliente(cliente);
+                    listadoClientes.DataSource = Clientes.Buscar(nombre_search.Text, apellido_search.Text, mail_search.Text, tipoDoc_search.Text, documento_search.Text);
                     MessageBox.Show("Actualizaste el cliente con exito", "Exito");
                 }
             }
@@ -72,6 +76,40 @@ namespace FrbaCommerce.Abm_Cliente
             {
                 MessageBox.Show("Debes elegir una fila de cliente para modificarlo.", "Error");
             }
+        }
+
+        private void delete_button_Click(object sender, EventArgs e)
+        {
+            Int32 selectedRowCount = listadoClientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount == 1)
+            {
+                if (!confirmacionPorMensaje()) return;
+                Int64 id = (Int64)listadoClientes.SelectedRows[0].Cells["id"].Value;
+                Clientes.eliminarCliente(id);
+                listadoClientes.DataSource = Clientes.Buscar(nombre_search.Text, apellido_search.Text, mail_search.Text, tipoDoc_search.Text, documento_search.Text);
+                MessageBox.Show("Eliminaste el cliente con exito", "Exito");
+            }
+            else
+            {
+                MessageBox.Show("Debes elegir una fila de cliente para eliminarlo.", "Error");
+            }
+        }
+
+        private Boolean confirmacionPorMensaje()
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Estás seguro?", "Confirmación", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void add_button_Click(object sender, EventArgs e)
+        {
+            //TODO Definir como es el nombre de usuario "por defecto".
+            RegistroPasoDosCliente siguienteVentana = new RegistroPasoDosCliente("unUsuario", "contraseniaParaCambiar");
+            siguienteVentana.Show();
         }
 
     }

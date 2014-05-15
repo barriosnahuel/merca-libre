@@ -205,6 +205,7 @@
             this.delete_button.TabIndex = 32;
             this.delete_button.Text = "Dar de baja";
             this.delete_button.UseVisualStyleBackColor = true;
+            this.delete_button.Click += new System.EventHandler(this.delete_button_Click);
             // 
             // add_button
             // 
@@ -214,6 +215,7 @@
             this.add_button.TabIndex = 33;
             this.add_button.Text = "Agregar";
             this.add_button.UseVisualStyleBackColor = true;
+            this.add_button.Click += new System.EventHandler(this.add_button_Click);
             // 
             // listadoClientes
             // 
@@ -235,7 +237,7 @@
             this.habilitado});
             this.listadoClientes.Location = new System.Drawing.Point(12, 122);
             this.listadoClientes.Name = "listadoClientes";
-            this.listadoClientes.Size = new System.Drawing.Size(538, 285);
+            this.listadoClientes.Size = new System.Drawing.Size(538, 287);
             this.listadoClientes.TabIndex = 34;
             // 
             // cliente_id

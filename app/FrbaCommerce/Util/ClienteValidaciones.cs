@@ -10,23 +10,28 @@ namespace FrbaCommerce.Util
 {
     class ClienteValidaciones
     {
-        public static Boolean validate(Cliente cliente)
+        public static Boolean validate(Cliente cliente, Boolean hacerValidacionExistenciaTelefonoYDni)
         {
             if (!validateEmptyFields(cliente))
             {
                 return false;
             }
 
-            if (Clientes.buscarClientePorTelefono(cliente.telefono) != null)
+            /** Solamente valido esto si es una creacion. En caso de que sea una modificacion es por parte de la administracion y no se chequea
+             * la existencia de estos datos */
+            if (hacerValidacionExistenciaTelefonoYDni)
             {
-                MessageBox.Show("Existe un cliente con el telefono: " + cliente.telefono, "Error de validacion.");
-                return false;
-            }
+                if (Clientes.buscarClientePorTelefono(cliente.telefono) != null)
+                {
+                    MessageBox.Show("Existe un cliente con el telefono: " + cliente.telefono, "Error de validacion.");
+                    return false;
+                }
 
-            if (Clientes.buscarClientePorDNITipoYDNI(cliente.dni_tipo, cliente.dni) != null)
-            {
-                MessageBox.Show("Existe un cliente con el Tipo y Nº de Documento: " + cliente.dni_tipo + " - " + cliente.dni, "Error de validación.");
-                return false;
+                if (Clientes.buscarClientePorDNITipoYDNI(cliente.dni_tipo, cliente.dni) != null)
+                {
+                    MessageBox.Show("Existe un cliente con el Tipo y Nº de Documento: " + cliente.dni_tipo + " - " + cliente.dni, "Error de validación.");
+                    return false;
+                }
             }
             return true;
         }

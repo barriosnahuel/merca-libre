@@ -46,7 +46,7 @@ namespace FrbaCommerce.Servicios
             parametro.Value = DBNull.Value;
             if (!String.IsNullOrEmpty(tipo_documento))
             {
-                parametro.Value = tipo_documento;                
+                parametro.Value = tipo_documento;
             }
             parametros.Add(parametro);
 
@@ -76,56 +76,13 @@ namespace FrbaCommerce.Servicios
 
         public static void crearCliente(Cliente cliente)
         {
-            List<SqlParameter> parametros = new List<SqlParameter>();
+            List<SqlParameter> parametros = prepararParametros(cliente);
 
-            SqlParameter parametro;
-            parametro = new SqlParameter("@NOMBRE", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.nombre;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@APELLIDO", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.apellido;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@DNI", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.dni;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@DNI_TIPO", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.dni_tipo;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@FECHA_NAC", SqlDbType.DateTime, 100);
-            parametro.Value = cliente.fecha_nacimiento;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@USERNAME", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.username;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@PASSWORD", SqlDbType.VarChar, 100);
+            SqlParameter parametro = new SqlParameter("@PASSWORD", SqlDbType.VarChar, 100);
             parametro.Value = cliente.password;
             parametros.Add(parametro);
-            parametro = new SqlParameter("@LOGIN_FALLIDOS", SqlDbType.Int, 100);
-            parametro.Value = 0;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@HABILITADO", SqlDbType.Bit, 100);
-            parametro.Value = true;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@ELIMINADO", SqlDbType.Bit, 100);
-            parametro.Value = false;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@MAIL", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.mail;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@TELEFONO", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.telefono;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@DIRECCION", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.direccion;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@CODIGO_POSTAL", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.codigo_postal;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@LOCALIDAD", SqlDbType.VarChar, 100);
-            parametro.Value = cliente.localidad;
-            parametros.Add(parametro);
 
-            BasesDeDatos.EscribirEnBase("GoodTimes.CrearCliente",BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+            BasesDeDatos.EscribirEnBase("GoodTimes.CrearCliente", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
 
         public static Cliente buscarClientePorTelefono(string telefono)
@@ -204,8 +161,79 @@ namespace FrbaCommerce.Servicios
 
         internal static void actualizarCliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            List<SqlParameter> parametros = prepararParametros(cliente);
+
+            SqlParameter parametro;
+            parametro = new SqlParameter("@ID", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.id;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@CLIENTE_ID", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.cliente_id;
+            parametros.Add(parametro);
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.ModificarCliente", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
 
+        private static List<SqlParameter> prepararParametros(Cliente cliente)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro;
+            parametro = new SqlParameter("@NOMBRE", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.nombre;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@APELLIDO", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.apellido;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@DNI", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.dni;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@DNI_TIPO", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.dni_tipo;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@FECHA_NAC", SqlDbType.DateTime, 100);
+            parametro.Value = cliente.fecha_nacimiento;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@USERNAME", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.username;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@LOGIN_FALLIDOS", SqlDbType.Int, 100);
+            parametro.Value = cliente.login_fallidos;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@HABILITADO", SqlDbType.Bit, 100);
+            parametro.Value = cliente.habilitado;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@ELIMINADO", SqlDbType.Bit, 100);
+            parametro.Value = cliente.eliminado;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@MAIL", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.mail;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@TELEFONO", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.telefono;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@DIRECCION", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.direccion;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@CODIGO_POSTAL", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.codigo_postal;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@LOCALIDAD", SqlDbType.VarChar, 100);
+            parametro.Value = cliente.localidad;
+            parametros.Add(parametro);
+            return parametros;
+        }
+
+
+        public static void eliminarCliente(long id)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro = new SqlParameter("@ID", SqlDbType.VarChar, 100);
+            parametro.Value = id;
+            parametros.Add(parametro);
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.EliminarCliente", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
     }
 }
