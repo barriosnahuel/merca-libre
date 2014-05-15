@@ -11,6 +11,7 @@ using FrbaCommerce.Modelos;
 using FrbaCommerce.Registro_de_Usuario;
 using FrbaCommerce.Abm_Cliente;
 using FrbaCommerce.Vistas.ABM_Rol;
+using FrbaCommerce.Vistas.Abm_Cliente;
 
 namespace FrbaCommerce
 {
@@ -48,6 +49,12 @@ namespace FrbaCommerce
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListadoBusquedaClientes form = new ListadoBusquedaClientes();
+            form.Show();
+        }
+
+        private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListadoBusquedaEmpresas form = new ListadoBusquedaEmpresas();
             form.Show();
         }
 

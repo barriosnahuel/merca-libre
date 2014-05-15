@@ -35,6 +35,17 @@ namespace FrbaCommerce.Servicios
             return usuario;
         }
 
+        public static void eliminar(long id)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro = new SqlParameter("@ID", SqlDbType.VarChar, 100);
+            parametro.Value = id;
+            parametros.Add(parametro);
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.EliminarUsuario", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
+
         private static Usuario getClienteFromSqlReader(SqlDataReader lector)
         {
             Usuario usuario = new Usuario();

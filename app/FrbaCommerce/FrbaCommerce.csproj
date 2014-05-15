@@ -64,6 +64,12 @@
     <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.Designer.cs">
       <DependentUpon>ListadoBusquedaClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.Designer.cs">
+      <DependentUpon>ListadoBusquedaEmpresas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\ABM Rol\frmAltaRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusquedaClientes.resx">
       <DependentUpon>ListadoBusquedaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.resx">
+      <DependentUpon>ListadoBusquedaEmpresas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ABM Rol\frmAltaRol.resx">
       <DependentUpon>frmAltaRol.cs</DependentUpon>

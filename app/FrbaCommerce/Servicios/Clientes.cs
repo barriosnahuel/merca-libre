@@ -227,13 +227,7 @@ namespace FrbaCommerce.Servicios
 
         public static void eliminarCliente(long id)
         {
-            List<SqlParameter> parametros = new List<SqlParameter>();
-
-            SqlParameter parametro = new SqlParameter("@ID", SqlDbType.VarChar, 100);
-            parametro.Value = id;
-            parametros.Add(parametro);
-
-            BasesDeDatos.EscribirEnBase("GoodTimes.EliminarCliente", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+            Usuarios.eliminar(id);
         }
     }
 }
