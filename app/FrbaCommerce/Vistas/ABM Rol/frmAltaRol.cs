@@ -28,6 +28,8 @@ namespace FrbaCommerce.Vistas.ABM_Rol
             rol.habilitado = chkHabilitado.Checked;
             Roles.guardarRol(rol);
 
+            MessageBox.Show("Se genero el rol exitosamente", "Ok");
+            
             this.Close();
         }
     }

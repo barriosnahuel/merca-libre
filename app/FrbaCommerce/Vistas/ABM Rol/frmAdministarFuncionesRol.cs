@@ -86,6 +86,8 @@ namespace FrbaCommerce.ABM_Rol
             rol.nombre = txtNombre.Text;
             rol.habilitado = chkHabilitado.Checked;
             Roles.guardarRol(rol);
+            
+            MessageBox.Show("Se guardaron los cambios exitosamente", "Ok");
         }
 
     }

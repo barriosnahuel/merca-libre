@@ -98,7 +98,7 @@ namespace FrbaCommerce.Servicios
             parametros.Add(parametro);
 
             parametro = new SqlParameter("@ELIMINADO", SqlDbType.Bit);
-            parametro.Value = int.Parse("-1");
+            parametro.Value = int.Parse("0");
             parametros.Add(parametro);
 
             BasesDeDatos.EscribirEnBase("GoodTimes.CrearRol", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);

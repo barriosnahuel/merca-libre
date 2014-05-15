@@ -79,7 +79,11 @@ namespace FrbaCommerce.ABM_Rol
                         Rol rolSeleccionado = (Rol)gridRoles.CurrentRow.DataBoundItem;
 
                         Roles.eliminarRol(rolSeleccionado);
-                        this.Close();
+                        
+                        MessageBox.Show("El rol se dio de baja exitosamente", "Ok");
+                        
+                        List<Rol> listaRoles = Roles.ObtenerTodos();
+                        gridRoles.DataSource = listaRoles;
                         
                         
                     }
