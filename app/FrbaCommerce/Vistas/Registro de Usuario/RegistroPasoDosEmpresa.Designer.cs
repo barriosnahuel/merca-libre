@@ -38,7 +38,6 @@
             this.telefono = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.mail = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.borrar_button = new System.Windows.Forms.Button();
             this.crear_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,12 +48,14 @@
             this.cuit = new System.Windows.Forms.TextBox();
             this.fecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(71, 164);
+            this.label10.Location = new System.Drawing.Point(68, 181);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 58;
@@ -63,7 +64,7 @@
             // localidad
             // 
             this.localidad.AcceptsTab = true;
-            this.localidad.Location = new System.Drawing.Point(129, 161);
+            this.localidad.Location = new System.Drawing.Point(126, 178);
             this.localidad.MaxLength = 100;
             this.localidad.Name = "localidad";
             this.localidad.Size = new System.Drawing.Size(156, 20);
@@ -72,7 +73,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(71, 138);
+            this.label9.Location = new System.Drawing.Point(68, 155);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 56;
@@ -81,7 +82,7 @@
             // direccion
             // 
             this.direccion.AcceptsTab = true;
-            this.direccion.Location = new System.Drawing.Point(129, 135);
+            this.direccion.Location = new System.Drawing.Point(126, 152);
             this.direccion.MaxLength = 100;
             this.direccion.Name = "direccion";
             this.direccion.Size = new System.Drawing.Size(156, 20);
@@ -90,7 +91,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(51, 113);
+            this.label8.Location = new System.Drawing.Point(48, 130);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 52;
@@ -99,7 +100,7 @@
             // codigoPostal
             // 
             this.codigoPostal.AcceptsTab = true;
-            this.codigoPostal.Location = new System.Drawing.Point(129, 110);
+            this.codigoPostal.Location = new System.Drawing.Point(126, 127);
             this.codigoPostal.MaxLength = 100;
             this.codigoPostal.Name = "codigoPostal";
             this.codigoPostal.Size = new System.Drawing.Size(156, 20);
@@ -108,7 +109,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(74, 87);
+            this.label4.Location = new System.Drawing.Point(71, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 50;
@@ -117,7 +118,7 @@
             // telefono
             // 
             this.telefono.AcceptsTab = true;
-            this.telefono.Location = new System.Drawing.Point(129, 84);
+            this.telefono.Location = new System.Drawing.Point(126, 101);
             this.telefono.MaxLength = 100;
             this.telefono.Name = "telefono";
             this.telefono.Size = new System.Drawing.Size(156, 20);
@@ -126,7 +127,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(87, 61);
+            this.label6.Location = new System.Drawing.Point(84, 78);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 48;
@@ -135,25 +136,15 @@
             // mail
             // 
             this.mail.AcceptsTab = true;
-            this.mail.Location = new System.Drawing.Point(129, 58);
+            this.mail.Location = new System.Drawing.Point(126, 75);
             this.mail.MaxLength = 100;
             this.mail.Name = "mail";
             this.mail.Size = new System.Drawing.Size(156, 20);
             this.mail.TabIndex = 47;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(150, 250);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 13);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "2/2";
-            // 
             // borrar_button
             // 
-            this.borrar_button.Location = new System.Drawing.Point(20, 245);
+            this.borrar_button.Location = new System.Drawing.Point(12, 288);
             this.borrar_button.Name = "borrar_button";
             this.borrar_button.Size = new System.Drawing.Size(75, 23);
             this.borrar_button.TabIndex = 44;
@@ -163,7 +154,7 @@
             // 
             // crear_button
             // 
-            this.crear_button.Location = new System.Drawing.Point(222, 245);
+            this.crear_button.Location = new System.Drawing.Point(239, 288);
             this.crear_button.Name = "crear_button";
             this.crear_button.Size = new System.Drawing.Size(75, 23);
             this.crear_button.TabIndex = 43;
@@ -174,7 +165,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 9);
+            this.label1.Location = new System.Drawing.Point(51, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 38;
@@ -183,7 +174,7 @@
             // razonSocial
             // 
             this.razonSocial.AcceptsTab = true;
-            this.razonSocial.Location = new System.Drawing.Point(129, 6);
+            this.razonSocial.Location = new System.Drawing.Point(126, 23);
             this.razonSocial.MaxLength = 100;
             this.razonSocial.Name = "razonSocial";
             this.razonSocial.Size = new System.Drawing.Size(156, 20);
@@ -192,7 +183,7 @@
             // nombre
             // 
             this.nombre.AcceptsTab = true;
-            this.nombre.Location = new System.Drawing.Point(129, 32);
+            this.nombre.Location = new System.Drawing.Point(126, 49);
             this.nombre.MaxLength = 100;
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(156, 20);
@@ -201,7 +192,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 35);
+            this.label2.Location = new System.Drawing.Point(16, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 13);
             this.label2.TabIndex = 40;
@@ -210,7 +201,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(91, 189);
+            this.label7.Location = new System.Drawing.Point(88, 206);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 62;
@@ -219,7 +210,7 @@
             // cuit
             // 
             this.cuit.AcceptsTab = true;
-            this.cuit.Location = new System.Drawing.Point(129, 186);
+            this.cuit.Location = new System.Drawing.Point(126, 203);
             this.cuit.MaxLength = 100;
             this.cuit.Name = "cuit";
             this.cuit.Size = new System.Drawing.Size(156, 20);
@@ -227,7 +218,7 @@
             // 
             // fecha
             // 
-            this.fecha.Location = new System.Drawing.Point(129, 211);
+            this.fecha.Location = new System.Drawing.Point(126, 228);
             this.fecha.MaxDate = new System.DateTime(2109, 7, 11, 0, 0, 0, 0);
             this.fecha.MinDate = new System.DateTime(1899, 7, 21, 0, 0, 0, 0);
             this.fecha.Name = "fecha";
@@ -238,42 +229,52 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 211);
+            this.label3.Location = new System.Drawing.Point(16, 228);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 63;
             this.label3.Text = "Fecha de nacimiento";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.fecha);
+            this.groupBox1.Controls.Add(this.razonSocial);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.nombre);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.cuit);
+            this.groupBox1.Controls.Add(this.mail);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.localidad);
+            this.groupBox1.Controls.Add(this.telefono);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.direccion);
+            this.groupBox1.Controls.Add(this.codigoPostal);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(302, 262);
+            this.groupBox1.TabIndex = 65;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos de la empresa";
+            // 
             // RegistroPasoDosEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 275);
-            this.Controls.Add(this.fecha);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cuit);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.localidad);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.direccion);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.codigoPostal);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.telefono);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.mail);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(323, 316);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.borrar_button);
             this.Controls.Add(this.crear_button);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.nombre);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.razonSocial);
             this.Name = "RegistroPasoDosEmpresa";
             this.Text = "RegistroPasoDosEmpresa";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -289,7 +290,6 @@
         private System.Windows.Forms.TextBox telefono;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox mail;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button borrar_button;
         private System.Windows.Forms.Button crear_button;
         private System.Windows.Forms.Label label1;
@@ -300,5 +300,6 @@
         private System.Windows.Forms.TextBox cuit;
         private System.Windows.Forms.DateTimePicker fecha;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

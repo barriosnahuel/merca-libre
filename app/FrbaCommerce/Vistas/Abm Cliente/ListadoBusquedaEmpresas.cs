@@ -74,6 +74,7 @@ namespace FrbaCommerce.Vistas.Abm_Cliente
                 empresa.codigo_postal = (String)listadoEmpresas.SelectedRows[0].Cells["codigo_postal"].Value;
                 empresa.localidad = (String)listadoEmpresas.SelectedRows[0].Cells["localidad"].Value;
 
+                empresa.empresa_id = (Int64)listadoEmpresas.SelectedRows[0].Cells["empresa_id"].Value;
                 empresa.nombreContacto = (String)listadoEmpresas.SelectedRows[0].Cells["nombreContacto"].Value;
                 empresa.razon_social = (String)listadoEmpresas.SelectedRows[0].Cells["razon_social"].Value;
                 empresa.cuit = (Int64)listadoEmpresas.SelectedRows[0].Cells["cuit"].Value;

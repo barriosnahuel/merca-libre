@@ -42,6 +42,7 @@
             this.cuit_search = new System.Windows.Forms.TextBox();
             this.search_button = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.login_fallidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eliminado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.razon_social = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,6 +86,7 @@
             this.listadoEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoEmpresas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.empresa_id,
             this.login_fallidos,
             this.eliminado,
             this.razon_social,
@@ -205,7 +207,12 @@
             this.id.DataPropertyName = "id";
             this.id.HeaderText = "id";
             this.id.Name = "id";
-            this.id.Visible = false;
+            // 
+            // empresa_id
+            // 
+            this.empresa_id.DataPropertyName = "empresa_id";
+            this.empresa_id.HeaderText = "empresa_id";
+            this.empresa_id.Name = "empresa_id";
             // 
             // login_fallidos
             // 
@@ -333,6 +340,7 @@
         private System.Windows.Forms.TextBox cuit_search;
         private System.Windows.Forms.Button search_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empresa_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn login_fallidos;
         private System.Windows.Forms.DataGridViewCheckBoxColumn eliminado;
         private System.Windows.Forms.DataGridViewTextBoxColumn razon_social;

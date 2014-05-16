@@ -144,6 +144,7 @@ namespace FrbaCommerce.Servicios
             empresa.codigo_postal = lector.GetString(lector.GetOrdinal("CODIGO_POSTAL"));
             empresa.nombreContacto = lector.GetString(lector.GetOrdinal("CONTACTO"));
             empresa.fecha_creacion = lector.GetDateTime(lector.GetOrdinal("FECHA_CREACION"));
+            empresa.empresa_id = lector.GetInt64(lector.GetOrdinal("empresa_id"));
 
             return empresa;
         }
@@ -164,6 +165,9 @@ namespace FrbaCommerce.Servicios
             parametros.Add(parametro);
             parametro = new SqlParameter("@FECHA_CREACION", SqlDbType.DateTime, 100);
             parametro.Value = empresa.fecha_creacion;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@EMPRESA_ID", SqlDbType.BigInt, 100);
+            parametro.Value = empresa.empresa_id;
             parametros.Add(parametro);
 
             parametro = new SqlParameter("@USERNAME", SqlDbType.VarChar, 100);
