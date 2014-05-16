@@ -1,92 +1,137 @@
-DECLARE @Publ_Cli_Dni numeric(18, 0),
-@Publ_Cli_Apeliido nvarchar(255),
-@Publ_Cli_Nombre nvarchar(255),
-@Publ_Cli_Fecha_Nac datetime,
-@Publ_Cli_Mail nvarchar(255),
-@Publ_Cli_Dom_Calle nvarchar(255),
-@Publ_Cli_Nro_Calle numeric(18, 0),
-@Publ_Cli_Piso numeric(18, 0),
-@Publ_Cli_Depto nvarchar(50),
-@Publ_Cli_Cod_Postal nvarchar(50),
-@Publ_Empresa_Razon_Social nvarchar(255),
-@Publ_Empresa_Cuit nvarchar(50),
-@Publ_Empresa_Fecha_Creacion datetime,
-@Publ_Empresa_Mail nvarchar(50),
-@Publ_Empresa_Dom_Calle nvarchar(100),
-@Publ_Empresa_Nro_Calle numeric(18, 0),
-@Publ_Empresa_Piso numeric(18, 0),
-@Publ_Empresa_Depto nvarchar(50),
-@Publ_Empresa_Cod_Postal nvarchar(50),
-@Publicacion_Cod numeric(18, 0),
-@Publicacion_Descripcion nvarchar(255),
-@Publicacion_Stock numeric(18, 0),
-@Publicacion_Fecha datetime,
-@Publicacion_Fecha_Venc datetime,
-@Publicacion_Precio numeric(18, 2),
-@Publicacion_Tipo nvarchar(255),
-@Publicacion_Visibilidad_Cod numeric(18, 0),
-@Publicacion_Visibilidad_Desc nvarchar(255),
-@Publicacion_Visibilidad_Precio numeric(18, 2),
-@Publicacion_Visibilidad_Porcentaje numeric(18, 2),
-@Publicacion_Estado nvarchar(255),
-@Publicacion_Rubro_Descripcion nvarchar(255),
-@Cli_Dni numeric(18, 0),
-@Cli_Apeliido nvarchar(255),
-@Cli_Nombre nvarchar(255),
-@Cli_Fecha_Nac datetime,
-@Cli_Mail nvarchar(255),
-@Cli_Dom_Calle nvarchar(255),
-@Cli_Nro_Calle numeric(18, 0),
-@Cli_Piso numeric(18, 0),
-@Cli_Depto nvarchar(50),
-@Cli_Cod_Postal nvarchar(50),
-@Compra_Fecha datetime,
-@Compra_Cantidad numeric(18, 0),
-@Oferta_Fecha datetime,
-@Oferta_Monto numeric(18, 2),
-@Calificacion_Codigo numeric(18, 0),
-@Calificacion_Cant_Estrellas numeric(18, 0),
-@Calificacion_Descripcion nvarchar(255),
-@Item_Factura_Monto numeric(18, 2),
-@Item_Factura_Cantidad numeric(18, 0),
-@Factura_Nro numeric(18, 0),
-@Factura_Fecha datetime,
-@Factura_Total numeric(18, 2),
-@Forma_Pago_Desc nvarchar(255);    
+DECLARE @Publ_Cli_Dni NUMERIC(18, 0),
+@Publ_Cli_Apellido NVARCHAR(255),
+@Publ_Cli_Nombre NVARCHAR(255),
+@Publ_Cli_Fecha_Nac DATETIME,
+@Publ_Cli_Mail NVARCHAR(255),
+@Publ_Cli_Dom_Calle NVARCHAR(255),
+@Publ_Cli_Nro_Calle NUMERIC(18, 0),
+@Publ_Cli_Piso NUMERIC(18, 0),
+@Publ_Cli_Depto NVARCHAR(50),
+@Publ_Cli_Cod_Postal NVARCHAR(50),
+@Publ_Empresa_Razon_Social NVARCHAR(255),
+@Publ_Empresa_Cuit NVARCHAR(50),
+@Publ_Empresa_Fecha_Creacion DATETIME,
+@Publ_Empresa_Mail NVARCHAR(50),
+@Publ_Empresa_Dom_Calle NVARCHAR(100),
+@Publ_Empresa_Nro_Calle NUMERIC(18, 0),
+@Publ_Empresa_Piso NUMERIC(18, 0),
+@Publ_Empresa_Depto NVARCHAR(50),
+@Publ_Empresa_Cod_Postal NVARCHAR(50),
+@Publicacion_Cod NUMERIC(18, 0),
+@Publicacion_Descripcion NVARCHAR(255),
+@Publicacion_Stock NUMERIC(18, 0),
+@Publicacion_Fecha DATETIME,
+@Publicacion_Fecha_Venc DATETIME,
+@Publicacion_Precio NUMERIC(18, 2),
+@Publicacion_Tipo NVARCHAR(255),
+@Publicacion_Visibilidad_Cod NUMERIC(18, 0),
+@Publicacion_Visibilidad_Desc NVARCHAR(255),
+@Publicacion_Visibilidad_Precio NUMERIC(18, 2),
+@Publicacion_Visibilidad_Porcentaje NUMERIC(18, 2),
+@Publicacion_Estado NVARCHAR(255),
+@Publicacion_Rubro_Descripcion NVARCHAR(255),
+@Cli_Dni NUMERIC(18, 0),
+@Cli_Apeliido NVARCHAR(255),
+@Cli_Nombre NVARCHAR(255),
+@Cli_Fecha_Nac DATETIME,
+@Cli_Mail NVARCHAR(255),
+@Cli_Dom_Calle NVARCHAR(255),
+@Cli_Nro_Calle NUMERIC(18, 0),
+@Cli_Piso NUMERIC(18, 0),
+@Cli_Depto NVARCHAR(50),
+@Cli_Cod_Postal NVARCHAR(50),
+@Compra_Fecha DATETIME,
+@Compra_Cantidad NUMERIC(18, 0),
+@Oferta_Fecha DATETIME,
+@Oferta_Monto NUMERIC(18, 2),
+@Calificacion_Codigo NUMERIC(18, 0),
+@Calificacion_Cant_Estrellas NUMERIC(18, 0),
+@Calificacion_Descripcion NVARCHAR(255),
+@Item_Factura_Monto NUMERIC(18, 2),
+@Item_Factura_Cantidad NUMERIC(18, 0),
+@Factura_Nro NUMERIC(18, 0),
+@Factura_Fecha DATETIME,
+@Factura_Total NUMERIC(18, 2),
+@Forma_Pago_Desc NVARCHAR(255);
 
-DECLARE maestra_cursor CURSOR FOR 
-SELECT TOP 10 *
-FROM [GD1C2014].[gd_esquema].[Maestra]
-ORDER BY Publicacion_Cod, Factura_Fecha, Factura_Nro, Compra_Fecha, Calificacion_Codigo;
+-- READ_ONLY dramatically improves the performance of the cursor.
+DECLARE maestra_cursor CURSOR READ_ONLY
+
+FOR
+    SELECT TOP 10 *
+    FROM [GD1C2014].[gd_esquema].[Maestra]
+    ORDER BY Publicacion_Cod, Factura_Fecha, Factura_Nro, Compra_Fecha, Calificacion_Codigo;
 
 OPEN maestra_cursor
-FETCH NEXT FROM maestra_cursor 
-INTO @Publ_Cli_Dni,@Publ_Cli_Apeliido,@Publ_Cli_Nombre,@Publ_Cli_Fecha_Nac,@Publ_Cli_Mail,@Publ_Cli_Dom_Calle,@Publ_Cli_Nro_Calle,@Publ_Cli_Piso,@Publ_Cli_Depto,@Publ_Cli_Cod_Postal,@Publ_Empresa_Razon_Social,@Publ_Empresa_Cuit,@Publ_Empresa_Fecha_Creacion,@Publ_Empresa_Mail,@Publ_Empresa_Dom_Calle,@Publ_Empresa_Nro_Calle,@Publ_Empresa_Piso,@Publ_Empresa_Depto,@Publ_Empresa_Cod_Postal,@Publicacion_Cod,@Publicacion_Descripcion,@Publicacion_Stock,@Publicacion_Fecha,@Publicacion_Fecha_Venc,@Publicacion_Precio,@Publicacion_Tipo,@Publicacion_Visibilidad_Cod,@Publicacion_Visibilidad_Desc,@Publicacion_Visibilidad_Precio,@Publicacion_Visibilidad_Porcentaje,@Publicacion_Estado,@Publicacion_Rubro_Descripcion,@Cli_Dni,@Cli_Apeliido,@Cli_Nombre,@Cli_Fecha_Nac,@Cli_Mail,@Cli_Dom_Calle,@Cli_Nro_Calle,@Cli_Piso,@Cli_Depto,@Cli_Cod_Postal,@Compra_Fecha,@Compra_Cantidad,@Oferta_Fecha,@Oferta_Monto,@Calificacion_Codigo,@Calificacion_Cant_Estrellas,@Calificacion_Descripcion,@Item_Factura_Monto,@Item_Factura_Cantidad,@Factura_Nro,@Factura_Fecha,@Factura_Total,@Forma_Pago_Desc
+FETCH NEXT FROM maestra_cursor
+INTO @Publ_Cli_Dni, @Publ_Cli_Apellido, @Publ_Cli_Nombre, @Publ_Cli_Fecha_Nac, @Publ_Cli_Mail, @Publ_Cli_Dom_Calle, @Publ_Cli_Nro_Calle, @Publ_Cli_Piso, @Publ_Cli_Depto, @Publ_Cli_Cod_Postal, @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, @Publ_Empresa_Fecha_Creacion, @Publ_Empresa_Mail, @Publ_Empresa_Dom_Calle, @Publ_Empresa_Nro_Calle, @Publ_Empresa_Piso, @Publ_Empresa_Depto, @Publ_Empresa_Cod_Postal, @Publicacion_Cod, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @Publicacion_Precio, @Publicacion_Tipo, @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Precio, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Estado, @Publicacion_Rubro_Descripcion, @Cli_Dni, @Cli_Apeliido, @Cli_Nombre, @Cli_Fecha_Nac, @Cli_Mail, @Cli_Dom_Calle, @Cli_Nro_Calle, @Cli_Piso, @Cli_Depto, @Cli_Cod_Postal, @Compra_Fecha, @Compra_Cantidad, @Oferta_Fecha, @Oferta_Monto, @Calificacion_Codigo, @Calificacion_Cant_Estrellas, @Calificacion_Descripcion, @Item_Factura_Monto, @Item_Factura_Cantidad, @Factura_Nro, @Factura_Fecha, @Factura_Total, @Forma_Pago_Desc
 
-DECLARE @Current_Publicacion_Cod numeric(18, 0);
+DECLARE @Current_Publicacion_Cod NUMERIC(18, 0);
 WHILE @@FETCH_STATUS = 0
-BEGIN
+    BEGIN
 
-	IF @Current_Publicacion_Cod <> @Publicacion_Cod
-	BEGIN	
-		IF @Publ_Cli_Dni IS NOT NULL
-		BEGIN
-			-- Guardar publicacion asociarla al cliente
-		END
-		IF @Publ_Empresa_Razon_Social IS NOT NULL
-		BEGIN
-			-- Guardar publicacion y asociarla a la empresa
-		END		
-	END
+-- Tablas a completar:
+--		PUBLICACION
+--		USUARIO
+--		EMPRESA
 
-	IF @Cli_Dni is not null AND @Oferta_Fecha is null AND @Calificacion_Codigo is null 
-	BEGIN
-		-- Guardar compra del cliente
-	END 
+--		RUBROS
+--		RUBROS_X_PUBLICACION
 
-	
-	FETCH NEXT FROM maestra_cursor 
-    INTO @Publ_Cli_Dni,@Publ_Cli_Apeliido,@Publ_Cli_Nombre,@Publ_Cli_Fecha_Nac,@Publ_Cli_Mail,@Publ_Cli_Dom_Calle,@Publ_Cli_Nro_Calle,@Publ_Cli_Piso,@Publ_Cli_Depto,@Publ_Cli_Cod_Postal,@Publ_Empresa_Razon_Social,@Publ_Empresa_Cuit,@Publ_Empresa_Fecha_Creacion,@Publ_Empresa_Mail,@Publ_Empresa_Dom_Calle,@Publ_Empresa_Nro_Calle,@Publ_Empresa_Piso,@Publ_Empresa_Depto,@Publ_Empresa_Cod_Postal,@Publicacion_Cod,@Publicacion_Descripcion,@Publicacion_Stock,@Publicacion_Fecha,@Publicacion_Fecha_Venc,@Publicacion_Precio,@Publicacion_Tipo,@Publicacion_Visibilidad_Cod,@Publicacion_Visibilidad_Desc,@Publicacion_Visibilidad_Precio,@Publicacion_Visibilidad_Porcentaje,@Publicacion_Estado,@Publicacion_Rubro_Descripcion,@Cli_Dni,@Cli_Apeliido,@Cli_Nombre,@Cli_Fecha_Nac,@Cli_Mail,@Cli_Dom_Calle,@Cli_Nro_Calle,@Cli_Piso,@Cli_Depto,@Cli_Cod_Postal,@Compra_Fecha,@Compra_Cantidad,@Oferta_Fecha,@Oferta_Monto,@Calificacion_Codigo,@Calificacion_Cant_Estrellas,@Calificacion_Descripcion,@Item_Factura_Monto,@Item_Factura_Cantidad,@Factura_Nro,@Factura_Fecha,@Factura_Total,@Forma_Pago_Desc
-END 
+--		VISIBILIDAD_PUBLICACION
+--		ESTADO
+--		TIPO_PUBLICACION
+
+--		PREGUNTA
+
+--		COMPRA
+--		OFERTA
+--		CALIFICACION
+
+--		FACTURA
+--		FACTURA_ITEM
+--		FORMA_PAGO
+
+
+
+        IF (@Current_Publicacion_Cod <> @Publicacion_Cod)
+            BEGIN
+
+-- Guardar PUBLICACION
+
+                IF (@Publ_Cli_Dni IS NOT NULL)
+                    BEGIN
+-- Asociar PUBLICACION a USUARIO y CLIENTE
+                        PRINT 'Guardar publicacion asociarla al cliente'
+                    END
+
+
+                IF (@Publ_Empresa_Razon_Social IS NOT NULL)
+                    BEGIN
+-- Asociar PUBLICACION a USUARIO y EMPRESA
+                        PRINT 'Guardar publicacion y asociarla a la empresa'
+                    END
+            END
+
+-- Asociar VISIBILIDAD_PUBLICACION
+-- Asociar TIPO_PUBLICACION
+-- Asociar ESTADO
+-- Asociar RUBROS y RUBROS_X_PUBLICACION
+
+-- Guardar compra del cliente
+        IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NULL)
+            BEGIN
+                PRINT 'Guardar compra del cliente'
+
+-- Asociar COMPRA, OFERTA y CALIFICACION
+            END
+
+-- Asociar PREGUNTA
+        
+        -- Asociar FACTURA, FACTURA_ITEM y FORMA_PAGO
+
+        FETCH NEXT FROM maestra_cursor
+        INTO @Publ_Cli_Dni, @Publ_Cli_Apellido, @Publ_Cli_Nombre, @Publ_Cli_Fecha_Nac, @Publ_Cli_Mail, @Publ_Cli_Dom_Calle, @Publ_Cli_Nro_Calle, @Publ_Cli_Piso, @Publ_Cli_Depto, @Publ_Cli_Cod_Postal, @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, @Publ_Empresa_Fecha_Creacion, @Publ_Empresa_Mail, @Publ_Empresa_Dom_Calle, @Publ_Empresa_Nro_Calle, @Publ_Empresa_Piso, @Publ_Empresa_Depto, @Publ_Empresa_Cod_Postal, @Publicacion_Cod, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @Publicacion_Precio, @Publicacion_Tipo, @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Precio, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Estado, @Publicacion_Rubro_Descripcion, @Cli_Dni, @Cli_Apeliido, @Cli_Nombre, @Cli_Fecha_Nac, @Cli_Mail, @Cli_Dom_Calle, @Cli_Nro_Calle, @Cli_Piso, @Cli_Depto, @Cli_Cod_Postal, @Compra_Fecha, @Compra_Cantidad, @Oferta_Fecha, @Oferta_Monto, @Calificacion_Codigo, @Calificacion_Cant_Estrellas, @Calificacion_Descripcion, @Item_Factura_Monto, @Item_Factura_Cantidad, @Factura_Nro, @Factura_Fecha, @Factura_Total, @Forma_Pago_Desc
+    END
 CLOSE maestra_cursor;
 DEALLOCATE maestra_cursor;
