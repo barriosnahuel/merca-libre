@@ -84,9 +84,6 @@ WHILE @@FETCH_STATUS = 0
 --		USUARIO
 --		EMPRESA
 
---		RUBROS
---		RUBROS_X_PUBLICACION
-
 --		PREGUNTA
 
 --		COMPRA
@@ -163,8 +160,7 @@ WHILE @@FETCH_STATUS = 0
             END
 
 		DECLARE @Publ_Buyer BIGINT
-        IF (@Cli_Dni IS NOT NULL)
-            BEGIN
+        IF (@Cli_Dni IS NOT NULL)            BEGIN
                 --Guardar el cliente si no existe, sino seteo el @Publ_Buyer con el id existente
                 IF NOT EXISTS(SELECT 1
                               FROM GOODTIMES.CLIENTE
