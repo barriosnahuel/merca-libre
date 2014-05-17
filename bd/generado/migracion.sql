@@ -58,19 +58,22 @@ DECLARE @Publ_Cli_Dni NUMERIC(18, 0),
 DECLARE maestra_cursor CURSOR READ_ONLY
 
 FOR
-    SELECT TOP 100000 *
+    SELECT TOP 10 *
     FROM [GD1C2014].[gd_esquema].[Maestra]
-    WHERE Publ_Cli_Dni IS NOT NULL
     ORDER BY Publicacion_Cod, Factura_Fecha, Factura_Nro, Compra_Fecha, Calificacion_Codigo;
 
 OPEN maestra_cursor
 FETCH NEXT FROM maestra_cursor
 INTO @Publ_Cli_Dni, @Publ_Cli_Apellido, @Publ_Cli_Nombre, @Publ_Cli_Fecha_Nac, @Publ_Cli_Mail, @Publ_Cli_Dom_Calle, @Publ_Cli_Nro_Calle, @Publ_Cli_Piso, @Publ_Cli_Depto, @Publ_Cli_Cod_Postal, @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, @Publ_Empresa_Fecha_Creacion, @Publ_Empresa_Mail, @Publ_Empresa_Dom_Calle, @Publ_Empresa_Nro_Calle, @Publ_Empresa_Piso, @Publ_Empresa_Depto, @Publ_Empresa_Cod_Postal, @Publicacion_Cod, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @Publicacion_Precio, @Publicacion_Tipo, @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Precio, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Estado, @Publicacion_Rubro_Descripcion, @Cli_Dni, @Cli_Apeliido, @Cli_Nombre, @Cli_Fecha_Nac, @Cli_Mail, @Cli_Dom_Calle, @Cli_Nro_Calle, @Cli_Piso, @Cli_Depto, @Cli_Cod_Postal, @Compra_Fecha, @Compra_Cantidad, @Oferta_Fecha, @Oferta_Monto, @Calificacion_Codigo, @Calificacion_Cant_Estrellas, @Calificacion_Descripcion, @Item_Factura_Monto, @Item_Factura_Cantidad, @Factura_Nro, @Factura_Fecha, @Factura_Total, @Forma_Pago_Desc
 
-DECLARE @Current_Publicacion_Cod NUMERIC(18, 0);
-DECLARE @username NVARCHAR(100);
-DECLARE @dir NVARCHAR(MAX);
-DECLARE @Publ_Owner BIGINT;
+DECLARE @Current_Publicacion_Cod NUMERIC(18, 0)
+DECLARE @Publicacion_Nuevo_ID BIGINT
+DECLARE @username NVARCHAR(100)
+DECLARE @dir NVARCHAR(MAX)
+DECLARE @Publ_Owner BIGINT
+DECLARE @tipoPublicacionId SMALLINT
+DECLARE @estadoPublicacionId SMALLINT
+DECLARE @visibilidadPublicacionId NUMERIC(18, 0)
 -- ID del usuario duenio de la publicacion
 SET @Current_Publicacion_Cod = 0;
 WHILE @@FETCH_STATUS = 0
@@ -98,7 +101,7 @@ WHILE @@FETCH_STATUS = 0
         IF (@Current_Publicacion_Cod <> @Publicacion_Cod)
             BEGIN
 
-                SET @Current_Publicacion_Cod = @Publicacion_Cod
+			    SET @Current_Publicacion_Cod = @Publicacion_Cod
 
                 IF (@Publ_Cli_Dni IS NOT NULL)
                     BEGIN
@@ -150,30 +153,57 @@ WHILE @@FETCH_STATUS = 0
                     END
 
 -- Guardar y Asociar PUBLICACION al USUARIO @Publ_Owner
-            END
-
-
-        DECLARE @tipoPublicacionId        SMALLINT
-        EXEC GOODTIMES.CrearTipoPublicacion @Publicacion_Tipo, @tipoPublicacionId OUTPUT
-
-        DECLARE @estadoPublicacionId      SMALLINT
-        EXEC GOODTIMES.CrearEstadoPublicacion @Publicacion_Estado, @Publicacion_Fecha_Venc, @estadoPublicacionId OUTPUT
-
-        DECLARE @visibilidadPublicacionId NUMERIC(18, 0)
-        EXEC GOODTIMES.CrearVisibilidadPublicacion @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Visibilidad_Precio, @visibilidadPublicacionId OUTPUT
-
+				EXEC GOODTIMES.CrearTipoPublicacion @Publicacion_Tipo, @tipoPublicacionId OUTPUT
+				EXEC GOODTIMES.CrearEstadoPublicacion @Publicacion_Estado, @Publicacion_Fecha_Venc, @estadoPublicacionId OUTPUT
+				EXEC GOODTIMES.CrearVisibilidadPublicacion @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Visibilidad_Precio, @visibilidadPublicacionId OUTPUT
+				
+				EXEC GOODTIMES.GuardarPublicacion -1, @Publ_Owner, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Precio, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @tipoPublicacionId, @estadoPublicacionId, @visibilidadPublicacionId, 1
+				SET @Publicacion_Nuevo_ID = @@IDENTITY; -- Id de la publicacion en el nuevo sistema
 -- Asociar RUBROS y RUBROS_X_PUBLICACION
-
--- Guardar compra del cliente
-        IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NULL)
-            BEGIN
-                PRINT 'Guardar compra del cliente'
--- Asociar COMPRA, OFERTA y CALIFICACION
             END
 
--- Asociar PREGUNTA
+		DECLARE @Publ_Buyer BIGINT
+        IF (@Cli_Dni IS NOT NULL)
+            BEGIN
+                --Guardar el cliente si no existe, sino seteo el @Publ_Buyer con el id existente
+                IF NOT EXISTS(SELECT 1
+                              FROM GOODTIMES.CLIENTE
+                              WHERE DNI = @Cli_Dni)
+                    BEGIN
+                        SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Cli_Nombre)
+                        SET @dir = @Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Cli_Piso) + ' ' + CONVERT(VARCHAR, @Cli_Depto)
+                        EXEC GOODTIMES.CrearCliente @Cli_Nombre, @Cli_Apeliido, @Cli_Dni, 'DNI', @Cli_Fecha_Nac, @username, "123456", 0, 1, 0, @Cli_Mail, '', @dir, @Cli_Cod_Postal, 'Buenos Aires'
+                        SET @Publ_Buyer = @@IDENTITY;
+                    END
+                ELSE
+                    BEGIN
+                        SET @Publ_Buyer = (
+                            SELECT ID
+                            FROM GOODTIMES.CLIENTE
+                            WHERE DNI = @Cli_Dni);
+                    END
+            END
+            
+        IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NULL)
+        BEGIN
+			-- Asociar COMPRA a @Publ_Buyer			
+        END
         
-        -- Asociar FACTURA, FACTURA_ITEM y FORMA_PAGO
+        IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NOT NULL AND @Calificacion_Codigo IS NULL)
+        BEGIN
+			-- Asociar OFERTA a @Publ_Buyer			
+        END    
+        
+        IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NOT NULL)
+        BEGIN
+			-- Asociar CALIFICACION a @Publ_Buyer			
+        END    
+        
+        IF (@Factura_Nro IS NOT NULL)
+        BEGIN
+			-- Crear factura si es que no existe
+			-- Agregar el item factura a esa factura
+        END
 
         FETCH NEXT FROM maestra_cursor
         INTO @Publ_Cli_Dni, @Publ_Cli_Apellido, @Publ_Cli_Nombre, @Publ_Cli_Fecha_Nac, @Publ_Cli_Mail, @Publ_Cli_Dom_Calle, @Publ_Cli_Nro_Calle, @Publ_Cli_Piso, @Publ_Cli_Depto, @Publ_Cli_Cod_Postal, @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, @Publ_Empresa_Fecha_Creacion, @Publ_Empresa_Mail, @Publ_Empresa_Dom_Calle, @Publ_Empresa_Nro_Calle, @Publ_Empresa_Piso, @Publ_Empresa_Depto, @Publ_Empresa_Cod_Postal, @Publicacion_Cod, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @Publicacion_Precio, @Publicacion_Tipo, @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Precio, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Estado, @Publicacion_Rubro_Descripcion, @Cli_Dni, @Cli_Apeliido, @Cli_Nombre, @Cli_Fecha_Nac, @Cli_Mail, @Cli_Dom_Calle, @Cli_Nro_Calle, @Cli_Piso, @Cli_Depto, @Cli_Cod_Postal, @Compra_Fecha, @Compra_Cantidad, @Oferta_Fecha, @Oferta_Monto, @Calificacion_Codigo, @Calificacion_Cant_Estrellas, @Calificacion_Descripcion, @Item_Factura_Monto, @Item_Factura_Cantidad, @Factura_Nro, @Factura_Fecha, @Factura_Total, @Forma_Pago_Desc
