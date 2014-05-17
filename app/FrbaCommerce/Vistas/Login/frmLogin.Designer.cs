@@ -47,7 +47,7 @@
             this.panel1.Controls.Add(this.usuario);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.contrasenia);
-            this.panel1.Location = new System.Drawing.Point(15, 62);
+            this.panel1.Location = new System.Drawing.Point(11, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 136);
             this.panel1.TabIndex = 8;
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(277, 185);
             this.Controls.Add(this.panel1);
             this.Name = "frmLogin";
             this.Text = "frmLogin";
