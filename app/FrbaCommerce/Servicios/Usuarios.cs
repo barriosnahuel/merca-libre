@@ -7,6 +7,7 @@ using System.Data;
 using Utiles;
 using FrbaCommerce.Modelos;
 
+
 namespace FrbaCommerce.Servicios
 {
     class Usuarios
@@ -61,6 +62,20 @@ namespace FrbaCommerce.Servicios
             usuario.login_fallidos = lector.GetInt32(lector.GetOrdinal("LOGIN_FALLIDOS"));
 
             return usuario;
+        }
+
+        internal static int logearse(string usuario, string contrasenia)
+        {
+            string contraseniaEncriptada = Utiles.Password.encriptarPassword(contrasenia);
+
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            
+            parametros.Add(new SqlParameter("@USUARIO", usuario));
+            parametros.Add(new SqlParameter("@CONTRASENIA", contraseniaEncriptada)); 
+
+            
+            return BasesDeDatos.queryForInt("GoodTimes.login", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
     }
 }

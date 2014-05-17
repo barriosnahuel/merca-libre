@@ -36,8 +36,9 @@
             this.bajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,8 @@
             this.registrarseToolStripMenuItem,
             this.rolesToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.empresasToolStripMenuItem});
+            this.empresasToolStripMenuItem,
+            this.loginToolStripMenuItem});
             this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
             this.administrarToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.administrarToolStripMenuItem.Text = "Administrar";
@@ -65,7 +67,7 @@
             // registrarseToolStripMenuItem
             // 
             this.registrarseToolStripMenuItem.Name = "registrarseToolStripMenuItem";
-            this.registrarseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registrarseToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.registrarseToolStripMenuItem.Text = "Registrarse";
             this.registrarseToolStripMenuItem.Click += new System.EventHandler(this.registrarseToolStripMenuItem_Click);
             // 
@@ -76,7 +78,7 @@
             this.bajaToolStripMenuItem,
             this.modificarToolStripMenuItem});
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.rolesToolStripMenuItem.Text = "Roles";
             // 
             // altaToolStripMenuItem
@@ -103,9 +105,16 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // empresasToolStripMenuItem
+            // 
+            this.empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
+            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.empresasToolStripMenuItem.Text = "Empresas";
+            this.empresasToolStripMenuItem.Click += new System.EventHandler(this.empresasToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -117,12 +126,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Bienvenido";
             // 
-            // empresasToolStripMenuItem
+            // loginToolStripMenuItem
             // 
-            this.empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
-            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.empresasToolStripMenuItem.Text = "Empresas";
-            this.empresasToolStripMenuItem.Click += new System.EventHandler(this.empresasToolStripMenuItem_Click);
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loginToolStripMenuItem.Text = "login";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -153,6 +162,7 @@
         private System.Windows.Forms.ToolStripMenuItem registrarseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empresasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
 
 
     }

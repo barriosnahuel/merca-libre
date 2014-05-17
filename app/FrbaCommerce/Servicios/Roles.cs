@@ -101,7 +101,7 @@ namespace FrbaCommerce.Servicios
             parametro.Value = int.Parse("0");
             parametros.Add(parametro);
 
-            BasesDeDatos.EscribirEnBase("GoodTimes.CrearRol", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+            BasesDeDatos.EscribirEnBase("GoodTimes.GuardarRol", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
 
         }
 

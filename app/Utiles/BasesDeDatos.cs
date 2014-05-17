@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace Utiles
 {
@@ -13,7 +14,7 @@ namespace Utiles
     {
 
         static SqlConnection Conexion = new SqlConnection();
-        static String connString = @"Server=localhost\SQLSERVER2008;Database=GD1C2014;User Id=gd;Password=gd2014;";
+        static String connString = @"Server=localhost\SQLEXPRESS;Database=GD1C2014;User Id=gd;Password=gd2014;";
 
         public static SqlConnection ObtenerConexion()
         {
@@ -177,6 +178,37 @@ namespace Utiles
         {
             List<SqlParameter> ListaParametros = new List<SqlParameter>();
             return EscribirEnBase(SQL, TiposEscritura.Text, ListaParametros);
+        }
+
+        public static int queryForInt(string SQL, TiposEscritura Descripcion, List<SqlParameter> Parametros)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.CommandText = SQL;
+
+            foreach (SqlParameter par in Parametros)
+            {
+                comando.Parameters.Add(par);
+            }
+
+            switch (Descripcion)
+            {
+                case TiposEscritura.Text:
+                    comando.CommandType = CommandType.Text;
+                    break;
+
+                case TiposEscritura.StoreProcedure:
+                    comando.CommandType = CommandType.StoredProcedure;
+                    break;
+
+                default:
+                    break;
+
+            }
+
+            comando.Connection = ObtenerConexion();
+
+           return (int)comando.ExecuteScalar();
+            
         }
 
     }

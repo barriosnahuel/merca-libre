@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FrbaCommerce.Modelos
 {
-    class Usuario
+    public class Usuario
     {
         public Int64 id { get; set; }
         public Int32 login_fallidos { get; set; }
@@ -18,5 +18,6 @@ namespace FrbaCommerce.Modelos
         public String localidad { get; set; }
         public Boolean habilitado { get; set; }
         public Boolean eliminado { get; set; }
+        public Rol rol { get; set;}
     }
 }

@@ -12,6 +12,7 @@ using FrbaCommerce.Registro_de_Usuario;
 using FrbaCommerce.Abm_Cliente;
 using FrbaCommerce.Vistas.ABM_Rol;
 using FrbaCommerce.Vistas.Abm_Cliente;
+using FrbaCommerce.Vistas.Login;
 
 namespace FrbaCommerce
 {
@@ -20,6 +21,7 @@ namespace FrbaCommerce
         public frmPrincipal()
         {
             InitializeComponent();
+            if (Session.usuario != null)   label1.Text += " " + Session.usuario.username;
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,6 +59,15 @@ namespace FrbaCommerce
             ListadoBusquedaEmpresas form = new ListadoBusquedaEmpresas();
             form.Show();
         }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin form = new frmLogin();
+            form.Show();
+            
+        }
+
+
 
     }
 }

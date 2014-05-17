@@ -36,15 +36,16 @@ namespace FrbaCommerce.Registro_de_Usuario
             String rolText = rol.Text;
             if (validate())
             {
+                String contrasenia = Utiles.Password.encriptarPassword(password2.Text);
                 if (rolText.Equals(CLIENTE))
                 {
-                    RegistroPasoDosCliente siguienteVentana = new RegistroPasoDosCliente(username.Text, password2.Text);
+                    RegistroPasoDosCliente siguienteVentana = new RegistroPasoDosCliente(username.Text, contrasenia);
                     siguienteVentana.Show();
                     this.Close();
                 }
                 else if (rolText.Equals(EMPRESA))
                 {
-                    RegistroPasoDosEmpresa siguienteVentana = new RegistroPasoDosEmpresa(username.Text, password2.Text);
+                    RegistroPasoDosEmpresa siguienteVentana = new RegistroPasoDosEmpresa(username.Text, contrasenia);
                     siguienteVentana.Show();
                     this.Close();
                 }
