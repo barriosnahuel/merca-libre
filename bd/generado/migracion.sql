@@ -85,7 +85,6 @@ WHILE @@FETCH_STATUS = 0
 --		RUBROS_X_PUBLICACION
 
 --		VISIBILIDAD_PUBLICACION
---		ESTADO
 
 --		PREGUNTA
 
@@ -156,10 +155,15 @@ WHILE @@FETCH_STATUS = 0
             END
 
 
-        EXEC GOODTIMES.CrearTipoPublicacion @Publicacion_Tipo
+        DECLARE @tipoPublicacionId   SMALLINT
+        EXEC GOODTIMES.CrearTipoPublicacion @Publicacion_Tipo, @tipoPublicacionId OUTPUT
+        PRINT 'tipoPublicacionId creado/encontrado: ' + cast(@tipoPublicacionId AS CHAR)
+
+        DECLARE @estadoPublicacionId SMALLINT
+        EXEC GOODTIMES.CrearEstadoPublicacion @Publicacion_Estado, @Publicacion_Fecha_Venc, @estadoPublicacionId OUTPUT
+        PRINT 'estadoPublicacionId creado/encontrado: ' + cast(@estadoPublicacionId AS CHAR)
 
 -- Asociar VISIBILIDAD_PUBLICACION
--- Asociar ESTADO
 -- Asociar RUBROS y RUBROS_X_PUBLICACION
 
 -- Guardar compra del cliente
