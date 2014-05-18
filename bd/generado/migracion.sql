@@ -81,9 +81,6 @@ WHILE @@FETCH_STATUS = 0
 --		USUARIO
 --		EMPRESA
 
---		RUBROS
---		RUBROS_X_PUBLICACION
-
 --		PREGUNTA
 
 --		COMPRA
@@ -161,8 +158,6 @@ WHILE @@FETCH_STATUS = 0
 
         DECLARE @visibilidadPublicacionId NUMERIC(18, 0)
         EXEC GOODTIMES.CrearVisibilidadPublicacion @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Visibilidad_Precio, @visibilidadPublicacionId OUTPUT
-
--- Asociar RUBROS y RUBROS_X_PUBLICACION
 
 -- Guardar compra del cliente
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NULL)
