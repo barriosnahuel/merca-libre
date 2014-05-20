@@ -80,12 +80,6 @@ WHILE @@FETCH_STATUS = 0
     BEGIN
 
 -- Tablas a completar:
---		PUBLICACION
---		USUARIO
---		EMPRESA
-
---		PREGUNTA
-
 --		COMPRA
 --		OFERTA
 --		CALIFICACION
