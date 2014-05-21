@@ -42,6 +42,7 @@
             this.cuit_search = new System.Windows.Forms.TextBox();
             this.search_button = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.login_fallidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eliminado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -86,6 +87,7 @@
             this.listadoEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoEmpresas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.rol,
             this.empresa_id,
             this.login_fallidos,
             this.eliminado,
@@ -207,12 +209,22 @@
             this.id.DataPropertyName = "id";
             this.id.HeaderText = "id";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // rol
+            // 
+            this.rol.DataPropertyName = "rol";
+            this.rol.HeaderText = "rol";
+            this.rol.Name = "rol";
+            this.rol.Visible = false;
             // 
             // empresa_id
             // 
             this.empresa_id.DataPropertyName = "empresa_id";
             this.empresa_id.HeaderText = "empresa_id";
             this.empresa_id.Name = "empresa_id";
+            this.empresa_id.Visible = false;
             // 
             // login_fallidos
             // 
@@ -235,12 +247,14 @@
             this.razon_social.DataPropertyName = "razon_social";
             this.razon_social.HeaderText = "Razon Social";
             this.razon_social.Name = "razon_social";
+            this.razon_social.ReadOnly = true;
             // 
             // CUIT
             // 
             this.CUIT.DataPropertyName = "cuit";
             this.CUIT.HeaderText = "cuit";
             this.CUIT.Name = "CUIT";
+            this.CUIT.ReadOnly = true;
             // 
             // nombreContacto
             // 
@@ -340,6 +354,7 @@
         private System.Windows.Forms.TextBox cuit_search;
         private System.Windows.Forms.Button search_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresa_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn login_fallidos;
         private System.Windows.Forms.DataGridViewCheckBoxColumn eliminado;

@@ -59,6 +59,7 @@
             this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo_postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_nacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.habilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoClientes)).BeginInit();
@@ -234,6 +235,7 @@
             this.direccion,
             this.codigo_postal,
             this.fecha_nacimiento,
+            this.rol,
             this.habilitado});
             this.listadoClientes.Location = new System.Drawing.Point(12, 122);
             this.listadoClientes.Name = "listadoClientes";
@@ -245,6 +247,7 @@
             this.cliente_id.DataPropertyName = "cliente_id";
             this.cliente_id.HeaderText = "cliente_id";
             this.cliente_id.Name = "cliente_id";
+            this.cliente_id.ReadOnly = true;
             this.cliente_id.Visible = false;
             // 
             // id
@@ -252,6 +255,7 @@
             this.id.DataPropertyName = "id";
             this.id.HeaderText = "id";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
             // Username
@@ -302,6 +306,7 @@
             this.telefono.DataPropertyName = "telefono";
             this.telefono.HeaderText = "Teléfono";
             this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
             // 
             // direccion
             // 
@@ -320,6 +325,13 @@
             this.fecha_nacimiento.DataPropertyName = "fecha_nacimiento";
             this.fecha_nacimiento.HeaderText = "Fecha de Nacimiento";
             this.fecha_nacimiento.Name = "fecha_nacimiento";
+            // 
+            // rol
+            // 
+            this.rol.DataPropertyName = "rol";
+            this.rol.HeaderText = "rol";
+            this.rol.Name = "rol";
+            this.rol.Visible = false;
             // 
             // habilitado
             // 
@@ -380,6 +392,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_postal;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_nacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rol;
         private System.Windows.Forms.DataGridViewCheckBoxColumn habilitado;
     }
 }

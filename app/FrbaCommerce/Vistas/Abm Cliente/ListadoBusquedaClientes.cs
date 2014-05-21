@@ -33,66 +33,34 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void search_button_Click(object sender, EventArgs e)
         {
-            List<Cliente> clientes = Clientes.Buscar(nombre_search.Text, apellido_search.Text, mail_search.Text, tipoDoc_search.Text, documento_search.Text);
+            List<Cliente> clientes = Clientes.Buscar(nombre_search.Text, apellido_search.Text, 
+                mail_search.Text, tipoDoc_search.Text, documento_search.Text);
             listadoClientes.DataSource = clientes;
         }
 
         private void modify_button_Click(object sender, EventArgs e)
         {
-            Int32 selectedRowCount =
-        listadoClientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount == 1)
-            {
                 if (!confirmacionPorMensaje()) return;
-                Cliente cliente = new Cliente();
 
-                cliente.id = (Int64)listadoClientes.SelectedRows[0].Cells["id"].Value;
-                cliente.username = (String)listadoClientes.SelectedRows[0].Cells["username"].Value;
-                cliente.habilitado = (Boolean)listadoClientes.SelectedRows[0].Cells["habilitado"].Value;
-                cliente.eliminado = (Boolean)listadoClientes.SelectedRows[0].Cells["eliminado"].Value;
-                cliente.mail = (String)listadoClientes.SelectedRows[0].Cells["mail"].Value;
-                cliente.telefono = (String)listadoClientes.SelectedRows[0].Cells["telefono"].Value;
-                cliente.direccion = (String)listadoClientes.SelectedRows[0].Cells["direccion"].Value;
-                cliente.codigo_postal = (String)listadoClientes.SelectedRows[0].Cells["codigo_postal"].Value;
-                cliente.localidad = (String)listadoClientes.SelectedRows[0].Cells["localidad"].Value;
-
-                cliente.cliente_id = (Int64)listadoClientes.SelectedRows[0].Cells["cliente_id"].Value;
-                cliente.nombre = (String)listadoClientes.SelectedRows[0].Cells["nombre"].Value;
-                cliente.apellido = (String)listadoClientes.SelectedRows[0].Cells["apellido"].Value;
-                cliente.dni = (String)listadoClientes.SelectedRows[0].Cells["dni"].Value;
-                cliente.dni_tipo = (String)listadoClientes.SelectedRows[0].Cells["dni_tipo"].Value;
-                cliente.fecha_nacimiento = (DateTime)listadoClientes.SelectedRows[0].Cells["fecha_nacimiento"].Value;
-
-                cliente.login_fallidos = 0;
-
+                Cliente cliente = (Cliente)listadoClientes.CurrentRow.DataBoundItem;
                 if (ClienteValidaciones.validate(cliente, false))
                 {
                     Clientes.actualizarCliente(cliente);
-                    listadoClientes.DataSource = Clientes.Buscar(nombre_search.Text, apellido_search.Text, mail_search.Text, tipoDoc_search.Text, documento_search.Text);
+                    listadoClientes.DataSource = Clientes.Buscar(nombre_search.Text, apellido_search.Text, 
+                        mail_search.Text, tipoDoc_search.Text, documento_search.Text);
                     MessageBox.Show("Actualizaste el cliente con exito", "Exito");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Debes elegir una fila de cliente para modificarlo.", "Error");
-            }
         }
 
         private void delete_button_Click(object sender, EventArgs e)
         {
-            Int32 selectedRowCount = listadoClientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount == 1)
-            {
                 if (!confirmacionPorMensaje()) return;
-                Int64 id = (Int64)listadoClientes.SelectedRows[0].Cells["id"].Value;
-                Clientes.eliminarCliente(id);
-                listadoClientes.DataSource = Clientes.Buscar(nombre_search.Text, apellido_search.Text, mail_search.Text, tipoDoc_search.Text, documento_search.Text);
+                Cliente cliente = (Cliente)listadoClientes.CurrentRow.DataBoundItem;
+                Clientes.eliminarCliente(cliente.id);
+                listadoClientes.DataSource = Clientes.Buscar(nombre_search.Text, apellido_search.Text, 
+                    mail_search.Text, tipoDoc_search.Text, documento_search.Text);
                 MessageBox.Show("Eliminaste el cliente con exito", "Exito");
-            }
-            else
-            {
-                MessageBox.Show("Debes elegir una fila de cliente para eliminarlo.", "Error");
-            }
+
         }
 
         private Boolean confirmacionPorMensaje()

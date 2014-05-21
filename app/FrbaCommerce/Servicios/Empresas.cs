@@ -73,6 +73,9 @@ namespace FrbaCommerce.Servicios
             SqlParameter parametro = new SqlParameter("@ID", SqlDbType.VarChar, 100);
             parametro.Value = empresa.id;
             parametros.Add(parametro);
+            parametro = new SqlParameter("@EMPRESA_ID", SqlDbType.BigInt, 100);
+            parametro.Value = empresa.empresa_id;
+            parametros.Add(parametro);
 
             BasesDeDatos.EscribirEnBase("GoodTimes.ModificarEmpresa", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
@@ -165,9 +168,6 @@ namespace FrbaCommerce.Servicios
             parametros.Add(parametro);
             parametro = new SqlParameter("@FECHA_CREACION", SqlDbType.DateTime, 100);
             parametro.Value = empresa.fecha_creacion;
-            parametros.Add(parametro);
-            parametro = new SqlParameter("@EMPRESA_ID", SqlDbType.BigInt, 100);
-            parametro.Value = empresa.empresa_id;
             parametros.Add(parametro);
 
             parametro = new SqlParameter("@USERNAME", SqlDbType.VarChar, 100);

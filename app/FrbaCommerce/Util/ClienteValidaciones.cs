@@ -69,7 +69,7 @@ namespace FrbaCommerce.Util
                 return false;
             }
 
-            if (!FormValidate.StringIsNullOrEmpty(cliente.codigo_postal, "codigopPostal"))
+            if (!FormValidate.StringIsNullOrEmpty(cliente.codigo_postal, "codigoPostal"))
             {
                 return false;
             }
