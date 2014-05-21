@@ -73,6 +73,7 @@
     <Compile Include="Servicios\Funciones.cs" />
     <Compile Include="Servicios\Usuarios.cs" />
     <Compile Include="Util\ClienteValidaciones.cs" />
+    <Compile Include="Util\EmpresaValidaciones.cs" />
     <Compile Include="Util\FormValidate.cs" />
     <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.cs">
       <SubType>Form</SubType>
@@ -151,10 +152,14 @@
     <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoUno.resx">
       <DependentUpon>RegistroPasoUno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Ver publicaciones\ListadoDePublicaciones.resx">
+      <DependentUpon>ListadoDePublicaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,6 +200,12 @@
       <DependentUpon>RegistroPasoUno.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Roles.cs" />
+    <Compile Include="Vistas\Ver publicaciones\ListadoDePublicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Ver publicaciones\ListadoDePublicaciones.Designer.cs">
+      <DependentUpon>ListadoDePublicaciones.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utiles\Utiles.csproj">

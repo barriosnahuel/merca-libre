@@ -26,8 +26,7 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
 
         private void crear_button_Click(object sender, EventArgs e)
         {
-            if(validate())
-            {
+           
                 empresa.nombreContacto = nombre.Text;
                 empresa.razon_social = razonSocial.Text;
                 empresa.mail = mail.Text;
@@ -37,32 +36,14 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
                 empresa.localidad = localidad.Text;
                 empresa.fecha_creacion = Convert.ToDateTime(fecha.Value.ToString());
                 empresa.cuit = Int64.Parse(cuit.Text);
-                Empresas.crearEmpresa(empresa);
-                MessageBox.Show("El usuario empresa se creó con exito", "Exito");
-                this.Close();
-            }
+                if (EmpresaValidaciones.validate(empresa, true))
+                {
+                    Empresas.crearEmpresa(empresa);
+                    MessageBox.Show("El usuario empresa se creó con exito", "Exito");
+                    this.Close();
+                }
         }
 
-        private Boolean validate()
-        {
-            if (!validateEmptyFields())
-            {
-                return false;
-            }
-
-            if (Empresas.buscarEmpresaPorCuit(Int64.Parse(cuit.Text)) != null)
-            {
-                MessageBox.Show("Existe una empresa con el cuit: " + cuit.Text, "Error en la validacion");
-                return false;
-            }
-
-            if (Empresas.buscarEmpresaPorRazonSocial(razonSocial.Text) != null)
-            {
-                MessageBox.Show("Existe una empresa con la razon social: " + razonSocial.Text, "Error en la validacion");
-                return false;
-            }
-            return true;
-        }
 
         private void borrar_button_Click(object sender, EventArgs e)
         {
@@ -74,45 +55,6 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
             direccion.Text = "";
             localidad.Text = "";
             cuit.Text = "";
-        }
-
-        private Boolean validateEmptyFields()
-        {
-
-            if (!FormValidate.StringIsNullOrEmpty(nombre.Text, "nombre"))
-            {
-                return false;
-            }
-            if (!FormValidate.StringIsNullOrEmpty(razonSocial.Text, "razon social"))
-            {
-                return false;
-            }
-            if (!FormValidate.StringIsNullOrEmpty(mail.Text, "e-mail"))
-            {
-                return false;
-            }
-            if (!FormValidate.StringIsNullOrEmpty(telefono.Text, "telefono"))
-            {
-                return false;
-            }
-            if (!FormValidate.StringIsNullOrEmpty(codigoPostal.Text, "codigo postal"))
-            {
-                return false;
-            }
-            if (!FormValidate.StringIsNullOrEmpty(direccion.Text, "direccion"))
-            {
-                return false;
-            }
-            if (!FormValidate.StringIsNullOrEmpty(localidad.Text, "localidad"))
-            {
-                return false;
-            }
-            if (!FormValidate.StringIsNullOrEmpty(cuit.Text, "cuit"))
-            {
-                return false;
-            }
-
-            return true;
         }
 
     }
