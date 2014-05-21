@@ -17,7 +17,7 @@ namespace FrbaCommerce.Modelos
         public EstadoPublicacion estado { get; set; }
         public Visibilidad visibilidad { get; set; }
         public Boolean admitePregunta { get; set; }
-        public Collection<Rubro> rubros { get; set; }
+        public List<Rubro> rubros { get; set; }
 
 
 
