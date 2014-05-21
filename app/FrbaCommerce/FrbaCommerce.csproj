@@ -68,10 +68,11 @@
     <Compile Include="Modelos\EstadoPublicacion.cs" />
     <Compile Include="Modelos\Funcion.cs" />
     <Compile Include="Modelos\Publicacion.cs" />
+    <Compile Include="Modelos\Rubro.cs" />
     <Compile Include="Modelos\Session.cs" />
     <Compile Include="Modelos\TipoPublicacion.cs" />
     <Compile Include="Modelos\Usuario.cs" />
-    <Compile Include="Modelos\VIsibilidad.cs" />
+    <Compile Include="Modelos\Visibilidad.cs" />
     <Compile Include="Servicios\Clientes.cs" />
     <Compile Include="Servicios\Empresas.cs" />
     <Compile Include="Servicios\Funciones.cs" />
