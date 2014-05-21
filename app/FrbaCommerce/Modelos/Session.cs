@@ -7,12 +7,6 @@ namespace FrbaCommerce.Modelos
 {
     static class Session
     {
-       // public static readonly Session instancia = new Session();
         public static Usuario usuario;
-
-        //public static Session Instancia()
-        //{
-        //    return instancia;
-        //}
     }
 }

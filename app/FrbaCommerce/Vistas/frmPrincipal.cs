@@ -13,6 +13,7 @@ using FrbaCommerce.Abm_Cliente;
 using FrbaCommerce.Vistas.ABM_Rol;
 using FrbaCommerce.Vistas.Abm_Cliente;
 using FrbaCommerce.Vistas.Login;
+using FrbaCommerce.Vistas.Generar_Publicacion;
 
 namespace FrbaCommerce
 {
@@ -65,6 +66,12 @@ namespace FrbaCommerce
             frmLogin form = new frmLogin();
             form.Show();
             
+        }
+
+        private void generarPublicacion_Click(object sender, EventArgs e)
+        {
+            frmGenerarPublicacion form = new frmGenerarPublicacion();
+            form.Show();
         }
 
 

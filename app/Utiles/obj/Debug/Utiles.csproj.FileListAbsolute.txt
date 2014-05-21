@@ -5,3 +5,10 @@ C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles
 C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Debug\Utiles.csproj.GenerateResource.Cache
 C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Debug\Utiles.exe
 C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Debug\Utiles.pdb
+C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\bin\Debug\Utiles.exe
+C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\bin\Debug\Utiles.pdb
+C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\Utiles.Properties.Resources.resources
+C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\Utiles.csproj.GenerateResource.Cache
+C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\Utiles.exe
+C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\Utiles.pdb

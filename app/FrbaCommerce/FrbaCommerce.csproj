@@ -136,6 +136,9 @@
     <EmbeddedResource Include="Vistas\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Generar Publicacion\frmGenerarPublicacion.resx">
+      <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +163,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Vistas\Generar Publicacion\frmGenerarPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Generar Publicacion\frmGenerarPublicacion.Designer.cs">
+      <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -233,7 +242,6 @@
     <Folder Include="Vistas\Comprar-Ofertar\" />
     <Folder Include="Vistas\Editar Publicacion\" />
     <Folder Include="Vistas\Facturar Publicaciones\" />
-    <Folder Include="Vistas\Generar Publicacion\" />
     <Folder Include="Vistas\Gestion de Preguntas\" />
     <Folder Include="Vistas\Historial Cliente\" />
     <Folder Include="Vistas\Listado Estadistico\" />

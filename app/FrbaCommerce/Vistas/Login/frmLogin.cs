@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Servicios;
+using FrbaCommerce.Util;
 
 namespace FrbaCommerce.Vistas.Login
 {
@@ -20,7 +21,8 @@ namespace FrbaCommerce.Vistas.Login
 
         private void aceptar_Click(object sender, EventArgs e)
         {
-            if ((usuario.Text.Length > 0) && (contrasenia.Text.Length > 0))
+            if (FormValidate.StringIsNullOrEmpty(usuario.Text, "username")
+                && FormValidate.StringIsNullOrEmpty(contrasenia.Text, "password"))
             {
                 int logeo = Usuarios.logearse(usuario.Text, contrasenia.Text);
 
@@ -34,13 +36,13 @@ namespace FrbaCommerce.Vistas.Login
                         this.Close();
                         break;
                     case 1:
-                        MessageBox.Show("Contraseña incorrecta.", "Ok");
+                        MessageBox.Show("Contraseña incorrecta." ,"Error");
                         break;
                     case 2:
-                        MessageBox.Show("Usuario inexistente.", "Ok");
+                        MessageBox.Show("Usuario inexistente.", "Error");
                         break;
                     case 3:
-                        MessageBox.Show("Usuario alcanzo el límite de intentos.", "Ok");
+                        MessageBox.Show("Usuario alcanzo el límite de intentos.", "Error");
                         break;
                 }
 
