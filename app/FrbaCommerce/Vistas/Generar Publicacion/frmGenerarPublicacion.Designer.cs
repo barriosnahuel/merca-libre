@@ -100,12 +100,11 @@
             this.precio.Size = new System.Drawing.Size(121, 20);
             this.precio.TabIndex = 5;
             this.precio.Text = "00,00";
-            this.precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.precio_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 190);
+            this.label3.Location = new System.Drawing.Point(29, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 6;
@@ -113,22 +112,22 @@
             // 
             // fechaDesde
             // 
-            this.fechaDesde.Location = new System.Drawing.Point(198, 190);
+            this.fechaDesde.Location = new System.Drawing.Point(108, 190);
             this.fechaDesde.Name = "fechaDesde";
-            this.fechaDesde.Size = new System.Drawing.Size(224, 20);
+            this.fechaDesde.Size = new System.Drawing.Size(137, 20);
             this.fechaDesde.TabIndex = 7;
             // 
             // fechaHasta
             // 
-            this.fechaHasta.Location = new System.Drawing.Point(198, 236);
+            this.fechaHasta.Location = new System.Drawing.Point(338, 190);
             this.fechaHasta.Name = "fechaHasta";
-            this.fechaHasta.Size = new System.Drawing.Size(224, 20);
+            this.fechaHasta.Size = new System.Drawing.Size(137, 20);
             this.fechaHasta.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(103, 236);
+            this.label4.Location = new System.Drawing.Point(259, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 8;
@@ -136,6 +135,7 @@
             // 
             // tipoPublicacion
             // 
+            this.tipoPublicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tipoPublicacion.FormattingEnabled = true;
             this.tipoPublicacion.Location = new System.Drawing.Point(124, 302);
             this.tipoPublicacion.Name = "tipoPublicacion";
@@ -153,6 +153,7 @@
             // 
             // estado
             // 
+            this.estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.estado.FormattingEnabled = true;
             this.estado.Location = new System.Drawing.Point(354, 305);
             this.estado.Name = "estado";
@@ -196,6 +197,7 @@
             // 
             // visibilidad
             // 
+            this.visibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.visibilidad.FormattingEnabled = true;
             this.visibilidad.Location = new System.Drawing.Point(354, 360);
             this.visibilidad.Name = "visibilidad";

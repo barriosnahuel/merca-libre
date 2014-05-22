@@ -7,34 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using FrbaCommerce.Servicios;
+using FrbaCommerce.Modelos;
 
 namespace FrbaCommerce.Vistas.Generar_Publicacion
 {
     public partial class frmGenerarPublicacion : Form
     {
+        List<TipoPublicacion> tiposPublicacion;
+        List<EstadoPublicacion> estados;
+
         public frmGenerarPublicacion()
         {
+            tiposPublicacion = TipoPublicaciones.listar();
+            estados = Estados.listar();
             InitializeComponent();
 
 
             fechaDesde.Format = DateTimePickerFormat.Custom;
-            fechaDesde.CustomFormat  =  "hh:mm:ss MMMM dd, yyyy";
+            fechaDesde.CustomFormat = "dd/MM/yyyy hh:mm";
 
             fechaHasta.Format = DateTimePickerFormat.Custom;
-            fechaHasta.CustomFormat = "hh:mm:ss MMMM dd, yyyy";
+            fechaHasta.CustomFormat = "dd/MM/yyyy hh:mm";
+            tipoPublicacion.Items.Clear();
+            
+
+            int i = 0;
+            foreach (TipoPublicacion tipo in tiposPublicacion)
+            {
+                tipoPublicacion.Items.Insert(i,tipo.descripcion);
+
+                i = i + 1;
+            }
+            tipoPublicacion.SelectedIndex = 0;
+
+            i = 0;
+
+            foreach (EstadoPublicacion _estado in estados)
+            {
+                estado.Items.Insert(i, _estado.descripcion);
+
+                i = i + 1;
+            }
+            estado.SelectedIndex = 0;
+
+            
+
 
 
         }
 
-        private void precio_KeyPress(object sender, KeyPressEventArgs e)
-        {          
-
-            if (char.IsNumber(e.KeyChar) || e.KeyChar==',')
-             {
-              //if (Regex.IsMatch(precio.Text,"^[0-9]+(\\d{2})?$"))
-                  e.Handled = true;
-             }
-             //else e.Handled = e.KeyChar!=(char)Keys.Back;
-        }
     }
 }

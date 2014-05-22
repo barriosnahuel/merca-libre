@@ -7,7 +7,7 @@ namespace FrbaCommerce.Modelos
 {
     class EstadoPublicacion
     {
-        Int32 id { get; set; }
-        String descripcion { get; set; }
+        public Int32 id { get; set; }
+        public String descripcion { get; set; }
     }
 }

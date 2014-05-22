@@ -8,7 +8,7 @@ namespace FrbaCommerce.Modelos
     class TipoPublicacion
     {
     
-        Int32 id { get; set; }
-        String descripcion { get; set; }
+       public Int32 id { get; set; }
+       public String descripcion { get; set; }
     }
 }
