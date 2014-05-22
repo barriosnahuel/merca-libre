@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace FrbaCommerce.Servicios
 {
-    class Estados
+    class EstadosPublicacion
     {
 
         public static List<EstadoPublicacion> listar () {

@@ -20,7 +20,7 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
         public frmGenerarPublicacion()
         {
             tiposPublicacion = TipoPublicaciones.listar();
-            estados = Estados.listar();
+            estados = EstadosPublicacion.listar();
             InitializeComponent();
 
 
