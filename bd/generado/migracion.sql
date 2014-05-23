@@ -55,7 +55,7 @@ DECLARE @Publ_Cli_Dni NUMERIC(18, 0),
 @Forma_Pago_Desc NVARCHAR(255);
 
 -- READ_ONLY dramatically improves the performance of the cursor.
-DECLARE maestra_cursor CURSOR READ_ONLY
+DECLARE maestra_cursor CURSOR
 
 FOR
     SELECT TOP 10 *
@@ -67,6 +67,9 @@ FETCH NEXT FROM maestra_cursor
 INTO @Publ_Cli_Dni, @Publ_Cli_Apellido, @Publ_Cli_Nombre, @Publ_Cli_Fecha_Nac, @Publ_Cli_Mail, @Publ_Cli_Dom_Calle, @Publ_Cli_Nro_Calle, @Publ_Cli_Piso, @Publ_Cli_Depto, @Publ_Cli_Cod_Postal, @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, @Publ_Empresa_Fecha_Creacion, @Publ_Empresa_Mail, @Publ_Empresa_Dom_Calle, @Publ_Empresa_Nro_Calle, @Publ_Empresa_Piso, @Publ_Empresa_Depto, @Publ_Empresa_Cod_Postal, @Publicacion_Cod, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @Publicacion_Precio, @Publicacion_Tipo, @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Precio, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Estado, @Publicacion_Rubro_Descripcion, @Cli_Dni, @Cli_Apeliido, @Cli_Nombre, @Cli_Fecha_Nac, @Cli_Mail, @Cli_Dom_Calle, @Cli_Nro_Calle, @Cli_Piso, @Cli_Depto, @Cli_Cod_Postal, @Compra_Fecha, @Compra_Cantidad, @Oferta_Fecha, @Oferta_Monto, @Calificacion_Codigo, @Calificacion_Cant_Estrellas, @Calificacion_Descripcion, @Item_Factura_Monto, @Item_Factura_Cantidad, @Factura_Nro, @Factura_Fecha, @Factura_Total, @Forma_Pago_Desc
 
 DECLARE @Current_Publicacion_Cod NUMERIC(18, 0)
+DECLARE @Current_Factura_Nro NUMERIC(18, 0)
+SET @Current_Factura_Nro = 0
+DECLARE @Factura_Nro_Nuevo NUMERIC(18, 0)
 DECLARE @Publicacion_Nuevo_ID BIGINT
 DECLARE @username NVARCHAR(100)
 DECLARE @dir NVARCHAR(MAX)
@@ -75,6 +78,7 @@ DECLARE @tipoPublicacionId SMALLINT
 DECLARE @estadoPublicacionId SMALLINT
 DECLARE @visibilidadPublicacionId NUMERIC(18, 0)
 DECLARE @Publ_Buyer BIGINT
+DECLARE @Forma_pago_ID smallint
 -- ID del usuario duenio de la publicacion
 SET @Current_Publicacion_Cod = 0;
 WHILE @@FETCH_STATUS = 0
@@ -82,11 +86,7 @@ WHILE @@FETCH_STATUS = 0
 
 -- Tablas a completar:
 --		OFERTA
-
---		FACTURA
---		FACTURA_ITEM
---		FORMA_PAGO
-
+--		RUBRO
 
         IF (@Current_Publicacion_Cod <> @Publicacion_Cod)
             BEGIN
@@ -192,8 +192,25 @@ WHILE @@FETCH_STATUS = 0
         
         IF (@Factura_Nro IS NOT NULL)
         BEGIN
-			-- Crear factura si es que no existe
-			-- Agregar el item factura a esa factura
+			IF (@Factura_Nro <> @Current_Factura_Nro)
+			BEGIN
+				-- Guardar forma de pago si no existe
+				IF (NOT EXISTS(SELECT 1 FROM GOODTIMES.FORMA_PAGO WHERE DESCRIPCION = @Forma_Pago_Desc))
+				BEGIN
+					EXEC [GOODTIMES].[CrearFormaPago] @Forma_Pago_Desc
+					SET @Forma_pago_ID = @@IDENTITY;
+				END
+				ELSE
+				BEGIN
+					SET @Forma_pago_ID = (SELECT ID FROM GOODTIMES.FORMA_PAGO WHERE DESCRIPCION = @Forma_Pago_Desc);
+				END
+				-- Guardar la factura y guardar ID en @Factura_Nro_Nuevo
+				EXEC [GOODTIMES].[CrearFactura] @Publ_Owner, @Factura_Fecha, @Forma_pago_ID, 0
+				SET @Factura_Nro_Nuevo = @@IDENTITY;			
+			END
+			
+			-- Agregar el item factura a la factura
+			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro_Nuevo, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''			
         END
 
         FETCH NEXT FROM maestra_cursor
