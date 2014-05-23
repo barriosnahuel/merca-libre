@@ -82,7 +82,6 @@ WHILE @@FETCH_STATUS = 0
 
 -- Tablas a completar:
 --		OFERTA
---		CALIFICACION
 
 --		FACTURA
 --		FACTURA_ITEM
@@ -187,7 +186,8 @@ WHILE @@FETCH_STATUS = 0
         
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NOT NULL)
         BEGIN
-			-- Asociar CALIFICACION a @Publ_Buyer			
+			-- Asociar CALIFICACION a @Publ_Buyer	
+			EXEC [GOODTIMES].[GuardarCalificacion] @Publ_Buyer, @Publicacion_Nuevo_ID, @Calificacion_Cant_Estrellas, @Calificacion_Descripcion
         END    
         
         IF (@Factura_Nro IS NOT NULL)
