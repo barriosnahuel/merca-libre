@@ -85,7 +85,6 @@ WHILE @@FETCH_STATUS = 0
     BEGIN
 
 -- Tablas a completar:
---		OFERTA
 --		RUBRO
 
         IF (@Current_Publicacion_Cod <> @Publicacion_Cod)
@@ -182,6 +181,7 @@ WHILE @@FETCH_STATUS = 0
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NOT NULL AND @Calificacion_Codigo IS NULL)
         BEGIN
 			-- Asociar OFERTA a @Publ_Buyer			
+			EXEC [GOODTIMES].[CrearOferta] @Publ_Buyer, @Publicacion_Nuevo_ID, @Oferta_Fecha, @Oferta_Monto
         END    
         
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NOT NULL)
