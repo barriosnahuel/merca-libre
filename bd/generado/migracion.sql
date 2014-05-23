@@ -74,6 +74,7 @@ DECLARE @Publ_Owner BIGINT
 DECLARE @tipoPublicacionId SMALLINT
 DECLARE @estadoPublicacionId SMALLINT
 DECLARE @visibilidadPublicacionId NUMERIC(18, 0)
+DECLARE @Publ_Buyer BIGINT
 -- ID del usuario duenio de la publicacion
 SET @Current_Publicacion_Cod = 0;
 WHILE @@FETCH_STATUS = 0
@@ -152,31 +153,33 @@ WHILE @@FETCH_STATUS = 0
 				SET @Publicacion_Nuevo_ID = @@IDENTITY; -- Id de la publicacion en el nuevo sistema
 -- Asociar RUBROS y RUBROS_X_PUBLICACION
             END
-
-		DECLARE @Publ_Buyer BIGINT
-        IF (@Cli_Dni IS NOT NULL)            BEGIN
-                --Guardar el cliente si no existe, sino seteo el @Publ_Buyer con el id existente
-                IF NOT EXISTS(SELECT 1
-                              FROM GOODTIMES.CLIENTE
-                              WHERE DNI = @Cli_Dni)
-                    BEGIN
-                        SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Cli_Nombre)
-                        SET @dir = @Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Cli_Piso) + ' ' + CONVERT(VARCHAR, @Cli_Depto)
-                        EXEC GOODTIMES.CrearCliente @Cli_Nombre, @Cli_Apeliido, @Cli_Dni, 'DNI', @Cli_Fecha_Nac, @username, "123456", 0, 1, 0, @Cli_Mail, '', @dir, @Cli_Cod_Postal, 'Buenos Aires'
-                        SET @Publ_Buyer = @@IDENTITY;
-                    END
-                ELSE
-                    BEGIN
-                        SET @Publ_Buyer = (
-                            SELECT ID
-                            FROM GOODTIMES.CLIENTE
-                            WHERE DNI = @Cli_Dni);
-                    END
-            END
+		
+        IF (@Cli_Dni IS NOT NULL)            
+        BEGIN
+            --Guardar el cliente si no existe, sino seteo el @Publ_Buyer con el id existente
+            IF NOT EXISTS(SELECT 1
+                          FROM GOODTIMES.CLIENTE
+                          WHERE DNI = @Cli_Dni)
+                BEGIN
+                    SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Cli_Nombre)
+                    SET @dir = @Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Cli_Piso) + ' ' + CONVERT(VARCHAR, @Cli_Depto)
+                    EXEC GOODTIMES.CrearCliente @Cli_Nombre, @Cli_Apeliido, @Cli_Dni, 'DNI', @Cli_Fecha_Nac, @username, "123456", 0, 1, 0, @Cli_Mail, '', @dir, @Cli_Cod_Postal, 'Buenos Aires'
+                    SET @Publ_Buyer = @@IDENTITY;
+                END
+            ELSE
+                BEGIN
+                    SET @Publ_Buyer = (
+                        SELECT ID
+                        FROM GOODTIMES.CLIENTE
+                        WHERE DNI = @Cli_Dni);
+                END
+        END
             
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NULL)
         BEGIN
-			-- Asociar COMPRA a @Publ_Buyer			
+			-- Asociar COMPRA a @Publ_Buyer	
+			@Publicacion_Nuevo_ID		
+			@Publ_Buyer	
         END
         
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NOT NULL AND @Calificacion_Codigo IS NULL)
