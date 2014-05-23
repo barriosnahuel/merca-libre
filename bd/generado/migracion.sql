@@ -81,7 +81,6 @@ WHILE @@FETCH_STATUS = 0
     BEGIN
 
 -- Tablas a completar:
---		COMPRA
 --		OFERTA
 --		CALIFICACION
 
@@ -178,8 +177,7 @@ WHILE @@FETCH_STATUS = 0
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NULL)
         BEGIN
 			-- Asociar COMPRA a @Publ_Buyer	
-			@Publicacion_Nuevo_ID		
-			@Publ_Buyer	
+			EXEC [GOODTIMES].[GuardarCompra] @Publ_Buyer, @Publicacion_Nuevo_ID, @Compra_Cantidad, @Compra_Fecha
         END
         
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NOT NULL AND @Calificacion_Codigo IS NULL)
