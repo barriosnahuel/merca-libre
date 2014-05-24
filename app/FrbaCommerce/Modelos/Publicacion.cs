@@ -10,7 +10,8 @@ namespace FrbaCommerce.Modelos
         public Int64 id { get; set; }
         public Usuario usuario { get; set; }
         public String descripcion { get; set; }
-        public float precio { get; set; }
+        public Int32 stock { get; set; }
+        public Double precio { get; set; }
         public DateTime desde { get; set; }
         public DateTime hasta { get; set; }
         public TipoPublicacion tipo { get; set; }
@@ -18,6 +19,12 @@ namespace FrbaCommerce.Modelos
         public Visibilidad visibilidad { get; set; }
         public Boolean admitePregunta { get; set; }
         public List<Rubro> rubros { get; set; }
+
+        public Publicacion()
+        {
+            this.rubros = new List<Rubro>();
+        }
+
 
 
 

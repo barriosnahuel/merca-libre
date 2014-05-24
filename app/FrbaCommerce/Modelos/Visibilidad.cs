@@ -7,10 +7,10 @@ namespace FrbaCommerce.Modelos
 {
     class Visibilidad
     {
-        Int64 id { get; set; }
-        String descripcion { get; set; }
-        Double precio { get; set; }
-        Double porcentaje { get; set; }
+        public Int64 id { get; set; }
+        public String descripcion { get; set; }
+        public Double precio { get; set; }
+        public Double porcentaje { get; set; }
 
     }
 }

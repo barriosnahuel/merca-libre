@@ -40,20 +40,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tipoPublicacion = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.estado = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.rubros = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.visibilidad = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.admitePreguntas = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).BeginInit();
             this.SuspendLayout();
             // 
             // descripcion
             // 
-            this.descripcion.Location = new System.Drawing.Point(129, 37);
+            this.descripcion.Location = new System.Drawing.Point(129, 25);
             this.descripcion.Multiline = true;
             this.descripcion.Name = "descripcion";
             this.descripcion.Size = new System.Drawing.Size(325, 61);
@@ -62,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 37);
+            this.label1.Location = new System.Drawing.Point(26, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 1;
@@ -80,9 +80,19 @@
             // stock
             // 
             this.stock.Location = new System.Drawing.Point(129, 133);
+            this.stock.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.stock.Name = "stock";
             this.stock.Size = new System.Drawing.Size(53, 20);
             this.stock.TabIndex = 3;
+            this.stock.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // precioLb
             // 
@@ -95,7 +105,7 @@
             // 
             // precio
             // 
-            this.precio.Location = new System.Drawing.Point(354, 135);
+            this.precio.Location = new System.Drawing.Point(338, 135);
             this.precio.Name = "precio";
             this.precio.Size = new System.Drawing.Size(121, 20);
             this.precio.TabIndex = 5;
@@ -137,7 +147,7 @@
             // 
             this.tipoPublicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tipoPublicacion.FormattingEnabled = true;
-            this.tipoPublicacion.Location = new System.Drawing.Point(124, 302);
+            this.tipoPublicacion.Location = new System.Drawing.Point(124, 245);
             this.tipoPublicacion.Name = "tipoPublicacion";
             this.tipoPublicacion.Size = new System.Drawing.Size(121, 21);
             this.tipoPublicacion.TabIndex = 10;
@@ -145,42 +155,24 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 305);
+            this.label5.Location = new System.Drawing.Point(26, 248);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Tipo publicacion:";
             // 
-            // estado
-            // 
-            this.estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.estado.FormattingEnabled = true;
-            this.estado.Location = new System.Drawing.Point(354, 305);
-            this.estado.Name = "estado";
-            this.estado.Size = new System.Drawing.Size(121, 21);
-            this.estado.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(279, 305);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Estado";
-            // 
             // rubros
             // 
             this.rubros.FormattingEnabled = true;
-            this.rubros.Location = new System.Drawing.Point(124, 360);
+            this.rubros.Location = new System.Drawing.Point(124, 303);
             this.rubros.Name = "rubros";
-            this.rubros.Size = new System.Drawing.Size(121, 94);
+            this.rubros.Size = new System.Drawing.Size(142, 94);
             this.rubros.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 360);
+            this.label7.Location = new System.Drawing.Point(26, 303);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 15;
@@ -189,7 +181,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(279, 360);
+            this.label8.Location = new System.Drawing.Point(272, 248);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 16;
@@ -199,42 +191,65 @@
             // 
             this.visibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.visibilidad.FormattingEnabled = true;
-            this.visibilidad.Location = new System.Drawing.Point(354, 360);
+            this.visibilidad.Location = new System.Drawing.Point(338, 248);
             this.visibilidad.Name = "visibilidad";
             this.visibilidad.Size = new System.Drawing.Size(121, 21);
             this.visibilidad.TabIndex = 17;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(400, 473);
+            this.button1.Location = new System.Drawing.Point(369, 303);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
-            this.button1.Text = "Generar";
+            this.button1.Text = "Borrador";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(282, 473);
+            this.button2.Location = new System.Drawing.Point(369, 332);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 19;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(369, 361);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "Publicar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // admitePreguntas
+            // 
+            this.admitePreguntas.AutoSize = true;
+            this.admitePreguntas.Checked = true;
+            this.admitePreguntas.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.admitePreguntas.Location = new System.Drawing.Point(129, 92);
+            this.admitePreguntas.Name = "admitePreguntas";
+            this.admitePreguntas.Size = new System.Drawing.Size(74, 17);
+            this.admitePreguntas.TabIndex = 21;
+            this.admitePreguntas.Text = "Preguntas";
+            this.admitePreguntas.UseVisualStyleBackColor = true;
+            // 
             // frmGenerarPublicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 540);
+            this.ClientSize = new System.Drawing.Size(497, 446);
+            this.Controls.Add(this.admitePreguntas);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.visibilidad);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.rubros);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.estado);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tipoPublicacion);
             this.Controls.Add(this.fechaHasta);
@@ -269,13 +284,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox tipoPublicacion;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox estado;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckedListBox rubros;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox visibilidad;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox admitePreguntas;
     }
 }

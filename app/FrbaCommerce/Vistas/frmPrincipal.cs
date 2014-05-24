@@ -23,6 +23,13 @@ namespace FrbaCommerce
         {
             InitializeComponent();
             if (Session.usuario != null)   label1.Text += " " + Session.usuario.username;
+
+            if (Session.usuario == null)
+            {
+                Session.usuario = new Usuario();
+                Session.usuario.username = "lala";
+                Session.usuario.id = 1;
+            }
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
