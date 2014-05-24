@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaCommerce.Servicios;
 
 namespace FrbaCommerce.Vistas.Ver_publicaciones
 {
@@ -13,7 +14,8 @@ namespace FrbaCommerce.Vistas.Ver_publicaciones
     {
         public ListadoDePublicaciones()
         {
-            //TODO cargar el listado con las publicaciones.
+            //TODO HARDCODEADO el ID DE USUARIO A BUSCAR.
+            listadoPublicaciones.DataSource = Publicaciones.buscar(-1, 1);
             InitializeComponent();
         }
 
@@ -31,7 +33,6 @@ namespace FrbaCommerce.Vistas.Ver_publicaciones
         {
             //TODO ir a la pantalla de las preguntas que están sin responder de la publicacion.
         }
-
 
     }
 }
