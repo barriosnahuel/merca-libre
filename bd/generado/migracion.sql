@@ -75,6 +75,7 @@ DECLARE @username NVARCHAR(100)
 DECLARE @dir NVARCHAR(MAX)
 DECLARE @Publ_Owner BIGINT
 DECLARE @tipoPublicacionId SMALLINT
+DECLARE @rubroId int
 DECLARE @estadoPublicacionId SMALLINT
 DECLARE @visibilidadPublicacionId NUMERIC(18, 0)
 DECLARE @Publ_Buyer BIGINT
@@ -84,72 +85,70 @@ SET @Current_Publicacion_Cod = 0;
 WHILE @@FETCH_STATUS = 0
     BEGIN
 
--- Tablas a completar:
---		RUBRO
-
         IF (@Current_Publicacion_Cod <> @Publicacion_Cod)
+        BEGIN
+
+		    SET @Current_Publicacion_Cod = @Publicacion_Cod
+
+            IF (@Publ_Cli_Dni IS NOT NULL)
             BEGIN
-
-			    SET @Current_Publicacion_Cod = @Publicacion_Cod
-
-                IF (@Publ_Cli_Dni IS NOT NULL)
-                    BEGIN
 --Guardar el cliente si no existe, sino seteo el @Publ_Owner con el id existente
-                        IF NOT EXISTS(SELECT 1
-                                      FROM GOODTIMES.CLIENTE
-                                      WHERE DNI = @Publ_Cli_Dni)
-                            BEGIN
-                                SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Publ_Cli_Nombre)
-                                SET @dir =
-                                @Publ_Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Publ_Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Publ_Cli_Piso) + ' ' +
-                                CONVERT(VARCHAR, @Publ_Cli_Depto)
-
-                                EXEC [GOODTIMES].[CrearCliente] @Publ_Cli_Nombre, @Publ_Cli_Apellido, @Publ_Cli_Dni, 'DNI', @Publ_Cli_Fecha_Nac, @username, "123456", 0, 1, 0, @Publ_Cli_Mail, '', @dir, @Publ_Cli_Cod_Postal, 'Buenos Aires'
-                                SET @Publ_Owner = @@IDENTITY;
-                            END
-                        ELSE
-                            BEGIN
-                                SET @Publ_Owner = (
-                                    SELECT ID
-                                    FROM GOODTIMES.CLIENTE
-                                    WHERE DNI = @Publ_Cli_Dni);
-                            END
-                    END
-
-
-                IF (@Publ_Empresa_Razon_Social IS NOT NULL)
+				IF NOT EXISTS(SELECT 1
+                              FROM GOODTIMES.CLIENTE
+                              WHERE DNI = @Publ_Cli_Dni)
                     BEGIN
---Guardar empresa si no existe, sino seteo el @Publ_Owner con el id existente
-                        IF NOT EXISTS(SELECT 1
-                                      FROM GOODTIMES.EMPRESA
-                                      WHERE CUIT = @Publ_Empresa_Cuit)
-                            BEGIN
-                                SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Publ_Cli_Nombre)
-                                SET @dir =
-                                @Publ_Empresa_Dom_Calle + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Piso)
-                                + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Depto)
+                        SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Publ_Cli_Nombre)
+                        SET @dir =
+                        @Publ_Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Publ_Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Publ_Cli_Piso) + ' ' +
+                        CONVERT(VARCHAR, @Publ_Cli_Depto)
 
-                                EXEC [GOODTIMES].CrearEmpresa @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, '', @Publ_Empresa_Fecha_Creacion, @username, '123456', 0, 1, 0, @Publ_Empresa_Mail, '', @dir, @Publ_Empresa_Cod_Postal, 'Buenos Aires'
-                                SET @Publ_Owner = @@IDENTITY;
-                            END
-                        ELSE
-                            BEGIN
-                                SET @Publ_Owner = (
-                                    SELECT ID
-                                    FROM GOODTIMES.EMPRESA
-                                    WHERE CUIT = @Publ_Empresa_Cuit);
-                            END
+                        EXEC [GOODTIMES].[CrearCliente] @Publ_Cli_Nombre, @Publ_Cli_Apellido, @Publ_Cli_Dni, 'DNI', @Publ_Cli_Fecha_Nac, @username, "123456", 0, 1, 0, @Publ_Cli_Mail, '', @dir, @Publ_Cli_Cod_Postal, 'Buenos Aires'
+                        SET @Publ_Owner = @@IDENTITY;
                     END
+                ELSE
+                    BEGIN
+                        SET @Publ_Owner = (
+                            SELECT ID
+                            FROM GOODTIMES.CLIENTE
+                            WHERE DNI = @Publ_Cli_Dni);
+                    END
+            END
+
+
+            IF (@Publ_Empresa_Razon_Social IS NOT NULL)
+            BEGIN
+--Guardar empresa si no existe, sino seteo el @Publ_Owner con el id existente
+                IF NOT EXISTS(SELECT 1 FROM GOODTIMES.EMPRESA WHERE CUIT = @Publ_Empresa_Cuit)
+                    BEGIN
+                        SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Publ_Empresa_Razon_Social)
+                        SET @dir =
+                        @Publ_Empresa_Dom_Calle + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Piso)
+                        + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Depto)
+
+                        EXEC [GOODTIMES].CrearEmpresa @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, '', @Publ_Empresa_Fecha_Creacion, @username, '123456', 0, 1, 0, @Publ_Empresa_Mail, '', @dir, @Publ_Empresa_Cod_Postal, 'Buenos Aires'
+                        SET @Publ_Owner = @@IDENTITY;
+                    END
+                ELSE
+                    BEGIN
+                        SET @Publ_Owner = (
+                            SELECT ID
+                            FROM GOODTIMES.EMPRESA
+                            WHERE CUIT = @Publ_Empresa_Cuit);
+                    END
+            END
 
 -- Guardar y Asociar PUBLICACION al USUARIO @Publ_Owner
-				EXEC GOODTIMES.CrearTipoPublicacion @Publicacion_Tipo, @tipoPublicacionId OUTPUT
-				EXEC GOODTIMES.CrearEstadoPublicacion @Publicacion_Estado, @Publicacion_Fecha_Venc, @estadoPublicacionId OUTPUT
-				EXEC GOODTIMES.CrearVisibilidadPublicacion @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Visibilidad_Precio, @visibilidadPublicacionId OUTPUT
-				
-				EXEC GOODTIMES.GuardarPublicacion -1, @Publ_Owner, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Precio, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @tipoPublicacionId, @estadoPublicacionId, @visibilidadPublicacionId, 1
-				SET @Publicacion_Nuevo_ID = @@IDENTITY; -- Id de la publicacion en el nuevo sistema
+			EXEC GOODTIMES.CrearTipoPublicacion @Publicacion_Tipo, @tipoPublicacionId OUTPUT
+			EXEC GOODTIMES.CrearEstadoPublicacion @Publicacion_Estado, @Publicacion_Fecha_Venc, @estadoPublicacionId OUTPUT
+			EXEC GOODTIMES.CrearVisibilidadPublicacion @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Visibilidad_Precio, @visibilidadPublicacionId OUTPUT
+			
+			EXEC GOODTIMES.GuardarPublicacion -1, @Publ_Owner, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Precio, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @tipoPublicacionId, @estadoPublicacionId, @visibilidadPublicacionId, 1
+			SET @Publicacion_Nuevo_ID = @@IDENTITY; -- Id de la publicacion en el nuevo sistema
+
 -- Asociar RUBROS y RUBROS_X_PUBLICACION
-            END
+			EXEC [GOODTIMES].[CrearRubro] @Publicacion_Rubro_Descripcion, @rubroId OUTPUT
+			EXEC [GOODTIMES].[AsignarRubroAPublicacion] @Publicacion_Nuevo_ID, @rubroId
+        END
 		
         IF (@Cli_Dni IS NOT NULL)            
         BEGIN
