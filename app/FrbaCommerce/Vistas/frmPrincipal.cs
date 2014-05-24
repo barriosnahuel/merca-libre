@@ -14,6 +14,7 @@ using FrbaCommerce.Vistas.ABM_Rol;
 using FrbaCommerce.Vistas.Abm_Cliente;
 using FrbaCommerce.Vistas.Login;
 using FrbaCommerce.Vistas.Generar_Publicacion;
+using FrbaCommerce.Vistas.Ver_publicaciones;
 
 namespace FrbaCommerce
 {
@@ -71,6 +72,12 @@ namespace FrbaCommerce
         private void generarPublicacion_Click(object sender, EventArgs e)
         {
             frmGenerarPublicacion form = new frmGenerarPublicacion();
+            form.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ListadoDePublicaciones form = new ListadoDePublicaciones();
             form.Show();
         }
 

@@ -8,7 +8,7 @@ namespace FrbaCommerce.Modelos
     class Publicacion
     {
         public Int64 id { get; set; }
-        public Usuario usuario { get; set; }
+        public Int64 usuario_id { get; set; }
         public String descripcion { get; set; }
         public float precio { get; set; }
         public DateTime desde { get; set; }
@@ -18,9 +18,6 @@ namespace FrbaCommerce.Modelos
         public Visibilidad visibilidad { get; set; }
         public Boolean admitePregunta { get; set; }
         public List<Rubro> rubros { get; set; }
-
-
-
 
     }
 }

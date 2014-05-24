@@ -40,6 +40,7 @@
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.generarPublicacion = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,11 +145,22 @@
             this.generarPublicacion.UseVisualStyleBackColor = true;
             this.generarPublicacion.Click += new System.EventHandler(this.generarPublicacion_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(29, 246);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Ver publicaciones";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 328);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.generarPublicacion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -176,6 +188,7 @@
         private System.Windows.Forms.ToolStripMenuItem empresasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.Button generarPublicacion;
+        private System.Windows.Forms.Button button1;
 
 
     }
