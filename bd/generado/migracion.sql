@@ -58,7 +58,7 @@ DECLARE @Publ_Cli_Dni NUMERIC(18, 0),
 DECLARE maestra_cursor CURSOR
 
 FOR
-    SELECT TOP 10 *
+    SELECT *
     FROM [GD1C2014].[gd_esquema].[Maestra]
     ORDER BY Publicacion_Cod, Factura_Fecha, Factura_Nro, Compra_Fecha, Calificacion_Codigo;
 
