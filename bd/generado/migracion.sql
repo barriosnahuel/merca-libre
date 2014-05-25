@@ -142,8 +142,31 @@ WHILE @@FETCH_STATUS = 0
 			EXEC GOODTIMES.CrearEstadoPublicacion @Publicacion_Estado, @Publicacion_Fecha_Venc, @estadoPublicacionId OUTPUT
 			EXEC GOODTIMES.CrearVisibilidadPublicacion @Publicacion_Visibilidad_Cod, @Publicacion_Visibilidad_Desc, @Publicacion_Visibilidad_Porcentaje, @Publicacion_Visibilidad_Precio, @visibilidadPublicacionId OUTPUT
 			
-			EXEC GOODTIMES.GuardarPublicacion -1, @Publ_Owner, @Publicacion_Descripcion, @Publicacion_Stock, @Publicacion_Precio, @Publicacion_Fecha, @Publicacion_Fecha_Venc, @tipoPublicacionId, @estadoPublicacionId, @visibilidadPublicacionId, 1
-			SET @Publicacion_Nuevo_ID = @@IDENTITY; -- Id de la publicacion en el nuevo sistema
+            INSERT INTO [GOODTIMES].[PUBLICACION]
+            ([ID]
+                , [USUARIO_ID]
+                , [DESCRIPCION]
+                , [UNIDADES]
+                , [PRECIO]
+                , [FEC_INICIO]
+                , [FEC_FIN]
+                , [TIPO_PUBLICACION_ID]
+                , [ESTADO_ID]
+                , [VISIBILIDAD_ID]
+                , [ADMITE_PREGUNTAS])
+            VALUES
+                (@Publicacion_Cod,
+                 @Publ_Owner,
+                 @Publicacion_Descripcion,
+                 @Publicacion_Stock,
+                 @Publicacion_Precio,
+                 @Publicacion_Fecha,
+                 @Publicacion_Fecha_Venc,
+                 @tipoPublicacionId,
+                 @estadoPublicacionId,
+                 @visibilidadPublicacionId,
+                 1)
+            SET @Publicacion_Nuevo_ID = @Publicacion_Cod;
 
 -- Asociar RUBROS y RUBROS_X_PUBLICACION
 			EXEC [GOODTIMES].[CrearRubro] @Publicacion_Rubro_Descripcion, @rubroId OUTPUT
