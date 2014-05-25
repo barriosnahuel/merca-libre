@@ -155,7 +155,7 @@ WHILE @@FETCH_STATUS = 0
                 , [VISIBILIDAD_ID]
                 , [ADMITE_PREGUNTAS])
             VALUES
-                (@Publicacion_Cod,
+                (cast(@Publicacion_Cod as bigint),
                  @Publ_Owner,
                  @Publicacion_Descripcion,
                  @Publicacion_Stock,
