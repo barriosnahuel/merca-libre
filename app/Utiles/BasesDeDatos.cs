@@ -15,8 +15,8 @@ namespace Utiles
 
         static SqlConnection Conexion = new SqlConnection();
        
-//        static String connString = @"Server=localhost\SQLEXPRESS;Database=GD1C2014;User Id=gd;Password=gd2014;";
-        static String connString = @"Server=localhost\SQLSERVER2008;Database=GD1C2014;User Id=gd;Password=gd2014;";
+   //   static String connString = @"Server=localhost\SQLEXPRESS;Database=GD1C2014;User Id=gd;Password=gd2014;";
+       static String connString = @"Server=localhost\SQLSERVER2008;Database=GD1C2014;User Id=gd;Password=gd2014;";
 
         public static SqlConnection ObtenerConexion()
         {
@@ -212,7 +212,7 @@ namespace Utiles
            return (int)comando.ExecuteScalar();
         }
 
-        public static Decimal queryForDecimal(string SQL, TiposEscritura Descripcion, List<SqlParameter> Parametros)
+        public static Int64 queryForInt64(string SQL, TiposEscritura Descripcion, List<SqlParameter> Parametros)
         {
             SqlCommand comando = new SqlCommand();
             comando.CommandText = SQL;
@@ -239,7 +239,7 @@ namespace Utiles
 
             comando.Connection = ObtenerConexion();
 
-            return (Decimal)comando.ExecuteScalar();
+            return Int64.Parse(comando.ExecuteScalar().ToString());
         }
 
     }

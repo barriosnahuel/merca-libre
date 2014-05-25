@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Servicios;
+using FrbaCommerce.Modelos;
 
 namespace FrbaCommerce.Vistas.Ver_publicaciones
 {
@@ -15,7 +16,7 @@ namespace FrbaCommerce.Vistas.Ver_publicaciones
         public ListadoDePublicaciones()
         {
             //TODO HARDCODEADO el ID DE USUARIO A BUSCAR.
-            listadoPublicaciones.DataSource = Publicaciones.buscar(-1, 1);
+            listadoPublicaciones.DataSource = Publicaciones.buscar(-1, Session.usuario.id);
             InitializeComponent();
         }
 

@@ -28,7 +28,7 @@ namespace FrbaCommerce.Servicios
             parametros.Add(new SqlParameter("ADMITE_PREGUNTAS", publicacion.admitePregunta?1:0));
 
 
-            publicacion.id = Int64.Parse(BasesDeDatos.queryForDecimal("GoodTimes.GuardarPublicacion", BasesDeDatos.TiposEscritura.StoreProcedure, parametros).ToString());
+            publicacion.id = BasesDeDatos.queryForInt64("GoodTimes.GuardarPublicacion", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
 
             
             foreach (Rubro rubro in publicacion.rubros)
@@ -85,7 +85,7 @@ namespace FrbaCommerce.Servicios
             publicacion.desde = lector.GetDateTime(lector.GetOrdinal("FEC_INICIO"));
             publicacion.hasta = lector.GetDateTime(lector.GetOrdinal("FEC_FIN"));
             publicacion.descripcion = lector.GetString(lector.GetOrdinal("DESCRIPCION"));
-            publicacion.precio = lector.GetFloat(lector.GetOrdinal("PRECIO"));
+            publicacion.precio = (Double)lector.GetDecimal(lector.GetOrdinal("PRECIO"));
 
             return publicacion;
         }
