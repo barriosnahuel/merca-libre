@@ -110,7 +110,7 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
             publicacion.descripcion = descripcion.Text;
             publicacion.admitePregunta = admitePreguntas.Checked;
 
-            publicacion.stock = Int32.Parse(stock.Value.ToString());
+            publicacion.unidades = Int32.Parse(stock.Value.ToString());
 
             publicacion.desde = Convert.ToDateTime(fechaDesde.Text);
             publicacion.hasta = Convert.ToDateTime(fechaHasta.Text);

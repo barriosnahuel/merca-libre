@@ -67,6 +67,7 @@
     <Compile Include="Modelos\Empresa.cs" />
     <Compile Include="Modelos\EstadoPublicacion.cs" />
     <Compile Include="Modelos\Funcion.cs" />
+    <Compile Include="Modelos\Pregunta.cs" />
     <Compile Include="Modelos\Publicacion.cs" />
     <Compile Include="Modelos\Rubro.cs" />
     <Compile Include="Modelos\Session.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\Visibilidad.cs" />
     <Compile Include="Servicios\Clientes.cs" />
+    <Compile Include="Servicios\Preguntas.cs" />
     <Compile Include="Servicios\Empresas.cs" />
     <Compile Include="Servicios\EstadosPublicacion.cs" />
     <Compile Include="Servicios\Funciones.cs" />
@@ -150,6 +152,12 @@
     <EmbeddedResource Include="Vistas\Generar Publicacion\frmGenerarPublicacion.resx">
       <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Gestion de Preguntas\CuadroResponder.resx">
+      <DependentUpon>CuadroResponder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Gestion de Preguntas\ResponderPregunta.resx">
+      <DependentUpon>ResponderPregunta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +191,18 @@
     </Compile>
     <Compile Include="Vistas\Generar Publicacion\frmGenerarPublicacion.Designer.cs">
       <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\CuadroResponder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\CuadroResponder.Designer.cs">
+      <DependentUpon>CuadroResponder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\ResponderPregunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\ResponderPregunta.Designer.cs">
+      <DependentUpon>ResponderPregunta.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -261,7 +281,6 @@
     <Folder Include="Vistas\Comprar-Ofertar\" />
     <Folder Include="Vistas\Editar Publicacion\" />
     <Folder Include="Vistas\Facturar Publicaciones\" />
-    <Folder Include="Vistas\Gestion de Preguntas\" />
     <Folder Include="Vistas\Historial Cliente\" />
     <Folder Include="Vistas\Listado Estadistico\" />
   </ItemGroup>

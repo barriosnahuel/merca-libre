@@ -116,30 +116,35 @@
             // 
             // id
             // 
+            this.id.DataPropertyName = "id";
             this.id.HeaderText = "id";
             this.id.Name = "id";
             this.id.Visible = false;
             // 
             // usuario_id
             // 
+            this.usuario_id.DataPropertyName = "usuario_id";
             this.usuario_id.HeaderText = "usuario_id";
             this.usuario_id.Name = "usuario_id";
             this.usuario_id.Visible = false;
             // 
             // tipo_publicacion_id
             // 
+            this.tipo_publicacion_id.DataPropertyName = "tipo_publicacion_id";
             this.tipo_publicacion_id.HeaderText = "tipo_publicacion_id";
             this.tipo_publicacion_id.Name = "tipo_publicacion_id";
             this.tipo_publicacion_id.Visible = false;
             // 
             // estado_id
             // 
+            this.estado_id.DataPropertyName = "estado_id";
             this.estado_id.HeaderText = "estado_id";
             this.estado_id.Name = "estado_id";
             this.estado_id.Visible = false;
             // 
             // visiblidad_id
             // 
+            this.visiblidad_id.DataPropertyName = "visiblidad_id";
             this.visiblidad_id.HeaderText = "visiblidad_id";
             this.visiblidad_id.Name = "visiblidad_id";
             this.visiblidad_id.Visible = false;

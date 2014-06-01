@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Servicios;
 using FrbaCommerce.Modelos;
+using FrbaCommerce.Vistas.Gestion_de_Preguntas;
 
 namespace FrbaCommerce.Vistas.Ver_publicaciones
 {
@@ -16,13 +17,13 @@ namespace FrbaCommerce.Vistas.Ver_publicaciones
         public ListadoDePublicaciones()
         {
             //TODO HARDCODEADO el ID DE USUARIO A BUSCAR.
-            listadoPublicaciones.DataSource = Publicaciones.buscar(-1, Session.usuario.id);
             InitializeComponent();
+            listadoPublicaciones.DataSource = Publicaciones.buscar(-1, Session.usuario.id);
         }
 
         private void modificar_button_Click(object sender, EventArgs e)
         {
-            //TODO ir a pantalla para modificar el articulo seleccionado.
+            //TODO modificar
         }
 
         private void eliminar_button_Click(object sender, EventArgs e)
@@ -32,7 +33,8 @@ namespace FrbaCommerce.Vistas.Ver_publicaciones
 
         private void responder_button_Click(object sender, EventArgs e)
         {
-            //TODO ir a la pantalla de las preguntas que están sin responder de la publicacion.
+            Publicacion publicacion = (Publicacion)listadoPublicaciones.CurrentRow.DataBoundItem;
+            ResponderPregunta siguienteVentana = new ResponderPregunta(publicacion.id);
         }
 
     }

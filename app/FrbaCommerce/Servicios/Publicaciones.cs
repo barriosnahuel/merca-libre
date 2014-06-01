@@ -18,7 +18,7 @@ namespace FrbaCommerce.Servicios
             parametros.Add(new SqlParameter("ID", -1));
             parametros.Add(new SqlParameter("USUARIO_ID",publicacion.usuario.id));
             parametros.Add(new SqlParameter("DESCRIPCION", publicacion.descripcion));
-            parametros.Add(new SqlParameter("UNIDADES", publicacion.stock));
+            parametros.Add(new SqlParameter("UNIDADES", publicacion.unidades));
             parametros.Add(new SqlParameter("PRECIO", publicacion.precio));
             parametros.Add(new SqlParameter("FEC_INICIO", publicacion.desde));
             parametros.Add(new SqlParameter("FEC_FIN", publicacion.hasta));
@@ -86,6 +86,7 @@ namespace FrbaCommerce.Servicios
             publicacion.hasta = lector.GetDateTime(lector.GetOrdinal("FEC_FIN"));
             publicacion.descripcion = lector.GetString(lector.GetOrdinal("DESCRIPCION"));
             publicacion.precio = (Double)lector.GetDecimal(lector.GetOrdinal("PRECIO"));
+            publicacion.unidades = (Int32)lector.GetDecimal(lector.GetOrdinal("UNIDADES"));
 
             return publicacion;
         }
