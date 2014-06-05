@@ -69,7 +69,6 @@ INTO @Publ_Cli_Dni, @Publ_Cli_Apellido, @Publ_Cli_Nombre, @Publ_Cli_Fecha_Nac, @
 DECLARE @Current_Publicacion_Cod NUMERIC(18, 0)
 DECLARE @Current_Factura_Nro NUMERIC(18, 0)
 SET @Current_Factura_Nro = 0
-DECLARE @Factura_Nro_Nuevo NUMERIC(18, 0)
 DECLARE @Publicacion_Nuevo_ID BIGINT
 DECLARE @username NVARCHAR(100)
 DECLARE @dir NVARCHAR(MAX)
@@ -216,6 +215,8 @@ WHILE @@FETCH_STATUS = 0
         BEGIN
 			IF (@Factura_Nro <> @Current_Factura_Nro)
 			BEGIN
+                SET @Current_Factura_Nro = @Factura_Nro
+
 				-- Guardar forma de pago si no existe
 				IF (NOT EXISTS(SELECT 1 FROM GOODTIMES.FORMA_PAGO WHERE DESCRIPCION = @Forma_Pago_Desc))
 				BEGIN
@@ -226,13 +227,14 @@ WHILE @@FETCH_STATUS = 0
 				BEGIN
 					SET @Forma_pago_ID = (SELECT ID FROM GOODTIMES.FORMA_PAGO WHERE DESCRIPCION = @Forma_Pago_Desc);
 				END
-				-- Guardar la factura y guardar ID en @Factura_Nro_Nuevo
-				EXEC [GOODTIMES].[CrearFactura] @Publ_Owner, @Factura_Fecha, @Forma_pago_ID, 0
-				SET @Factura_Nro_Nuevo = @@IDENTITY;			
+
+				-- Guarda la factura MANTENIENDO el ID de la factura
+                INSERT INTO [GOODTIMES].[FACTURA] (ID, USUARIO_ID, FECHA, FORMA_PAGO_ID, CODIGO_TARJETA)
+                VALUES (@Factura_Nro, @Publ_Owner,@Factura_Fecha,@Forma_pago_ID,0)
 			END
 			
 			-- Agregar el item factura a la factura
-			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro_Nuevo, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''			
+			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''
         END
 
         FETCH NEXT FROM maestra_cursor
