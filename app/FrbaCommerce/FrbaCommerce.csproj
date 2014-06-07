@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Modelos\Cliente.cs" />
     <Compile Include="Modelos\CompraHistorial.cs" />
+    <Compile Include="Modelos\CalificacionHistorial.cs" />
     <Compile Include="Modelos\OfertaHistorial.cs" />
     <Compile Include="Modelos\Empresa.cs" />
     <Compile Include="Modelos\EstadoPublicacion.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Modelos\Visibilidad.cs" />
     <Compile Include="Servicios\Clientes.cs" />
     <Compile Include="Servicios\ComprasHistorial.cs" />
+    <Compile Include="Servicios\CalificacionesHistorial.cs" />
     <Compile Include="Servicios\OfertasHistorial.cs" />
     <Compile Include="Servicios\Preguntas.cs" />
     <Compile Include="Servicios\Empresas.cs" />

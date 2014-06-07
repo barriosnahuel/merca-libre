@@ -19,6 +19,8 @@ namespace FrbaCommerce.Vistas.Historial_Cliente
 
             buscarCompras();
             buscarOfertas();
+            buscarCalificacionesHechasPorUsuario();
+            buscarCalificacionesRecibidas();
 
         }
 
@@ -85,6 +87,66 @@ namespace FrbaCommerce.Vistas.Historial_Cliente
             dgvOfertas.Columns.Add(colFecha);
 
             dgvOfertas.DataSource = listaOfertas; 
+        }
+
+        private void buscarCalificacionesHechasPorUsuario()
+        {
+            List<CalificacionHistorial> listaCalificaciones = CalificacionesHistorial.BuscarHechasPorUsuario(Session.usuario.id);
+
+            dgvCalificacionesHechas.AutoGenerateColumns = false;
+
+            DataGridViewTextBoxColumn colPuntaje = new DataGridViewTextBoxColumn();
+            colPuntaje.DataPropertyName = "puntaje";
+            colPuntaje.HeaderText = "Puntaje";
+
+            DataGridViewTextBoxColumn colDetalle = new DataGridViewTextBoxColumn();
+            colDetalle.DataPropertyName = "detalle";
+            colDetalle.HeaderText = "Comentario";
+
+            DataGridViewTextBoxColumn colUser = new DataGridViewTextBoxColumn();
+            colUser.DataPropertyName = "username";
+            colUser.HeaderText = "Usuario calificado";
+
+            DataGridViewTextBoxColumn colDescripcion = new DataGridViewTextBoxColumn();
+            colDescripcion.DataPropertyName = "descripcion";
+            colDescripcion.HeaderText = "Producto comprado";
+
+            dgvCalificacionesHechas.Columns.Add(colPuntaje);
+            dgvCalificacionesHechas.Columns.Add(colDetalle);
+            dgvCalificacionesHechas.Columns.Add(colUser);
+            dgvCalificacionesHechas.Columns.Add(colDescripcion);
+
+            dgvCalificacionesHechas.DataSource = listaCalificaciones; 
+        }
+
+        private void buscarCalificacionesRecibidas()
+        {
+            List<CalificacionHistorial> listaCalificaciones = CalificacionesHistorial.BuscarRecibidas(Session.usuario.id);
+
+            dgvCalificacionesRecibidas.AutoGenerateColumns = false;
+
+            DataGridViewTextBoxColumn colPuntaje = new DataGridViewTextBoxColumn();
+            colPuntaje.DataPropertyName = "puntaje";
+            colPuntaje.HeaderText = "Puntaje";
+
+            DataGridViewTextBoxColumn colDetalle = new DataGridViewTextBoxColumn();
+            colDetalle.DataPropertyName = "detalle";
+            colDetalle.HeaderText = "Comentario";
+
+            DataGridViewTextBoxColumn colUser = new DataGridViewTextBoxColumn();
+            colUser.DataPropertyName = "username";
+            colUser.HeaderText = "Usuario";
+
+            DataGridViewTextBoxColumn colDescripcion = new DataGridViewTextBoxColumn();
+            colDescripcion.DataPropertyName = "descripcion";
+            colDescripcion.HeaderText = "Producto comprado";
+
+            dgvCalificacionesRecibidas.Columns.Add(colPuntaje);
+            dgvCalificacionesRecibidas.Columns.Add(colDetalle);
+            dgvCalificacionesRecibidas.Columns.Add(colUser);
+            dgvCalificacionesRecibidas.Columns.Add(colDescripcion);
+
+            dgvCalificacionesRecibidas.DataSource = listaCalificaciones; 
         }
 
     }
