@@ -35,10 +35,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listadoPublicaciones = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.admitePregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_publicacion_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.visiblidad_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.visibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPublicaciones)).BeginInit();
@@ -51,7 +52,7 @@
             this.groupBox1.Controls.Add(this.modificar_button);
             this.groupBox1.Location = new System.Drawing.Point(12, 404);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(762, 64);
+            this.groupBox1.Size = new System.Drawing.Size(717, 64);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acciones";
@@ -70,7 +71,7 @@
             // responder_button
             // 
             this.responder_button.AccessibleName = "responder_button";
-            this.responder_button.Location = new System.Drawing.Point(554, 21);
+            this.responder_button.Location = new System.Drawing.Point(500, 21);
             this.responder_button.Name = "responder_button";
             this.responder_button.Size = new System.Drawing.Size(202, 23);
             this.responder_button.TabIndex = 1;
@@ -94,7 +95,7 @@
             this.groupBox2.Controls.Add(this.listadoPublicaciones);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(762, 386);
+            this.groupBox2.Size = new System.Drawing.Size(717, 386);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Publicaciones";
@@ -105,13 +106,14 @@
             this.listadoPublicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoPublicaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.admitePregunta,
             this.usuario_id,
-            this.tipo_publicacion_id,
-            this.estado_id,
-            this.visiblidad_id});
+            this.tipo,
+            this.estado,
+            this.visibilidad});
             this.listadoPublicaciones.Location = new System.Drawing.Point(6, 19);
             this.listadoPublicaciones.Name = "listadoPublicaciones";
-            this.listadoPublicaciones.Size = new System.Drawing.Size(750, 361);
+            this.listadoPublicaciones.Size = new System.Drawing.Size(705, 361);
             this.listadoPublicaciones.TabIndex = 0;
             // 
             // id
@@ -121,6 +123,13 @@
             this.id.Name = "id";
             this.id.Visible = false;
             // 
+            // admitePregunta
+            // 
+            this.admitePregunta.DataPropertyName = "admitePregunta";
+            this.admitePregunta.HeaderText = "admitePregunta";
+            this.admitePregunta.Name = "admitePregunta";
+            this.admitePregunta.Visible = false;
+            // 
             // usuario_id
             // 
             this.usuario_id.DataPropertyName = "usuario_id";
@@ -128,32 +137,32 @@
             this.usuario_id.Name = "usuario_id";
             this.usuario_id.Visible = false;
             // 
-            // tipo_publicacion_id
+            // tipo
             // 
-            this.tipo_publicacion_id.DataPropertyName = "tipo_publicacion_id";
-            this.tipo_publicacion_id.HeaderText = "tipo_publicacion_id";
-            this.tipo_publicacion_id.Name = "tipo_publicacion_id";
-            this.tipo_publicacion_id.Visible = false;
+            this.tipo.DataPropertyName = "tipo";
+            this.tipo.HeaderText = "tipo_publicacion_id";
+            this.tipo.Name = "tipo";
+            this.tipo.Visible = false;
             // 
-            // estado_id
+            // estado
             // 
-            this.estado_id.DataPropertyName = "estado_id";
-            this.estado_id.HeaderText = "estado_id";
-            this.estado_id.Name = "estado_id";
-            this.estado_id.Visible = false;
+            this.estado.DataPropertyName = "estado";
+            this.estado.HeaderText = "estado_id";
+            this.estado.Name = "estado";
+            this.estado.Visible = false;
             // 
-            // visiblidad_id
+            // visibilidad
             // 
-            this.visiblidad_id.DataPropertyName = "visiblidad_id";
-            this.visiblidad_id.HeaderText = "visiblidad_id";
-            this.visiblidad_id.Name = "visiblidad_id";
-            this.visiblidad_id.Visible = false;
+            this.visibilidad.DataPropertyName = "visibilidad";
+            this.visibilidad.HeaderText = "visiblidad_id";
+            this.visibilidad.Name = "visibilidad";
+            this.visibilidad.Visible = false;
             // 
             // ListadoDePublicaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 480);
+            this.ClientSize = new System.Drawing.Size(738, 480);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "ListadoDePublicaciones";
@@ -174,9 +183,10 @@
         private System.Windows.Forms.DataGridView listadoPublicaciones;
         private System.Windows.Forms.Button eliminar_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn admitePregunta;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_publicacion_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn visiblidad_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn visibilidad;
     }
 }
