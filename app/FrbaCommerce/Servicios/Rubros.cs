@@ -41,5 +41,26 @@ namespace FrbaCommerce.Servicios
 
         }
 
+
+        public static List<Rubro> buscarPorPublicacion(Int64 id)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@ID", id));
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GOODTIMES.BuscarRubroPorPublicacion", BasesDeDatos.Tipos.StoreProcedure, parametros);
+            List<Rubro> rubros = new List<Rubro>();
+
+            if (lector.HasRows)
+            {
+
+                while (lector.Read())
+                {
+                    rubros.Add(getRubro(lector));
+                }
+
+            }
+            lector.Close();
+            return rubros;
+        }
     }
 }
