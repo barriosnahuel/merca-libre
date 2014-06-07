@@ -13,7 +13,7 @@ namespace FrbaCommerce.Servicios
 
         public static List<Visibilidad> listar()
         {
-            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GOODTIMES.ListarVisivilidadPublicacion", BasesDeDatos.Tipos.StoreProcedure, new List<SqlParameter>());
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GOODTIMES.ListarVisibilidadPublicacion", BasesDeDatos.Tipos.StoreProcedure, new List<SqlParameter>());
             List<Visibilidad> listaVisibilidades = new List<Visibilidad>();
 
             if (lector.HasRows)
@@ -30,6 +30,31 @@ namespace FrbaCommerce.Servicios
         }
 
 
+        public static Visibilidad buscar(Int64 id)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@ID", id));
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GOODTIMES.BuscarVisibilidad", BasesDeDatos.Tipos.StoreProcedure, parametros);
+           
+            Visibilidad visibilidad = null;
+
+            
+
+            if (lector.HasRows)
+            {
+
+                while (lector.Read())
+                {
+                    visibilidad = getVisibilidad(lector);
+                }
+
+            }
+            lector.Close();
+            return visibilidad;
+        }
+
+
         private static Visibilidad getVisibilidad(SqlDataReader lector)
         {
             Visibilidad visibilidad = new Visibilidad();
@@ -41,7 +66,7 @@ namespace FrbaCommerce.Servicios
             return visibilidad;
             
         }
-
+     
     }
 }
  

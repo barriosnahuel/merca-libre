@@ -39,5 +39,32 @@ namespace FrbaCommerce.Servicios
             
         }
 
+
+        public static TipoPublicacion buscar(int id)
+        {
+             
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@ID", id));
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GOODTIMES.BuscarTipoPublicacion", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            TipoPublicacion tipoPublicacion = null;
+
+            
+
+            if (lector.HasRows)
+            {
+
+                while (lector.Read())
+                {
+                    tipoPublicacion = getTipoPublicacion(lector);
+                }
+
+            }
+            lector.Close();
+            return tipoPublicacion;
+        
+
+        }
     }
 }

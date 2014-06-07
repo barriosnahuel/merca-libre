@@ -30,7 +30,7 @@ namespace FrbaCommerce
             {
                 Session.usuario = new Usuario();
                 Session.usuario.username = "lala";
-                Session.usuario.id = 1;
+                Session.usuario.id = 3;
             }
         }
 
@@ -79,7 +79,7 @@ namespace FrbaCommerce
 
         private void generarPublicacion_Click(object sender, EventArgs e)
         {
-            frmGenerarPublicacion form = new frmGenerarPublicacion();
+            frmGenerarPublicacion form = new frmGenerarPublicacion(12353);
             form.Show();
         }
 
