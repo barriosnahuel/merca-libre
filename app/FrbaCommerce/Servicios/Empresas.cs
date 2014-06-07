@@ -85,12 +85,12 @@ namespace FrbaCommerce.Servicios
             Usuarios.eliminar(id);
         }
 
-        public static Empresa buscarEmpresaPorCuit(long cuit)
+        public static Empresa buscarEmpresaPorCuit(String cuit)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
 
             SqlParameter parametro;
-            parametro = new SqlParameter("@CUIT", SqlDbType.BigInt, 100);
+            parametro = new SqlParameter("@CUIT", SqlDbType.VarChar, 100);
             parametro.Value = cuit;
             parametros.Add(parametro);
 
@@ -135,7 +135,7 @@ namespace FrbaCommerce.Servicios
         {
             Empresa empresa = new Empresa();
             empresa.id = lector.GetInt64(lector.GetOrdinal("ID"));
-            empresa.cuit = lector.GetInt64(lector.GetOrdinal("CUIT"));
+            empresa.cuit = lector.GetString(lector.GetOrdinal("CUIT"));
             empresa.razon_social = lector.GetString(lector.GetOrdinal("RAZON_SOCIAL"));
             empresa.username = lector.GetString(lector.GetOrdinal("USERNAME"));
             empresa.mail = lector.GetString(lector.GetOrdinal("MAIL"));
@@ -157,7 +157,7 @@ namespace FrbaCommerce.Servicios
             List<SqlParameter> parametros = new List<SqlParameter>();
 
             SqlParameter parametro;
-            parametro = new SqlParameter("@CUIT", SqlDbType.BigInt, 100);
+            parametro = new SqlParameter("@CUIT", SqlDbType.VarChar, 100);
             parametro.Value = empresa.cuit;
             parametros.Add(parametro);
             parametro = new SqlParameter("@RAZON_SOCIAL", SqlDbType.VarChar, 100);

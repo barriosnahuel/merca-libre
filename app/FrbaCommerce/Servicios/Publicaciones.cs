@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using FrbaCommerce.Modelos;
 using System.Data.SqlClient;
 using System.Data;
@@ -26,7 +24,6 @@ namespace FrbaCommerce.Servicios
             parametros.Add(new SqlParameter("ESTADO_ID", publicacion.estado.id));
             parametros.Add(new SqlParameter("VISIBILIDAD_ID", publicacion.visibilidad.id));
             parametros.Add(new SqlParameter("ADMITE_PREGUNTAS", publicacion.admitePregunta?1:0));
-
 
             publicacion.id = BasesDeDatos.queryForInt64("GoodTimes.GuardarPublicacion", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
 
@@ -71,14 +68,42 @@ namespace FrbaCommerce.Servicios
             
         }
 
-        public static List<Publicacion> buscarActivas(String estado)
+        public static List<Publicacion> buscarActivas(String estado, String descripcion, Int64 numeroPagina, List<Rubro> rubros)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             List<Publicacion> publicaciones = new List<Publicacion>();
+            String parametroRubros = "";
 
-            SqlParameter parametro = new SqlParameter("@ESTADO", SqlDbType.BigInt, 100);
-            parametro.Value = estado;
-            parametros.Add(parametro);
+            if (estado == null)
+            {
+                parametros.Add(new SqlParameter("ESTADO", DBNull.Value));
+            }
+            else
+            {
+                parametros.Add(new SqlParameter("ESTADO", estado));
+            }
+
+            if (descripcion == null)
+            {
+                parametros.Add(new SqlParameter("DESCRIPCION", DBNull.Value));
+            }
+            else
+            {
+                parametros.Add(new SqlParameter("DESCRIPCION", descripcion));
+            }
+            
+            parametros.Add(new SqlParameter("NUMERO_PAGINA", numeroPagina));
+
+            //* Armo un string separando los rubros con | porque el SP esta armado para splitear asi.
+            if (rubros != null)
+            {
+                foreach (var rubro in rubros)
+                {
+                    parametroRubros = parametroRubros + rubro.descripcion + "|";
+                }
+            }
+
+            parametros.Add(new SqlParameter("RUBROS", parametroRubros));
 
             SqlDataReader lector = 
                 BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarPublicacionesActivas", BasesDeDatos.Tipos.StoreProcedure, parametros);

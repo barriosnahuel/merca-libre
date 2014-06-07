@@ -35,7 +35,7 @@ namespace FrbaCommerce.Vistas.Registro_de_Usuario
                 empresa.direccion = direccion.Text;
                 empresa.localidad = localidad.Text;
                 empresa.fecha_creacion = Convert.ToDateTime(fecha.Value.ToString());
-                empresa.cuit = Int64.Parse(cuit.Text);
+                empresa.cuit = cuit.Text;
                 if (EmpresaValidaciones.validate(empresa, true))
                 {
                     Empresas.crearEmpresa(empresa);

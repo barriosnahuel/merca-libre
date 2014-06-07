@@ -10,7 +10,7 @@ namespace FrbaCommerce.Modelos
         public Int64 empresa_id { get; set; }
         public String razon_social { get; set; }
         public String nombreContacto { get; set; }
-        public Int64 cuit { get; set; }
+        public String cuit { get; set; }
         public DateTime fecha_creacion { get; set; }
     }
 }
