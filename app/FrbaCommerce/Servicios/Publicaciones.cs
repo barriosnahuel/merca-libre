@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using FrbaCommerce.Modelos;
 using System.Data.SqlClient;
 using System.Data;
@@ -14,8 +12,18 @@ namespace FrbaCommerce.Servicios
         public static void guardar(Publicacion publicacion)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
+            
+            if (publicacion.id > 0)
+            {
+                BasesDeDatos.EscribirEnBase("delete from GOODTIMES.RUBROS_X_PUBLICACION where PUBLICACION_ID =" + publicacion.id);
+                parametros.Add(new SqlParameter("ID", publicacion.id));
+            }
+            else
+            {
+                parametros.Add(new SqlParameter("ID", -1));
+            }
+            
 
-            parametros.Add(new SqlParameter("ID", -1));
             parametros.Add(new SqlParameter("USUARIO_ID",publicacion.usuario.id));
             parametros.Add(new SqlParameter("DESCRIPCION", publicacion.descripcion));
             parametros.Add(new SqlParameter("UNIDADES", publicacion.unidades));
@@ -26,7 +34,6 @@ namespace FrbaCommerce.Servicios
             parametros.Add(new SqlParameter("ESTADO_ID", publicacion.estado.id));
             parametros.Add(new SqlParameter("VISIBILIDAD_ID", publicacion.visibilidad.id));
             parametros.Add(new SqlParameter("ADMITE_PREGUNTAS", publicacion.admitePregunta?1:0));
-
 
             publicacion.id = BasesDeDatos.queryForInt64("GoodTimes.GuardarPublicacion", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
 
@@ -71,14 +78,71 @@ namespace FrbaCommerce.Servicios
             
         }
 
-        public static List<Publicacion> buscarActivas(String estado)
+
+        public static Publicacion buscar (Int64 id)
+        {
+            Publicacion publicacion = null;
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@ID",id));
+
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarPublicacion", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    publicacion = getPublicacionFromSqlReader(lector);
+                }
+            }
+            
+
+            lector.Close();
+
+            publicacion.visibilidad = Visibilidades.buscar(publicacion.visibilidad.id);
+            publicacion.tipo = TipoPublicaciones.buscar(publicacion.tipo.id);
+            publicacion.rubros = Rubros.buscarPorPublicacion(publicacion.id);
+
+            return publicacion;
+
+        }
+
+        public static List<Publicacion> buscarActivas(String estado, String descripcion, Int64 numeroPagina, List<Rubro> rubros)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             List<Publicacion> publicaciones = new List<Publicacion>();
+            String parametroRubros = "";
 
-            SqlParameter parametro = new SqlParameter("@ESTADO", SqlDbType.BigInt, 100);
-            parametro.Value = estado;
-            parametros.Add(parametro);
+            if (estado == null)
+            {
+                parametros.Add(new SqlParameter("ESTADO", DBNull.Value));
+            }
+            else
+            {
+                parametros.Add(new SqlParameter("ESTADO", estado));
+            }
+
+            if (descripcion == null)
+            {
+                parametros.Add(new SqlParameter("DESCRIPCION", DBNull.Value));
+            }
+            else
+            {
+                parametros.Add(new SqlParameter("DESCRIPCION", descripcion));
+            }
+            
+            parametros.Add(new SqlParameter("NUMERO_PAGINA", numeroPagina));
+
+            //* Armo un string separando los rubros con | porque el SP esta armado para splitear asi.
+            if (rubros != null)
+            {
+                foreach (var rubro in rubros)
+                {
+                    parametroRubros = parametroRubros + rubro.descripcion + "|";
+                }
+            }
+
+            parametros.Add(new SqlParameter("RUBROS", parametroRubros));
 
             SqlDataReader lector = 
                 BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarPublicacionesActivas", BasesDeDatos.Tipos.StoreProcedure, parametros);
@@ -114,6 +178,12 @@ namespace FrbaCommerce.Servicios
             publicacion.descripcion = lector.GetString(lector.GetOrdinal("DESCRIPCION"));
             publicacion.precio = (Double)lector.GetDecimal(lector.GetOrdinal("PRECIO"));
             publicacion.unidades = (Int32)lector.GetDecimal(lector.GetOrdinal("UNIDADES"));
+
+            publicacion.visibilidad = new Visibilidad();
+            publicacion.visibilidad.id = (Int64)lector.GetDecimal(lector.GetOrdinal("VISIBILIDAD_ID"));
+
+            publicacion.tipo = new TipoPublicacion();
+            publicacion.tipo.id = lector.GetInt16(lector.GetOrdinal("TIPO_PUBLICACION_ID")); 
 
             return publicacion;
         }

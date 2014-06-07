@@ -30,15 +30,15 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listadoPublicaciones = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.responder_button = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.admitePregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.visibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.responder_button = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPublicaciones)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -60,8 +60,8 @@
             this.listadoPublicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoPublicaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.Usuario,
             this.admitePregunta,
-            this.usuario_id,
             this.tipo,
             this.estado,
             this.visibilidad});
@@ -70,6 +70,37 @@
             this.listadoPublicaciones.Size = new System.Drawing.Size(610, 326);
             this.listadoPublicaciones.TabIndex = 0;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.responder_button);
+            this.groupBox1.Location = new System.Drawing.Point(12, 404);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(623, 55);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Acciones";
+            // 
+            // button1
+            // 
+            this.button1.AccessibleName = "seleccionar_button";
+            this.button1.Location = new System.Drawing.Point(525, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Seleccionar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // responder_button
+            // 
+            this.responder_button.AccessibleName = "preguntar_button";
+            this.responder_button.Location = new System.Drawing.Point(6, 19);
+            this.responder_button.Name = "responder_button";
+            this.responder_button.Size = new System.Drawing.Size(158, 23);
+            this.responder_button.TabIndex = 1;
+            this.responder_button.Text = "Hacer una pregunta";
+            this.responder_button.UseVisualStyleBackColor = true;
+            // 
             // id
             // 
             this.id.DataPropertyName = "id";
@@ -77,19 +108,18 @@
             this.id.Name = "id";
             this.id.Visible = false;
             // 
+            // Usuario
+            // 
+            this.Usuario.DataPropertyName = "usuario";
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            // 
             // admitePregunta
             // 
             this.admitePregunta.DataPropertyName = "admitePregunta";
             this.admitePregunta.HeaderText = "admitePregunta";
             this.admitePregunta.Name = "admitePregunta";
             this.admitePregunta.Visible = false;
-            // 
-            // usuario_id
-            // 
-            this.usuario_id.DataPropertyName = "usuario_id";
-            this.usuario_id.HeaderText = "usuario_id";
-            this.usuario_id.Name = "usuario_id";
-            this.usuario_id.Visible = false;
             // 
             // tipo
             // 
@@ -112,38 +142,6 @@
             this.visibilidad.Name = "visibilidad";
             this.visibilidad.Visible = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.responder_button);
-            this.groupBox1.Location = new System.Drawing.Point(12, 404);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(623, 55);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Acciones";
-            // 
-            // responder_button
-            // 
-            this.responder_button.AccessibleName = "preguntar_button";
-            this.responder_button.Location = new System.Drawing.Point(6, 19);
-            this.responder_button.Name = "responder_button";
-            this.responder_button.Size = new System.Drawing.Size(158, 23);
-            this.responder_button.TabIndex = 1;
-            this.responder_button.Text = "Hacer una pregunta";
-            this.responder_button.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.AccessibleName = "seleccionar_button";
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(525, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // VerPublicacionesActivas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,15 +162,15 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView listadoPublicaciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn admitePregunta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuario_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn visibilidad;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button responder_button;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn admitePregunta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn visibilidad;
 
     }
 }

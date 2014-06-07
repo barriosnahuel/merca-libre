@@ -121,6 +121,12 @@
     <Compile Include="Vistas\ABM Rol\frmAdministarFuncionesRol.Designer.cs">
       <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.Designer.cs">
+      <DependentUpon>VerPublicacionesActivas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ABM Rol\frmAdministarFuncionesRol.resx">
       <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.resx">
+      <DependentUpon>VerPublicacionesActivas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -291,7 +300,6 @@
     <Folder Include="Vistas\Abm Rubro\" />
     <Folder Include="Vistas\Abm Visibilidad\" />
     <Folder Include="Vistas\Calificar Vendedor\" />
-    <Folder Include="Vistas\Comprar-Ofertar\" />
     <Folder Include="Vistas\Editar Publicacion\" />
     <Folder Include="Vistas\Facturar Publicaciones\" />
     <Folder Include="Vistas\Listado Estadistico\" />

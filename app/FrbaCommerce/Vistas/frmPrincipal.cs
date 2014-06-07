@@ -15,8 +15,8 @@ using FrbaCommerce.Vistas.Abm_Cliente;
 using FrbaCommerce.Vistas.Login;
 using FrbaCommerce.Vistas.Generar_Publicacion;
 using FrbaCommerce.Vistas.Ver_publicaciones;
+using FrbaCommerce.Vistas.Comprar_Ofertar;
 using FrbaCommerce.Vistas.Historial_Cliente;
-
 namespace FrbaCommerce
 {
     public partial class frmPrincipal : Form
@@ -30,7 +30,7 @@ namespace FrbaCommerce
             {
                 Session.usuario = new Usuario();
                 Session.usuario.username = "lala";
-                Session.usuario.id = 1;
+                Session.usuario.id = 3;
             }
         }
 
@@ -79,7 +79,7 @@ namespace FrbaCommerce
 
         private void generarPublicacion_Click(object sender, EventArgs e)
         {
-            frmGenerarPublicacion form = new frmGenerarPublicacion();
+            frmGenerarPublicacion form = new frmGenerarPublicacion(12353);
             form.Show();
         }
 
@@ -89,12 +89,17 @@ namespace FrbaCommerce
             form.Show();
         }
 
-        private void miHistorialToolStripMenuItem_Click(object sender, EventArgs e)
+		private void comprar_Click(object sender, EventArgs e)
+        {
+            VerPublicacionesActivas form = new VerPublicacionesActivas();
+            form.Show();
+        }
+	
+		private void miHistorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmHistorial form = new frmHistorial();
             form.Show();
         }
-
 
 
     }

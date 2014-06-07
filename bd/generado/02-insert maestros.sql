@@ -27,7 +27,7 @@ INSERT INTO [GD1C2014].[GOODTIMES].[ESTADO]
 INSERT INTO [GD1C2014].[GOODTIMES].[ESTADO]
            ([DESCRIPCION])
      VALUES
-           ('Publicada')
+           ('Activa')
 INSERT INTO [GD1C2014].[GOODTIMES].[ESTADO]
            ([DESCRIPCION])
      VALUES

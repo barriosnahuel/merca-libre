@@ -200,7 +200,7 @@ WHILE @@FETCH_STATUS = 0
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NULL)
         BEGIN
 			-- Asociar COMPRA a @Publ_Buyer	
-			EXEC [GOODTIMES].[GuardarCompra] @Publ_Buyer, @Publicacion_Nuevo_ID, @Compra_Cantidad, @Compra_Fecha
+			EXEC [GOODTIMES].[GuardarCompra] @Publ_Buyer, @Publicacion_Nuevo_ID, @Compra_Cantidad, @Compra_Fecha, @Publicacion_Precio
         END
         
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NOT NULL AND @Calificacion_Codigo IS NULL)

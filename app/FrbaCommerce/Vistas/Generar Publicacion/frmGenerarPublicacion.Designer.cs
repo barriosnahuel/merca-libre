@@ -164,9 +164,9 @@
             // rubros
             // 
             this.rubros.FormattingEnabled = true;
-            this.rubros.Location = new System.Drawing.Point(124, 303);
+            this.rubros.Location = new System.Drawing.Point(108, 303);
             this.rubros.Name = "rubros";
-            this.rubros.Size = new System.Drawing.Size(142, 94);
+            this.rubros.Size = new System.Drawing.Size(220, 124);
             this.rubros.TabIndex = 14;
             // 
             // label7

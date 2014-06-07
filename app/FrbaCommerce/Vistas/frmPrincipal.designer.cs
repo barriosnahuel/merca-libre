@@ -41,7 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.generarPublicacion = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.comprar = new System.Windows.Forms.Button();			this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miHistorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -158,9 +158,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // verToolStripMenuItem
+			// comprar
             // 
-            this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comprar.Location = new System.Drawing.Point(222, 184);
+            this.comprar.Name = "comprar";
+            this.comprar.Size = new System.Drawing.Size(135, 23);
+            this.comprar.TabIndex = 4;
+            this.comprar.Text = "Comprar / Ofertar";
+            this.comprar.UseVisualStyleBackColor = true;
+            this.comprar.Click += new System.EventHandler(this.comprar_Click);
+            //			
+			// verToolStripMenuItem
+			this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miHistorialToolStripMenuItem});
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
             this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
@@ -172,12 +181,13 @@
             this.miHistorialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.miHistorialToolStripMenuItem.Text = "Mi historial";
             this.miHistorialToolStripMenuItem.Click += new System.EventHandler(this.miHistorialToolStripMenuItem_Click);
-            // 
+            // 			
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 328);
+            this.Controls.Add(this.comprar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.generarPublicacion);
             this.Controls.Add(this.label1);
@@ -207,9 +217,8 @@
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.Button generarPublicacion;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
+		private System.Windows.Forms.Button comprar;        private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miHistorialToolStripMenuItem;
-
 
     }
 }
