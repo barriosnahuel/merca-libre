@@ -54,6 +54,10 @@ DECLARE @Publ_Cli_Dni NUMERIC(18, 0),
 @Factura_Total NUMERIC(18, 2),
 @Forma_Pago_Desc NVARCHAR(255);
 
+DECLARE @defaultPassword NVARCHAR(255);
+-- La contraseña default es: 123456
+SET @defaultPassword = '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+
 -- READ_ONLY dramatically improves the performance of the cursor.
 DECLARE maestra_cursor CURSOR
 
@@ -69,7 +73,6 @@ INTO @Publ_Cli_Dni, @Publ_Cli_Apellido, @Publ_Cli_Nombre, @Publ_Cli_Fecha_Nac, @
 DECLARE @Current_Publicacion_Cod NUMERIC(18, 0)
 DECLARE @Current_Factura_Nro NUMERIC(18, 0)
 SET @Current_Factura_Nro = 0
-DECLARE @Factura_Nro_Nuevo NUMERIC(18, 0)
 DECLARE @Publicacion_Nuevo_ID BIGINT
 DECLARE @username NVARCHAR(100)
 DECLARE @dir NVARCHAR(MAX)
@@ -102,7 +105,7 @@ WHILE @@FETCH_STATUS = 0
                         @Publ_Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Publ_Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Publ_Cli_Piso) + ' ' +
                         CONVERT(VARCHAR, @Publ_Cli_Depto)
 
-                        EXEC [GOODTIMES].[CrearCliente] @Publ_Cli_Nombre, @Publ_Cli_Apellido, @Publ_Cli_Dni, 'DNI', @Publ_Cli_Fecha_Nac, @username, "123456", 0, 1, 0, @Publ_Cli_Mail, '', @dir, @Publ_Cli_Cod_Postal, 'Buenos Aires'
+                        EXEC [GOODTIMES].[CrearCliente] @Publ_Cli_Nombre, @Publ_Cli_Apellido, @Publ_Cli_Dni, 'DNI', @Publ_Cli_Fecha_Nac, @username, @defaultPassword, 0, 1, 0, @Publ_Cli_Mail, '', @dir, @Publ_Cli_Cod_Postal, 'Buenos Aires'
                         SET @Publ_Owner = @@IDENTITY;
                     END
                 ELSE
@@ -125,7 +128,7 @@ WHILE @@FETCH_STATUS = 0
                         @Publ_Empresa_Dom_Calle + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Piso)
                         + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Depto)
 
-                        EXEC [GOODTIMES].CrearEmpresa @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, '', @Publ_Empresa_Fecha_Creacion, @username, '123456', 0, 1, 0, @Publ_Empresa_Mail, '', @dir, @Publ_Empresa_Cod_Postal, 'Buenos Aires'
+                        EXEC [GOODTIMES].CrearEmpresa @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, '', @Publ_Empresa_Fecha_Creacion, @username, @defaultPassword, 0, 1, 0, @Publ_Empresa_Mail, '', @dir, @Publ_Empresa_Cod_Postal, 'Buenos Aires'
                         SET @Publ_Owner = @@IDENTITY;
                     END
                 ELSE
@@ -182,7 +185,7 @@ WHILE @@FETCH_STATUS = 0
                 BEGIN
                     SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Cli_Nombre)
                     SET @dir = @Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Cli_Piso) + ' ' + CONVERT(VARCHAR, @Cli_Depto)
-                    EXEC GOODTIMES.CrearCliente @Cli_Nombre, @Cli_Apeliido, @Cli_Dni, 'DNI', @Cli_Fecha_Nac, @username, "123456", 0, 1, 0, @Cli_Mail, '', @dir, @Cli_Cod_Postal, 'Buenos Aires'
+                    EXEC GOODTIMES.CrearCliente @Cli_Nombre, @Cli_Apeliido, @Cli_Dni, 'DNI', @Cli_Fecha_Nac, @username, @defaultPassword, 0, 1, 0, @Cli_Mail, '', @dir, @Cli_Cod_Postal, 'Buenos Aires'
                     SET @Publ_Buyer = @@IDENTITY;
                 END
             ELSE
@@ -216,6 +219,8 @@ WHILE @@FETCH_STATUS = 0
         BEGIN
 			IF (@Factura_Nro <> @Current_Factura_Nro)
 			BEGIN
+                SET @Current_Factura_Nro = @Factura_Nro
+
 				-- Guardar forma de pago si no existe
 				IF (NOT EXISTS(SELECT 1 FROM GOODTIMES.FORMA_PAGO WHERE DESCRIPCION = @Forma_Pago_Desc))
 				BEGIN
@@ -226,13 +231,14 @@ WHILE @@FETCH_STATUS = 0
 				BEGIN
 					SET @Forma_pago_ID = (SELECT ID FROM GOODTIMES.FORMA_PAGO WHERE DESCRIPCION = @Forma_Pago_Desc);
 				END
-				-- Guardar la factura y guardar ID en @Factura_Nro_Nuevo
-				EXEC [GOODTIMES].[CrearFactura] @Publ_Owner, @Factura_Fecha, @Forma_pago_ID, 0
-				SET @Factura_Nro_Nuevo = @@IDENTITY;			
+
+				-- Guarda la factura MANTENIENDO el ID de la factura
+                INSERT INTO [GOODTIMES].[FACTURA] (ID, USUARIO_ID, FECHA, FORMA_PAGO_ID, CODIGO_TARJETA)
+                VALUES (@Factura_Nro, @Publ_Owner,@Factura_Fecha,@Forma_pago_ID,0)
 			END
 			
 			-- Agregar el item factura a la factura
-			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro_Nuevo, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''			
+			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''
         END
 
         FETCH NEXT FROM maestra_cursor

@@ -111,6 +111,33 @@ namespace FrbaCommerce.Servicios
         }
 
 
+        public static List<Publicacion> buscarActivas(String estado)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            List<Publicacion> publicaciones = new List<Publicacion>();
+
+            SqlParameter parametro = new SqlParameter("@ESTADO", SqlDbType.BigInt, 100);
+            parametro.Value = estado;
+            parametros.Add(parametro);
+
+            SqlDataReader lector = 
+                BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarPublicacionesActivas", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Publicacion publicacion = getPublicacionFromSqlReader(lector);
+                    publicaciones.Add(publicacion);
+                }
+            }
+
+            lector.Close();
+
+            return publicaciones;
+
+        }
+
         private static Publicacion getPublicacionFromSqlReader(SqlDataReader lector)
         {
             
