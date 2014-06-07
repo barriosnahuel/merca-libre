@@ -15,6 +15,7 @@ using FrbaCommerce.Vistas.Abm_Cliente;
 using FrbaCommerce.Vistas.Login;
 using FrbaCommerce.Vistas.Generar_Publicacion;
 using FrbaCommerce.Vistas.Ver_publicaciones;
+using FrbaCommerce.Vistas.Historial_Cliente;
 
 namespace FrbaCommerce
 {
@@ -85,6 +86,12 @@ namespace FrbaCommerce
         private void button1_Click(object sender, EventArgs e)
         {
             ListadoDePublicaciones form = new ListadoDePublicaciones();
+            form.Show();
+        }
+
+        private void miHistorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHistorial form = new frmHistorial();
             form.Show();
         }
 
