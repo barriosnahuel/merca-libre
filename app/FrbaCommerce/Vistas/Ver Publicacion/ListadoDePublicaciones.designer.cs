@@ -40,6 +40,7 @@
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.visibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPublicaciones)).BeginInit();
@@ -110,7 +111,8 @@
             this.usuario,
             this.tipo,
             this.estado,
-            this.visibilidad});
+            this.visibilidad,
+            this.tipoDescripcion});
             this.listadoPublicaciones.Location = new System.Drawing.Point(6, 19);
             this.listadoPublicaciones.Name = "listadoPublicaciones";
             this.listadoPublicaciones.Size = new System.Drawing.Size(705, 361);
@@ -158,6 +160,12 @@
             this.visibilidad.Name = "visibilidad";
             this.visibilidad.Visible = false;
             // 
+            // tipoDescripcion
+            // 
+            this.tipoDescripcion.DataPropertyName = "tipoDescripcion";
+            this.tipoDescripcion.HeaderText = "Tipo";
+            this.tipoDescripcion.Name = "tipoDescripcion";
+            // 
             // ListadoDePublicaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,5 +196,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn visibilidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDescripcion;
     }
 }

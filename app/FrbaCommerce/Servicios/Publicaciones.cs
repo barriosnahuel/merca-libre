@@ -74,6 +74,11 @@ namespace FrbaCommerce.Servicios
 
             lector.Close();
 
+            foreach (Publicacion publicacion in publicaciones)
+            {
+                terminarArmarPublicacion(publicacion);
+            }
+
             return publicaciones;
             
         }

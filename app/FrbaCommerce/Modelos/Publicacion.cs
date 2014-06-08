@@ -26,5 +26,11 @@ namespace FrbaCommerce.Modelos
             this.estado = new EstadoPublicacion();
             this.visibilidad = new Visibilidad();
         }
+
+        public String tipoDescripcion
+        {
+            get { return tipo.descripcion; }
+            set { tipo.descripcion = value; }
+        }
     }
 }

@@ -44,10 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numeroPagina = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.admitePregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.visibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPublicaciones)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -70,10 +72,12 @@
             this.listadoPublicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoPublicaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.usuario,
             this.admitePregunta,
             this.tipo,
             this.estado,
-            this.visibilidad});
+            this.visibilidad,
+            this.tipoDescripcion});
             this.listadoPublicaciones.Location = new System.Drawing.Point(11, 19);
             this.listadoPublicaciones.Name = "listadoPublicaciones";
             this.listadoPublicaciones.Size = new System.Drawing.Size(672, 361);
@@ -222,6 +226,13 @@
             this.id.Name = "id";
             this.id.Visible = false;
             // 
+            // usuario
+            // 
+            this.usuario.DataPropertyName = "usuario";
+            this.usuario.HeaderText = "usuario";
+            this.usuario.Name = "usuario";
+            this.usuario.Visible = false;
+            // 
             // admitePregunta
             // 
             this.admitePregunta.DataPropertyName = "admitePregunta";
@@ -249,6 +260,12 @@
             this.visibilidad.HeaderText = "visiblidad_id";
             this.visibilidad.Name = "visibilidad";
             this.visibilidad.Visible = false;
+            // 
+            // tipoDescripcion
+            // 
+            this.tipoDescripcion.DataPropertyName = "tipoDescripcion";
+            this.tipoDescripcion.HeaderText = "Tipo";
+            this.tipoDescripcion.Name = "tipoDescripcion";
             // 
             // VerPublicacionesActivas
             // 
@@ -290,10 +307,12 @@
         private System.Windows.Forms.Label numeroPagina;
         private System.Windows.Forms.CheckedListBox rubros;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn admitePregunta;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn visibilidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDescripcion;
 
     }
 }
