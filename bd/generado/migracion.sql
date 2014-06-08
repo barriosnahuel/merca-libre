@@ -174,7 +174,7 @@ WHILE @@FETCH_STATUS = 0
 
 -- Asociar RUBROS y RUBROS_X_PUBLICACION
 			EXEC [GOODTIMES].[CrearRubro] @Publicacion_Rubro_Descripcion, @rubroId OUTPUT
-			EXEC [GOODTIMES].[AsignarRubroAPublicacion] @Publicacion_Nuevo_ID, @rubroId
+			EXEC [GOODTIMES].[AgregarRubroAPublicacion] @Publicacion_Nuevo_ID, @rubroId
         END
 		
         IF (@Cli_Dni IS NOT NULL)            
