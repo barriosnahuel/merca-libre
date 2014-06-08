@@ -35,7 +35,7 @@ namespace FrbaCommerce.Servicios
         public static List<EstadoPublicacion> estadosValidosPublicacion(Publicacion publicacion)
         {
             List<EstadoPublicacion> estados = EstadosPublicacion.listar();
-            if (publicacion != null)
+            if (publicacion != null && publicacion.estado.descripcion != null)
             {
                 if (publicacion.estado.descripcion.Equals("Finalizada"))
                 {
