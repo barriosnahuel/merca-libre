@@ -18,6 +18,7 @@ using FrbaCommerce.Vistas.Ver_publicaciones;
 using FrbaCommerce.Vistas.Comprar_Ofertar;
 using FrbaCommerce.Vistas.Historial_Cliente;
 using FrbaCommerce.Vistas.Gestion_de_Preguntas;
+using FrbaCommerce.Vistas.Calificar_Vendedor;
 using FrbaCommerce.Util;
 namespace FrbaCommerce
 {
@@ -125,6 +126,12 @@ namespace FrbaCommerce
         private void misPreguntas_Click(object sender, EventArgs e)
         {
             PreguntasRealizadas preguntasRealizadas = new PreguntasRealizadas();
+        }
+
+        private void btnCalificar_Click(object sender, EventArgs e)
+        {
+            frmListadoCalificacionesPendientes form = new frmListadoCalificacionesPendientes();
+            form.Show();
         }
 
     }
