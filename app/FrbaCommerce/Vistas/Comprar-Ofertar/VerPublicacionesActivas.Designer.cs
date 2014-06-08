@@ -42,13 +42,13 @@
             this.ver_button = new System.Windows.Forms.Button();
             this.preguntar_button = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rubros = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.descripcion = new System.Windows.Forms.TextBox();
             this.buscar_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.numeroPagina = new System.Windows.Forms.Label();
-            this.rubros = new System.Windows.Forms.CheckedListBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPublicaciones)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -176,6 +176,7 @@
             this.preguntar_button.TabIndex = 1;
             this.preguntar_button.Text = "Hacer una pregunta";
             this.preguntar_button.UseVisualStyleBackColor = true;
+            this.preguntar_button.Click += new System.EventHandler(this.preguntar_button_Click);
             // 
             // groupBox3
             // 
@@ -190,6 +191,14 @@
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Buscar y Filtrar";
+            // 
+            // rubros
+            // 
+            this.rubros.FormattingEnabled = true;
+            this.rubros.Location = new System.Drawing.Point(6, 95);
+            this.rubros.Name = "rubros";
+            this.rubros.Size = new System.Drawing.Size(128, 229);
+            this.rubros.TabIndex = 15;
             // 
             // label4
             // 
@@ -248,14 +257,6 @@
             this.numeroPagina.TabIndex = 6;
             this.numeroPagina.Text = "1";
             this.numeroPagina.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // rubros
-            // 
-            this.rubros.FormattingEnabled = true;
-            this.rubros.Location = new System.Drawing.Point(6, 95);
-            this.rubros.Name = "rubros";
-            this.rubros.Size = new System.Drawing.Size(128, 229);
-            this.rubros.TabIndex = 15;
             // 
             // VerPublicacionesActivas
             // 

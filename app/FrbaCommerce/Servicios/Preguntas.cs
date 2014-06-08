@@ -63,5 +63,16 @@ namespace FrbaCommerce.Servicios
         }
 
 
+
+        internal static void preguntar(long publicacion_id, string pregunta)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(new SqlParameter("PUBLICACION_ID", publicacion_id));
+            parametros.Add(new SqlParameter("PREGUNTA", pregunta));
+            parametros.Add(new SqlParameter("USUARIO_ID", Session.usuario.id));
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.HacerPregunta", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
     }
 }

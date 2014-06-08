@@ -167,6 +167,9 @@
     <EmbeddedResource Include="Vistas\Generar Publicacion\frmGenerarPublicacion.resx">
       <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Gestion de Preguntas\CuadroPreguntar.resx">
+      <DependentUpon>CuadroPreguntar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Gestion de Preguntas\CuadroResponder.resx">
       <DependentUpon>CuadroResponder.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +212,12 @@
     </Compile>
     <Compile Include="Vistas\Generar Publicacion\frmGenerarPublicacion.Designer.cs">
       <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\CuadroPreguntar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\CuadroPreguntar.Designer.cs">
+      <DependentUpon>CuadroPreguntar.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Gestion de Preguntas\CuadroResponder.cs">
       <SubType>Form</SubType>

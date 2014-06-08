@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Servicios;
 using FrbaCommerce.Modelos;
+using FrbaCommerce.Vistas.Gestion_de_Preguntas;
+using FrbaCommerce.Util;
 
 namespace FrbaCommerce.Vistas.Comprar_Ofertar
 {
@@ -91,6 +93,22 @@ namespace FrbaCommerce.Vistas.Comprar_Ofertar
                 rubros.Items.Insert(i, _rubro.descripcion);
 
                 i = i + 1;
+            }
+        }
+
+        private void preguntar_button_Click(object sender, EventArgs e)
+        {
+            if (FormValidate.isUserLoggedIn())
+            {
+                Publicacion publicacion = (Publicacion)listadoPublicaciones.CurrentRow.DataBoundItem;
+                if (Session.usuario.id != publicacion.usuario.id)
+                {
+                    CuadroPreguntar cuadroPreguntar = new CuadroPreguntar(publicacion.id);
+                }
+                else
+                {
+                    MessageBox.Show("No se pueden hacer preguntas a tus propias publicaciones.");
+                }
             }
         }
     }
