@@ -167,8 +167,6 @@ namespace FrbaCommerce.Servicios
 
         private static Publicacion getPublicacionFromSqlReader(SqlDataReader lector)
         {
-            
-
             Publicacion publicacion = new Publicacion();
 
             publicacion.usuario = new Usuario();

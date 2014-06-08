@@ -46,6 +46,8 @@
             this.comprar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.misPreguntas = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +77,7 @@
             // registrarseToolStripMenuItem
             // 
             this.registrarseToolStripMenuItem.Name = "registrarseToolStripMenuItem";
-            this.registrarseToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.registrarseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.registrarseToolStripMenuItem.Text = "Registrarse";
             this.registrarseToolStripMenuItem.Click += new System.EventHandler(this.registrarseToolStripMenuItem_Click);
             // 
@@ -86,7 +88,7 @@
             this.bajaToolStripMenuItem,
             this.modificarToolStripMenuItem});
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rolesToolStripMenuItem.Text = "Roles";
             // 
             // altaToolStripMenuItem
@@ -113,21 +115,21 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // empresasToolStripMenuItem
             // 
             this.empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
-            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.empresasToolStripMenuItem.Text = "Empresas";
             this.empresasToolStripMenuItem.Click += new System.EventHandler(this.empresasToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loginToolStripMenuItem.Text = "login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -142,7 +144,7 @@
             // miHistorialToolStripMenuItem
             // 
             this.miHistorialToolStripMenuItem.Name = "miHistorialToolStripMenuItem";
-            this.miHistorialToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.miHistorialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.miHistorialToolStripMenuItem.Text = "Mi historial";
             this.miHistorialToolStripMenuItem.Click += new System.EventHandler(this.miHistorialToolStripMenuItem_Click);
             // 
@@ -206,11 +208,33 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // misPreguntas
+            // 
+            this.misPreguntas.Location = new System.Drawing.Point(29, 183);
+            this.misPreguntas.Name = "misPreguntas";
+            this.misPreguntas.Size = new System.Drawing.Size(155, 23);
+            this.misPreguntas.TabIndex = 7;
+            this.misPreguntas.Text = "Preguntas que realizé";
+            this.misPreguntas.UseVisualStyleBackColor = true;
+            this.misPreguntas.Click += new System.EventHandler(this.misPreguntas_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(375, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(92, 68);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "loggearte como user id 1";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 328);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.misPreguntas);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comprar);
@@ -247,6 +271,8 @@
         private System.Windows.Forms.ToolStripMenuItem miHistorialToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button misPreguntas;
+        private System.Windows.Forms.Button button4;
 
     }
 }

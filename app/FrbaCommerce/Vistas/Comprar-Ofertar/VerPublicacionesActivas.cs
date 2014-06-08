@@ -80,7 +80,7 @@ namespace FrbaCommerce.Vistas.Comprar_Ofertar
             {
                 rubrosSeleccionados.Add(listaRubros.Find(x => x.descripcion.Equals(_nombreRubro)));
             }
-            if (rubrosSeleccionados.Count == 0) return null;
+            if (rubrosSeleccionados.Count() == 0) return null;
             return rubrosSeleccionados;
         }
 

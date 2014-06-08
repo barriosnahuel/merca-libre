@@ -22,8 +22,8 @@ namespace FrbaCommerce.Util
 
         public static Boolean isUserLoggedIn()
         {
-            Int64 usuario_id = Session.usuario.id;
-            if (usuario_id == null)
+            Usuario usuario = Session.usuario;
+            if (usuario == null)
             {
                 MessageBox.Show("El usuario no está logueado");
                 return false;

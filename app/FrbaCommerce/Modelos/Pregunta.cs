@@ -9,7 +9,7 @@ namespace FrbaCommerce.Modelos
     {
         public Int64 id { get; set; }
         public Int64 usuario_id { get; set; }
-        public Int64 publicacion_id { get; set; }
+        public Publicacion publicacion { get; set; }
         public String pregunta { get; set; }
         public DateTime fechaPregunta { get; set; }
         public String respuesta { get; set; }

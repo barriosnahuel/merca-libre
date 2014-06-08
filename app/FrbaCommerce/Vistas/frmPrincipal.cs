@@ -17,6 +17,7 @@ using FrbaCommerce.Vistas.Generar_Publicacion;
 using FrbaCommerce.Vistas.Ver_publicaciones;
 using FrbaCommerce.Vistas.Comprar_Ofertar;
 using FrbaCommerce.Vistas.Historial_Cliente;
+using FrbaCommerce.Vistas.Gestion_de_Preguntas;
 namespace FrbaCommerce
 {
     public partial class frmPrincipal : Form
@@ -110,6 +111,17 @@ namespace FrbaCommerce
             Session.usuario.id = 3;
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Session.usuario = new Usuario();
+            Session.usuario.username = "lala2";
+            Session.usuario.id = 1;
+        }
+
+        private void misPreguntas_Click(object sender, EventArgs e)
+        {
+            PreguntasRealizadas preguntasRealizadas = new PreguntasRealizadas();
+        }
 
     }
 }

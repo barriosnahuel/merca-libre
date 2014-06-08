@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using FrbaCommerce.Modelos;
 using System.Data.SqlClient;
-using System.Data;
 using Utiles;
 
 namespace FrbaCommerce.Servicios
@@ -35,6 +32,35 @@ namespace FrbaCommerce.Servicios
             
         }
 
+        public static List<Pregunta> buscarPorIdUsuario(Int64 usuario_id)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            List<Pregunta> preguntas = new List<Pregunta>();
+
+            parametros.Add(new SqlParameter("USUARIO_ID", usuario_id));
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarPreguntasDeUsuario", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Pregunta pregunta = getPreguntaFromSqlReader(lector);
+                    preguntas.Add(pregunta);
+                }
+            }
+
+            lector.Close();
+
+            foreach (var pregunta in preguntas)
+            {
+                pregunta.publicacion = Publicaciones.buscar(pregunta.publicacion.id);
+            }
+
+            return preguntas;
+
+        }
+
         public static void responder(Int64 pregunta_id, String respuesta)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
@@ -47,18 +73,17 @@ namespace FrbaCommerce.Servicios
 
         private static Pregunta getPreguntaFromSqlReader(SqlDataReader lector)
         {
-
-
             Pregunta pregunta = new Pregunta();
+            pregunta.publicacion = new Publicacion();
 
             pregunta.id = lector.GetInt64(lector.GetOrdinal("ID"));
+            pregunta.publicacion.id = lector.GetInt64(lector.GetOrdinal("PUBLICACION_ID"));
             pregunta.usuario_id = lector.GetInt64(lector.GetOrdinal("USUARIO_ID"));
-            pregunta.publicacion_id = lector.GetInt64(lector.GetOrdinal("PUBLICACION_ID"));
             pregunta.fechaPregunta = lector.GetDateTime(lector.GetOrdinal("FEC_PREG"));
-            pregunta.fechaRespuesta = lector.GetDateTime(lector.GetOrdinal("FEC_RESP"));
             pregunta.pregunta = lector.GetString(lector.GetOrdinal("PREGUNTA"));
             pregunta.respuesta = lector.GetString(lector.GetOrdinal("RESPUESTA"));
-
+            pregunta.fechaRespuesta = lector.GetDateTime(lector.GetOrdinal("FEC_RESP"));
+            
             return pregunta;
         }
 

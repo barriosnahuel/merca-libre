@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce.Vistas.Gestion_de_Preguntas
 {
-    partial class ResponderPregunta
+    partial class PreguntasRealizadas
     {
         /// <summary>
         /// Required designer variable.
@@ -35,13 +35,9 @@
             this.respuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publicacion_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRespuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.responderButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPreguntas)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -50,9 +46,9 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(584, 192);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Preguntas a responder";
+            this.groupBox1.Text = "Preguntas realizadas";
             // 
             // listadoPreguntas
             // 
@@ -64,7 +60,6 @@
             this.respuesta,
             this.id,
             this.usuario_id,
-            this.publicacion_id,
             this.fechaRespuesta});
             this.listadoPreguntas.Location = new System.Drawing.Point(6, 19);
             this.listadoPreguntas.Name = "listadoPreguntas";
@@ -106,52 +101,23 @@
             this.usuario_id.Name = "usuario_id";
             this.usuario_id.Visible = false;
             // 
-            // publicacion_id
-            // 
-            this.publicacion_id.DataPropertyName = "publicacion_id";
-            this.publicacion_id.HeaderText = "publicacion_id";
-            this.publicacion_id.Name = "publicacion_id";
-            this.publicacion_id.Visible = false;
-            // 
             // fechaRespuesta
             // 
             this.fechaRespuesta.DataPropertyName = "fechaRespuesta";
-            this.fechaRespuesta.HeaderText = "fechaRespuesta";
+            this.fechaRespuesta.HeaderText = "Fecha respuesta";
             this.fechaRespuesta.Name = "fechaRespuesta";
             this.fechaRespuesta.Visible = false;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.responderButton);
-            this.groupBox2.Location = new System.Drawing.Point(12, 211);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(584, 53);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Acciones";
-            // 
-            // responderButton
-            // 
-            this.responderButton.Location = new System.Drawing.Point(6, 19);
-            this.responderButton.Name = "responderButton";
-            this.responderButton.Size = new System.Drawing.Size(118, 23);
-            this.responderButton.TabIndex = 0;
-            this.responderButton.Text = "Responder";
-            this.responderButton.UseVisualStyleBackColor = true;
-            this.responderButton.Click += new System.EventHandler(this.responderButton_Click);
-            // 
-            // ResponderPregunta
+            // PreguntasRealizadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 269);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(607, 214);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ResponderPregunta";
-            this.Text = "ResponderPreguntas";
+            this.Name = "PreguntasRealizadas";
+            this.Text = "PreguntasRealizadas";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listadoPreguntas)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -160,14 +126,11 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView listadoPreguntas;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button responderButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPregunta;
         private System.Windows.Forms.DataGridViewTextBoxColumn pregunta;
         private System.Windows.Forms.DataGridViewTextBoxColumn respuesta;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn publicacion_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaRespuesta;
     }
 }
