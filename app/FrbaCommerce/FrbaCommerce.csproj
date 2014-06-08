@@ -135,6 +135,12 @@
     <Compile Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.Designer.cs">
       <DependentUpon>ModificarAgregarVisibilidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Calificar Vendedor\frmListadoCalificacionesPendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Calificar Vendedor\frmListadoCalificacionesPendientes.Designer.cs">
+      <DependentUpon>frmListadoCalificacionesPendientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.resx">
       <DependentUpon>ModificarAgregarVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Calificar Vendedor\frmListadoCalificacionesPendientes.resx">
+      <DependentUpon>frmListadoCalificacionesPendientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.resx">
       <DependentUpon>VerDetallePublicacionInmediata.cs</DependentUpon>
@@ -364,7 +373,6 @@
   <ItemGroup>
     <Folder Include="Vistas\Abm Rubro\" />
     <Folder Include="Vistas\Abm Visibilidad\Editar Publicacion\" />
-    <Folder Include="Vistas\Calificar Vendedor\" />
     <Folder Include="Vistas\Facturar Publicaciones\" />
     <Folder Include="Vistas\Listado Estadistico\" />
   </ItemGroup>
