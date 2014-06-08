@@ -203,8 +203,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 19;
-            this.button2.Text = "Cancelar";
+            this.button2.Text = "Salir";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // admitePreguntas
             // 
@@ -220,6 +221,7 @@
             // 
             // cb_estados
             // 
+            this.cb_estados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_estados.FormattingEnabled = true;
             this.cb_estados.Location = new System.Drawing.Point(338, 338);
             this.cb_estados.Name = "cb_estados";
@@ -241,7 +243,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 24;
-            this.button4.Text = "Aceptar";
+            this.button4.Text = "Guardar";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

@@ -35,6 +35,7 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
             publicacion = Publicaciones.buscar(idPublicacion);
             inicializarFormulario();
             cargarDatosPublicacion();
+            restringirFuncionalidad(publicacion);
 
         }
 
@@ -161,6 +162,39 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
             cb_estados.SelectedIndex = 0;
 
 
+        }
+
+
+        private void restringirFuncionalidad(Publicacion publicacion)
+        {
+            if (!publicacion.estado.descripcion.Equals("Borrador"))
+            {
+                visibilidad.Enabled = false;
+                tipoPublicacion.Enabled = false;
+                fechaDesde.Enabled = false;
+                fechaHasta.Enabled = false;
+                rubros.Enabled = false;
+                precio.Enabled = false;
+                descripcion.Enabled = false;
+                admitePreguntas.Enabled = false;
+
+            }
+         
+            if (publicacion.estado.descripcion.Equals("Pausada") || publicacion.estado.descripcion.Equals("Finalizada"))
+            {
+                stock.Enabled = false;
+            }
+            
+            if (publicacion.tipo.descripcion.Equals("Subasta"))
+            {
+               stock.Enabled = false;
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
        
