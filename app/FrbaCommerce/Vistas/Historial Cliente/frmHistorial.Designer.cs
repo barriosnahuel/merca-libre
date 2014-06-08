@@ -32,18 +32,25 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvOfertas = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dgvOfertas = new System.Windows.Forms.DataGridView();
+            this.dgvCalificacionesHechas = new System.Windows.Forms.DataGridView();
+            this.dgvCalificacionesRecibidas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOfertas)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalificacionesHechas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalificacionesRecibidas)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCompras
             // 
+            this.dgvCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompras.Location = new System.Drawing.Point(6, 6);
             this.dgvCompras.Name = "dgvCompras";
@@ -84,8 +91,18 @@
             this.tabPage2.Text = "Ofertas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dgvOfertas
+            // 
+            this.dgvOfertas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOfertas.Location = new System.Drawing.Point(6, 6);
+            this.dgvOfertas.Name = "dgvOfertas";
+            this.dgvOfertas.Size = new System.Drawing.Size(707, 306);
+            this.dgvOfertas.TabIndex = 1;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.dgvCalificacionesHechas);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(719, 318);
@@ -95,6 +112,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.dgvCalificacionesRecibidas);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(719, 318);
@@ -102,13 +120,23 @@
             this.tabPage4.Text = "Calificaciones recibidas";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dgvOfertas
+            // dgvCalificacionesHechas
             // 
-            this.dgvOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOfertas.Location = new System.Drawing.Point(6, 6);
-            this.dgvOfertas.Name = "dgvOfertas";
-            this.dgvOfertas.Size = new System.Drawing.Size(707, 306);
-            this.dgvOfertas.TabIndex = 1;
+            this.dgvCalificacionesHechas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCalificacionesHechas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCalificacionesHechas.Location = new System.Drawing.Point(6, 6);
+            this.dgvCalificacionesHechas.Name = "dgvCalificacionesHechas";
+            this.dgvCalificacionesHechas.Size = new System.Drawing.Size(707, 306);
+            this.dgvCalificacionesHechas.TabIndex = 2;
+            // 
+            // dgvCalificacionesRecibidas
+            // 
+            this.dgvCalificacionesRecibidas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCalificacionesRecibidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCalificacionesRecibidas.Location = new System.Drawing.Point(6, 6);
+            this.dgvCalificacionesRecibidas.Name = "dgvCalificacionesRecibidas";
+            this.dgvCalificacionesRecibidas.Size = new System.Drawing.Size(707, 306);
+            this.dgvCalificacionesRecibidas.TabIndex = 3;
             // 
             // frmHistorial
             // 
@@ -123,6 +151,10 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOfertas)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalificacionesHechas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalificacionesRecibidas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -136,5 +168,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dgvOfertas;
+        private System.Windows.Forms.DataGridView dgvCalificacionesHechas;
+        private System.Windows.Forms.DataGridView dgvCalificacionesRecibidas;
     }
 }
