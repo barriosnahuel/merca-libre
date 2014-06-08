@@ -26,12 +26,7 @@ namespace FrbaCommerce
             InitializeComponent();
             if (Session.usuario != null)   label1.Text += " " + Session.usuario.username;
 
-            if (Session.usuario == null)
-            {
-                Session.usuario = new Usuario();
-                Session.usuario.username = "lala";
-                Session.usuario.id = 3;
-            }
+           
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,7 +74,7 @@ namespace FrbaCommerce
 
         private void generarPublicacion_Click(object sender, EventArgs e)
         {
-            frmGenerarPublicacion form = new frmGenerarPublicacion(12353);
+            frmGenerarPublicacion form = new frmGenerarPublicacion();
             form.Show();
         }
 
@@ -99,6 +94,20 @@ namespace FrbaCommerce
         {
             frmHistorial form = new frmHistorial();
             form.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmGenerarPublicacion form = new frmGenerarPublicacion(12353);
+            form.Show();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Session.usuario = new Usuario();
+            Session.usuario.username = "lala";
+            Session.usuario.id = 3;
         }
 
 
