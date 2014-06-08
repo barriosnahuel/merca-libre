@@ -83,6 +83,7 @@ DECLARE @estadoPublicacionId SMALLINT
 DECLARE @visibilidadPublicacionId NUMERIC(18, 0)
 DECLARE @Publ_Buyer BIGINT
 DECLARE @Forma_pago_ID smallint
+DECLARE @currentCompraId BIGINT;
 -- ID del usuario duenio de la publicacion
 SET @Current_Publicacion_Cod = 0;
 WHILE @@FETCH_STATUS = 0
@@ -196,11 +197,12 @@ WHILE @@FETCH_STATUS = 0
                         WHERE DNI = @Cli_Dni);
                 END
         END
-            
+
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NULL)
         BEGIN
 			-- Asociar COMPRA a @Publ_Buyer	
 			EXEC [GOODTIMES].[GuardarCompra] @Publ_Buyer, @Publicacion_Nuevo_ID, @Compra_Cantidad, @Compra_Fecha, @Publicacion_Precio
+            SET @currentCompraId = @@IDENTITY;
         END
         
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NOT NULL AND @Calificacion_Codigo IS NULL)
@@ -212,7 +214,7 @@ WHILE @@FETCH_STATUS = 0
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NULL AND @Calificacion_Codigo IS NOT NULL)
         BEGIN
 			-- Asociar CALIFICACION a @Publ_Buyer	
-			EXEC [GOODTIMES].[GuardarCalificacion] @Publ_Buyer, @Publicacion_Nuevo_ID, @Calificacion_Cant_Estrellas, @Calificacion_Descripcion
+			EXEC [GOODTIMES].[GuardarCalificacion] @Publ_Buyer, @currentCompraId, @Calificacion_Cant_Estrellas, @Calificacion_Descripcion
         END    
         
         IF (@Factura_Nro IS NOT NULL)
