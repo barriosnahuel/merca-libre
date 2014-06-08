@@ -12,3 +12,10 @@ C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\Utiles.P
 C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\Utiles.csproj.GenerateResource.Cache
 C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\Utiles.exe
 C:\Users\LaureanoGabriel\Documents\GDD\merca-libre\app\Utiles\obj\Debug\Utiles.pdb
+D:\Facultad\Gestion de datos\merca-libre\app\Utiles\bin\Debug\Utiles.exe
+D:\Facultad\Gestion de datos\merca-libre\app\Utiles\bin\Debug\Utiles.pdb
+D:\Facultad\Gestion de datos\merca-libre\app\Utiles\obj\Debug\ResolveAssemblyReference.cache
+D:\Facultad\Gestion de datos\merca-libre\app\Utiles\obj\Debug\Utiles.Properties.Resources.resources
+D:\Facultad\Gestion de datos\merca-libre\app\Utiles\obj\Debug\Utiles.csproj.GenerateResource.Cache
+D:\Facultad\Gestion de datos\merca-libre\app\Utiles\obj\Debug\Utiles.exe
+D:\Facultad\Gestion de datos\merca-libre\app\Utiles\obj\Debug\Utiles.pdb
