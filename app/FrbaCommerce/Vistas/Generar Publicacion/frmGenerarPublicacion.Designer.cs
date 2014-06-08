@@ -44,10 +44,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.visibilidad = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.admitePreguntas = new System.Windows.Forms.CheckBox();
+            this.cb_estados = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,7 +165,7 @@
             // rubros
             // 
             this.rubros.FormattingEnabled = true;
-            this.rubros.Location = new System.Drawing.Point(108, 303);
+            this.rubros.Location = new System.Drawing.Point(76, 303);
             this.rubros.Name = "rubros";
             this.rubros.Size = new System.Drawing.Size(220, 124);
             this.rubros.TabIndex = 14;
@@ -196,34 +197,14 @@
             this.visibilidad.Size = new System.Drawing.Size(121, 21);
             this.visibilidad.TabIndex = 17;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(369, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Borrador";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(369, 332);
+            this.button2.Location = new System.Drawing.Point(316, 404);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 19;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(369, 361);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Publicar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // admitePreguntas
             // 
@@ -237,15 +218,43 @@
             this.admitePreguntas.Text = "Preguntas";
             this.admitePreguntas.UseVisualStyleBackColor = true;
             // 
+            // cb_estados
+            // 
+            this.cb_estados.FormattingEnabled = true;
+            this.cb_estados.Location = new System.Drawing.Point(338, 338);
+            this.cb_estados.Name = "cb_estados";
+            this.cb_estados.Size = new System.Drawing.Size(121, 21);
+            this.cb_estados.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(335, 322);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Estado:";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(410, 404);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 24;
+            this.button4.Text = "Aceptar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // frmGenerarPublicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 446);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cb_estados);
             this.Controls.Add(this.admitePreguntas);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.visibilidad);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -263,7 +272,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.descripcion);
             this.Name = "frmGenerarPublicacion";
-            this.Text = "frmGenerarPublicacion";
+            this.Text = "Gestion de Publicacion";
             ((System.ComponentModel.ISupportInitialize)(this.stock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -288,9 +297,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox visibilidad;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.CheckBox admitePreguntas;
+        private System.Windows.Forms.ComboBox cb_estados;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button4;
     }
 }

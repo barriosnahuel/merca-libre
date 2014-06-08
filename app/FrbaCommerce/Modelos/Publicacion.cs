@@ -23,6 +23,8 @@ namespace FrbaCommerce.Modelos
         public Publicacion()
         {
             this.rubros = new List<Rubro>();
+            this.estado = new EstadoPublicacion();
+            this.visibilidad = new Visibilidad();
         }
 
 

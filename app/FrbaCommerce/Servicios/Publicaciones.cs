@@ -99,9 +99,7 @@ namespace FrbaCommerce.Servicios
 
             lector.Close();
 
-            publicacion.visibilidad = Visibilidades.buscar(publicacion.visibilidad.id);
-            publicacion.tipo = TipoPublicaciones.buscar(publicacion.tipo.id);
-            publicacion.rubros = Rubros.buscarPorPublicacion(publicacion.id);
+            terminarArmarPublicacion(publicacion);
 
             return publicacion;
 
@@ -158,6 +156,11 @@ namespace FrbaCommerce.Servicios
 
             lector.Close();
 
+            foreach (Publicacion publicacion in publicaciones)
+            {
+                terminarArmarPublicacion(publicacion);
+            }
+
             return publicaciones;
 
         }
@@ -183,9 +186,20 @@ namespace FrbaCommerce.Servicios
             publicacion.visibilidad.id = (Int64)lector.GetDecimal(lector.GetOrdinal("VISIBILIDAD_ID"));
 
             publicacion.tipo = new TipoPublicacion();
-            publicacion.tipo.id = lector.GetInt16(lector.GetOrdinal("TIPO_PUBLICACION_ID")); 
+            publicacion.tipo.id = lector.GetInt16(lector.GetOrdinal("TIPO_PUBLICACION_ID"));
+
+            publicacion.estado = new EstadoPublicacion();
+            publicacion.estado.id = lector.GetInt16(lector.GetOrdinal("ESTADO_ID"));
 
             return publicacion;
+        }
+
+        private static void terminarArmarPublicacion(Publicacion publicacion)
+        {
+            publicacion.visibilidad = Visibilidades.buscar(publicacion.visibilidad.id);
+            publicacion.tipo = TipoPublicaciones.buscar(publicacion.tipo.id);
+            publicacion.rubros = Rubros.buscarPorPublicacion(publicacion.id);
+            publicacion.estado = EstadosPublicacion.buscar(publicacion.estado.id);
         }
 
 

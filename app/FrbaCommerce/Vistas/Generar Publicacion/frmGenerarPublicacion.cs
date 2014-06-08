@@ -24,46 +24,27 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
         {
             InitializeComponent();
 
+            publicacion = new Publicacion();
+
             inicializarFormulario();
         }
 
         public frmGenerarPublicacion(Int64 idPublicacion)
         {
             InitializeComponent();
-
-            inicializarFormulario();
-
             publicacion = Publicaciones.buscar(idPublicacion);
-
+            inicializarFormulario();
             cargarDatosPublicacion();
 
         }
 
-
-
-        private void button3_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            //publicar
 
-
-            generarPublicacion();
-            publicacion.estado = estados.Find(x => x.descripcion.Equals("Publicada"));
-
-            Publicaciones.guardar(publicacion);
-
-            MessageBox.Show("Se publico exitosamente", "Publicacion");
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //guardar como borrador
             publicacion = generarPublicacion();
-            publicacion.estado = estados.Find(x => x.descripcion.Equals("Borrador"));
-
             Publicaciones.guardar(publicacion);
 
-            MessageBox.Show("Se guardo publicacion como borrador exitosamente", "Publicacion");
+            MessageBox.Show("Se guardo la publicacion exitosamente", "Publicacion");
             this.Close();
 
         }
@@ -82,6 +63,8 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
             publicacion.precio = Double.Parse(precio.Text);
             publicacion.tipo = tiposPublicacion.Find(x => x.descripcion == tipoPublicacion.Text);
             publicacion.visibilidad = visibilidades.Find(x => x.descripcion.Equals(visibilidad.Text));
+            publicacion.estado = estados.Find(x => x.descripcion.Equals(cb_estados.Text));
+
 
             publicacion.rubros.Clear();
             foreach (String _nombreRubro in rubros.CheckedItems)
@@ -109,6 +92,7 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
 
             tipoPublicacion.SelectedIndex = tipoPublicacion.FindString(publicacion.tipo.descripcion);
             visibilidad.SelectedIndex = visibilidad.FindString(publicacion.visibilidad.descripcion);
+            cb_estados.SelectedIndex = cb_estados.FindString(publicacion.estado.descripcion);
 
 
             rubros.Items.Clear();
@@ -128,11 +112,9 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
         private void inicializarFormulario()
         {
             tiposPublicacion = TipoPublicaciones.listar();
-            estados = EstadosPublicacion.listar();
+            estados = EstadosPublicacion.estadosValidosPublicacion(publicacion);
             visibilidades = Visibilidades.listar();
             listaRubros = Rubros.listar();
-
-            publicacion = new Publicacion();
 
             fechaDesde.Format = DateTimePickerFormat.Custom;
             fechaDesde.CustomFormat = "dd/MM/yyyy hh:mm";
@@ -167,11 +149,21 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
 
                 i = i + 1;
             }
+
+
+            i = 0;
+            foreach (EstadoPublicacion _estado in estados)
+            {
+                cb_estados.Items.Insert(i, _estado.descripcion);
+
+                i = i + 1;
+            }
+            cb_estados.SelectedIndex = 0;
+
+
         }
 
-
-
-
+       
     }
 
 
