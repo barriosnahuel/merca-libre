@@ -30,15 +30,16 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listadoPreguntas = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.responderButton = new System.Windows.Forms.Button();
             this.fechaPregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publicacionDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.respuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publicacion_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRespuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.responderButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPreguntas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -60,16 +61,37 @@
             this.listadoPreguntas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoPreguntas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.fechaPregunta,
+            this.publicacionDescripcion,
             this.pregunta,
             this.respuesta,
             this.id,
             this.usuario_id,
-            this.publicacion_id,
+            this.publicacion,
             this.fechaRespuesta});
             this.listadoPreguntas.Location = new System.Drawing.Point(6, 19);
             this.listadoPreguntas.Name = "listadoPreguntas";
             this.listadoPreguntas.Size = new System.Drawing.Size(572, 167);
             this.listadoPreguntas.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.responderButton);
+            this.groupBox2.Location = new System.Drawing.Point(12, 211);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(584, 53);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Acciones";
+            // 
+            // responderButton
+            // 
+            this.responderButton.Location = new System.Drawing.Point(6, 19);
+            this.responderButton.Name = "responderButton";
+            this.responderButton.Size = new System.Drawing.Size(118, 23);
+            this.responderButton.TabIndex = 0;
+            this.responderButton.Text = "Responder";
+            this.responderButton.UseVisualStyleBackColor = true;
+            this.responderButton.Click += new System.EventHandler(this.responderButton_Click);
             // 
             // fechaPregunta
             // 
@@ -77,6 +99,12 @@
             this.fechaPregunta.HeaderText = "Fecha";
             this.fechaPregunta.Name = "fechaPregunta";
             this.fechaPregunta.ReadOnly = true;
+            // 
+            // publicacionDescripcion
+            // 
+            this.publicacionDescripcion.DataPropertyName = "publicacionDescripcion";
+            this.publicacionDescripcion.HeaderText = "Publicacion";
+            this.publicacionDescripcion.Name = "publicacionDescripcion";
             // 
             // pregunta
             // 
@@ -106,12 +134,12 @@
             this.usuario_id.Name = "usuario_id";
             this.usuario_id.Visible = false;
             // 
-            // publicacion_id
+            // publicacion
             // 
-            this.publicacion_id.DataPropertyName = "publicacion_id";
-            this.publicacion_id.HeaderText = "publicacion_id";
-            this.publicacion_id.Name = "publicacion_id";
-            this.publicacion_id.Visible = false;
+            this.publicacion.DataPropertyName = "publicacion";
+            this.publicacion.HeaderText = "publicacion_id";
+            this.publicacion.Name = "publicacion";
+            this.publicacion.Visible = false;
             // 
             // fechaRespuesta
             // 
@@ -119,26 +147,6 @@
             this.fechaRespuesta.HeaderText = "fechaRespuesta";
             this.fechaRespuesta.Name = "fechaRespuesta";
             this.fechaRespuesta.Visible = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.responderButton);
-            this.groupBox2.Location = new System.Drawing.Point(12, 211);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(584, 53);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Acciones";
-            // 
-            // responderButton
-            // 
-            this.responderButton.Location = new System.Drawing.Point(6, 19);
-            this.responderButton.Name = "responderButton";
-            this.responderButton.Size = new System.Drawing.Size(118, 23);
-            this.responderButton.TabIndex = 0;
-            this.responderButton.Text = "Responder";
-            this.responderButton.UseVisualStyleBackColor = true;
-            this.responderButton.Click += new System.EventHandler(this.responderButton_Click);
             // 
             // ResponderPregunta
             // 
@@ -163,11 +171,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button responderButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPregunta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publicacionDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn pregunta;
         private System.Windows.Forms.DataGridViewTextBoxColumn respuesta;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn publicacion_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publicacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaRespuesta;
     }
 }

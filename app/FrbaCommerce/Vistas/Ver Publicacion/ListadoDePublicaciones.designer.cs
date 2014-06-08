@@ -36,7 +36,7 @@
             this.listadoPublicaciones = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.admitePregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.visibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,7 +107,7 @@
             this.listadoPublicaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.admitePregunta,
-            this.usuario_id,
+            this.usuario,
             this.tipo,
             this.estado,
             this.visibilidad});
@@ -130,12 +130,12 @@
             this.admitePregunta.Name = "admitePregunta";
             this.admitePregunta.Visible = false;
             // 
-            // usuario_id
+            // usuario
             // 
-            this.usuario_id.DataPropertyName = "usuario_id";
-            this.usuario_id.HeaderText = "usuario_id";
-            this.usuario_id.Name = "usuario_id";
-            this.usuario_id.Visible = false;
+            this.usuario.DataPropertyName = "usuario";
+            this.usuario.HeaderText = "usuario_id";
+            this.usuario.Name = "usuario";
+            this.usuario.Visible = false;
             // 
             // tipo
             // 
@@ -184,7 +184,7 @@
         private System.Windows.Forms.Button eliminar_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn admitePregunta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuario_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn visibilidad;

@@ -18,6 +18,7 @@ using FrbaCommerce.Vistas.Ver_publicaciones;
 using FrbaCommerce.Vistas.Comprar_Ofertar;
 using FrbaCommerce.Vistas.Historial_Cliente;
 using FrbaCommerce.Vistas.Gestion_de_Preguntas;
+using FrbaCommerce.Util;
 namespace FrbaCommerce
 {
     public partial class frmPrincipal : Form
@@ -81,8 +82,11 @@ namespace FrbaCommerce
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ListadoDePublicaciones form = new ListadoDePublicaciones();
-            form.Show();
+            if (FormValidate.isUserLoggedIn())
+            {
+                ListadoDePublicaciones form = new ListadoDePublicaciones();
+                form.Show();
+            }
         }
 
 		private void comprar_Click(object sender, EventArgs e)

@@ -28,6 +28,12 @@ namespace FrbaCommerce.Servicios
 
             lector.Close();
 
+            foreach (var pregunta in preguntas)
+            {
+                pregunta.publicacion = Publicaciones.buscar(pregunta.publicacion.id);
+            }
+
+
             return preguntas;
             
         }

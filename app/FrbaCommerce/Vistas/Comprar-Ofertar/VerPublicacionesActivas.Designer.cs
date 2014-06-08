@@ -30,12 +30,6 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listadoPublicaciones = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.admitePregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.visibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.siguientePagina_button = new System.Windows.Forms.Button();
             this.anteriorPagina_button = new System.Windows.Forms.Button();
@@ -49,6 +43,11 @@
             this.buscar_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.numeroPagina = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.admitePregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.visibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPublicaciones)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -71,7 +70,6 @@
             this.listadoPublicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoPublicaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.Usuario,
             this.admitePregunta,
             this.tipo,
             this.estado,
@@ -80,47 +78,6 @@
             this.listadoPublicaciones.Name = "listadoPublicaciones";
             this.listadoPublicaciones.Size = new System.Drawing.Size(672, 361);
             this.listadoPublicaciones.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // Usuario
-            // 
-            this.Usuario.DataPropertyName = "usuario";
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            // 
-            // admitePregunta
-            // 
-            this.admitePregunta.DataPropertyName = "admitePregunta";
-            this.admitePregunta.HeaderText = "admitePregunta";
-            this.admitePregunta.Name = "admitePregunta";
-            this.admitePregunta.Visible = false;
-            // 
-            // tipo
-            // 
-            this.tipo.DataPropertyName = "tipo";
-            this.tipo.HeaderText = "tipo_publicacion_id";
-            this.tipo.Name = "tipo";
-            this.tipo.Visible = false;
-            // 
-            // estado
-            // 
-            this.estado.DataPropertyName = "estado";
-            this.estado.HeaderText = "estado_id";
-            this.estado.Name = "estado";
-            this.estado.Visible = false;
-            // 
-            // visibilidad
-            // 
-            this.visibilidad.DataPropertyName = "visibilidad";
-            this.visibilidad.HeaderText = "visiblidad_id";
-            this.visibilidad.Name = "visibilidad";
-            this.visibilidad.Visible = false;
             // 
             // groupBox1
             // 
@@ -258,6 +215,41 @@
             this.numeroPagina.Text = "1";
             this.numeroPagina.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // admitePregunta
+            // 
+            this.admitePregunta.DataPropertyName = "admitePregunta";
+            this.admitePregunta.HeaderText = "admitePregunta";
+            this.admitePregunta.Name = "admitePregunta";
+            this.admitePregunta.Visible = false;
+            // 
+            // tipo
+            // 
+            this.tipo.DataPropertyName = "tipo";
+            this.tipo.HeaderText = "tipo_publicacion_id";
+            this.tipo.Name = "tipo";
+            this.tipo.Visible = false;
+            // 
+            // estado
+            // 
+            this.estado.DataPropertyName = "estado";
+            this.estado.HeaderText = "estado_id";
+            this.estado.Name = "estado";
+            this.estado.Visible = false;
+            // 
+            // visibilidad
+            // 
+            this.visibilidad.DataPropertyName = "visibilidad";
+            this.visibilidad.HeaderText = "visiblidad_id";
+            this.visibilidad.Name = "visibilidad";
+            this.visibilidad.Visible = false;
+            // 
             // VerPublicacionesActivas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,12 +279,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button preguntar_button;
         private System.Windows.Forms.Button ver_button;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn admitePregunta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn visibilidad;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buscar_button;
         private System.Windows.Forms.Label label1;
@@ -303,6 +289,11 @@
         private System.Windows.Forms.TextBox descripcion;
         private System.Windows.Forms.Label numeroPagina;
         private System.Windows.Forms.CheckedListBox rubros;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn admitePregunta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn visibilidad;
 
     }
 }

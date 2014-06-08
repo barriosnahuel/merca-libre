@@ -26,10 +26,5 @@ namespace FrbaCommerce.Modelos
             this.estado = new EstadoPublicacion();
             this.visibilidad = new Visibilidad();
         }
-
-
-
-
-
     }
 }

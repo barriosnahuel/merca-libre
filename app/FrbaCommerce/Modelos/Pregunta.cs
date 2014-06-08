@@ -14,5 +14,11 @@ namespace FrbaCommerce.Modelos
         public DateTime fechaPregunta { get; set; }
         public String respuesta { get; set; }
         public DateTime fechaRespuesta { get; set; }
+
+        public String publicacionDescripcion
+        {
+            get { return this.publicacion.descripcion; }
+            set { publicacion.descripcion = value; }
+        }
     }
 }
