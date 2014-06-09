@@ -127,6 +127,7 @@
             this.ver_button.TabIndex = 2;
             this.ver_button.Text = "Ver publicacion";
             this.ver_button.UseVisualStyleBackColor = true;
+            this.ver_button.Click += new System.EventHandler(this.ver_button_Click);
             // 
             // preguntar_button
             // 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FrbaCommerce.Modelos
 {
-    class TipoPublicacion
+    public class TipoPublicacion
     {
     
        public Int32 id { get; set; }

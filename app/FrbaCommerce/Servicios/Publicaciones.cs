@@ -206,5 +206,17 @@ namespace FrbaCommerce.Servicios
         }
 
 
+
+        internal static void comprar(Int64 publicacion_id, Int32 cantidad, Double precio)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(new SqlParameter("PUBLICACION_ID", publicacion_id));
+            parametros.Add(new SqlParameter("USUARIO_ID", Session.usuario.id));
+            parametros.Add(new SqlParameter("CANTIDAD", cantidad));
+            parametros.Add(new SqlParameter("PRECIO", precio));
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.ComprarPublicacion", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FrbaCommerce.Modelos
 {
-    class Visibilidad
+    public class Visibilidad
     {
         public Int64 id { get; set; }
         public String descripcion { get; set; }

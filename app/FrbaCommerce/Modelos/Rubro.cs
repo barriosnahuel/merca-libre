@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FrbaCommerce.Modelos
 {
-    class Rubro
+    public class Rubro
     {
        public Int32 id { get; set; }
        public String descripcion { get; set; }

@@ -111,5 +111,12 @@ namespace FrbaCommerce.Vistas.Comprar_Ofertar
                 }
             }
         }
+
+        private void ver_button_Click(object sender, EventArgs e)
+        {
+            Publicacion publicacion = (Publicacion)listadoPublicaciones.CurrentRow.DataBoundItem;
+            VerDetallePublicacionInmediata verDetallePublicacionInmediata = new VerDetallePublicacionInmediata(publicacion);
+            verDetallePublicacionInmediata.Show();
+        }
     }
 }

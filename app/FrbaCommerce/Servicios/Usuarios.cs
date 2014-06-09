@@ -47,6 +47,28 @@ namespace FrbaCommerce.Servicios
             BasesDeDatos.EscribirEnBase("GoodTimes.EliminarUsuario", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
 
+        public static Usuario buscarUsuarioPorID(Int64 id){
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro;
+            parametro = new SqlParameter("@ID", SqlDbType.BigInt, 100);
+            parametro.Value = id;
+            parametros.Add(parametro);
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarUsuarioPorId", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            Usuario usuario = null;
+            if (lector.HasRows)
+            {
+                lector.Read();
+                usuario = getClienteFromSqlReader(lector);
+            }
+
+            lector.Close();
+
+            return usuario;
+        }
+
         private static Usuario getClienteFromSqlReader(SqlDataReader lector)
         {
             Usuario usuario = new Usuario();
