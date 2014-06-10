@@ -49,7 +49,8 @@ namespace FrbaCommerce.Vistas.Comprar_Ofertar
 
         private void buscar_button_Click(object sender, EventArgs e)
         {
-            buscarPublicaciones(getDescripcion(), getNumeroPaginaActual(), getRubros());
+            numeroPagina.Text = "1";
+            buscarPublicaciones(getDescripcion(), 1, getRubros());
         }
 
         private int cambiarPagina(int cambioPagina)
@@ -115,8 +116,16 @@ namespace FrbaCommerce.Vistas.Comprar_Ofertar
         private void ver_button_Click(object sender, EventArgs e)
         {
             Publicacion publicacion = (Publicacion)listadoPublicaciones.CurrentRow.DataBoundItem;
-            VerDetallePublicacionInmediata verDetallePublicacionInmediata = new VerDetallePublicacionInmediata(publicacion);
-            verDetallePublicacionInmediata.Show();
+            if (publicacion.tipo.descripcion == "Compra inmediata")
+            {
+                VerDetallePublicacionInmediata verDetallePublicacionInmediata = new VerDetallePublicacionInmediata(publicacion);
+                verDetallePublicacionInmediata.Show();
+            }
+            else if (publicacion.tipo.descripcion == "Subasta")
+            {
+                VerDetallePublicacionSubasta verDetallePublicacionSubasta = new VerDetallePublicacionSubasta(publicacion);
+                verDetallePublicacionSubasta.Show();
+            }
         }
     }
 }

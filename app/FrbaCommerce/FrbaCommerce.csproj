@@ -129,6 +129,12 @@
     <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.Designer.cs">
       <DependentUpon>VerDetallePublicacionInmediata.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionSubasta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionSubasta.Designer.cs">
+      <DependentUpon>VerDetallePublicacionSubasta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Comprar-Ofertar\VerDetalleVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.resx">
       <DependentUpon>VerDetallePublicacionInmediata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerDetallePublicacionSubasta.resx">
+      <DependentUpon>VerDetallePublicacionSubasta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerDetalleVendedor.resx">
       <DependentUpon>VerDetalleVendedor.cs</DependentUpon>
@@ -336,9 +345,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vistas\Abm Rubro\" />
-    <Folder Include="Vistas\Abm Visibilidad\" />
+    <Folder Include="Vistas\Abm Visibilidad\Editar Publicacion\" />
     <Folder Include="Vistas\Calificar Vendedor\" />
-    <Folder Include="Vistas\Editar Publicacion\" />
     <Folder Include="Vistas\Facturar Publicaciones\" />
     <Folder Include="Vistas\Listado Estadistico\" />
   </ItemGroup>

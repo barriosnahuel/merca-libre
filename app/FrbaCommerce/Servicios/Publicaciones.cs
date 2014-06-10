@@ -218,5 +218,16 @@ namespace FrbaCommerce.Servicios
 
             BasesDeDatos.EscribirEnBase("GoodTimes.ComprarPublicacion", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
+
+        internal static void ofertar(Int64 publicacion_id, Int32 monto)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(new SqlParameter("PUBLICACION_ID", publicacion_id));
+            parametros.Add(new SqlParameter("USUARIO_ID", Session.usuario.id));
+            parametros.Add(new SqlParameter("MONTO", monto));
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.OfertarPublicacion", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
     }
 }
