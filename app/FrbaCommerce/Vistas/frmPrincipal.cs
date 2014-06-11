@@ -20,6 +20,7 @@ using FrbaCommerce.Vistas.Historial_Cliente;
 using FrbaCommerce.Vistas.Gestion_de_Preguntas;
 using FrbaCommerce.Vistas.Calificar_Vendedor;
 using FrbaCommerce.Util;
+using FrbaCommerce.Vistas.Abm_Visibilidad;
 namespace FrbaCommerce
 {
     public partial class frmPrincipal : Form
@@ -131,6 +132,12 @@ namespace FrbaCommerce
         private void btnCalificar_Click(object sender, EventArgs e)
         {
             frmListadoCalificacionesPendientes form = new frmListadoCalificacionesPendientes();
+            form.Show();
+        }
+
+        private void visibilidadesABM_Click(object sender, EventArgs e)
+        {
+            ListarVisibilidades form = new ListarVisibilidades();
             form.Show();
         }
 

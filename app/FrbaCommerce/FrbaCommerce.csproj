@@ -123,6 +123,18 @@
     <Compile Include="Vistas\ABM Rol\frmAdministarFuncionesRol.Designer.cs">
       <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Abm Visibilidad\ListarVisibilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Visibilidad\ListarVisibilidades.Designer.cs">
+      <DependentUpon>ListarVisibilidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.Designer.cs">
+      <DependentUpon>ModificarAgregarVisibilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +187,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ABM Rol\frmAdministarFuncionesRol.resx">
       <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Visibilidad\ListarVisibilidades.resx">
+      <DependentUpon>ListarVisibilidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.resx">
+      <DependentUpon>ModificarAgregarVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.resx">
       <DependentUpon>VerDetallePublicacionInmediata.cs</DependentUpon>

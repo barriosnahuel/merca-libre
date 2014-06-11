@@ -54,6 +54,27 @@ namespace FrbaCommerce.Servicios
             return visibilidad;
         }
 
+        public static void crearOModificar(Visibilidad visibilidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(new SqlParameter("CODIGO", visibilidad.id));
+            parametros.Add(new SqlParameter("DESCRIPCION", visibilidad.descripcion));
+            parametros.Add(new SqlParameter("PORCENTAJE", visibilidad.porcentaje));
+            parametros.Add(new SqlParameter("PRECIO", visibilidad.precio));
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.CrearOModificarVisibilidad", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
+
+        public static void borrar(Int64 id)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            parametros.Add(new SqlParameter("CODIGO", id));
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.BorrarVisibilidad", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
+
 
         private static Visibilidad getVisibilidad(SqlDataReader lector)
         {
