@@ -60,7 +60,7 @@ namespace FrbaCommerce.Vistas.Calificar_Vendedor
                 {
                     CompraSinCalificar compraSeleccionada = (CompraSinCalificar)dgvCalificacionesPendientes.CurrentRow.DataBoundItem;
                     frmCalificar calificarCompraForm = new frmCalificar(compraSeleccionada);
-                    this.Hide();
+                    this.Close();
                     calificarCompraForm.Show();
                 }
             }

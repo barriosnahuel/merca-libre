@@ -78,6 +78,7 @@
     <Compile Include="Modelos\TipoPublicacion.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\Visibilidad.cs" />
+    <Compile Include="Servicios\Calificaciones.cs" />
     <Compile Include="Servicios\Clientes.cs" />
     <Compile Include="Servicios\ComprasHistorial.cs" />
     <Compile Include="Servicios\CalificacionesHistorial.cs" />

@@ -39,6 +39,9 @@
             this.lblVendedor = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.cmbCalificar = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtComentario = new System.Windows.Forms.TextBox();
+            this.cmbComentarioFijo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -93,12 +96,13 @@
             // 
             // btnCalificar
             // 
-            this.btnCalificar.Location = new System.Drawing.Point(379, 141);
+            this.btnCalificar.Location = new System.Drawing.Point(236, 194);
             this.btnCalificar.Name = "btnCalificar";
             this.btnCalificar.Size = new System.Drawing.Size(75, 23);
             this.btnCalificar.TabIndex = 5;
             this.btnCalificar.Text = "Calificar";
             this.btnCalificar.UseVisualStyleBackColor = true;
+            this.btnCalificar.Click += new System.EventHandler(this.btnCalificar_Click);
             // 
             // lblNroCompra
             // 
@@ -141,24 +145,59 @@
             this.cmbCalificar.FormattingEnabled = true;
             this.cmbCalificar.Items.AddRange(new object[] {
             "1",
-            "1,5",
+            "1.5",
             "2",
-            "2,5",
+            "2.5",
             "3",
-            "3,5",
+            "3.5",
             "4",
-            "4,5",
+            "4.5",
             "5"});
             this.cmbCalificar.Location = new System.Drawing.Point(101, 106);
             this.cmbCalificar.Name = "cmbCalificar";
-            this.cmbCalificar.Size = new System.Drawing.Size(121, 21);
+            this.cmbCalificar.Size = new System.Drawing.Size(83, 21);
             this.cmbCalificar.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 144);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Comentario";
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.Location = new System.Drawing.Point(101, 168);
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(210, 20);
+            this.txtComentario.TabIndex = 12;
+            this.txtComentario.Visible = false;
+            // 
+            // cmbComentarioFijo
+            // 
+            this.cmbComentarioFijo.FormattingEnabled = true;
+            this.cmbComentarioFijo.Items.AddRange(new object[] {
+            "Todo bien.",
+            "Excelente.",
+            "No lo pude contactar.",
+            "Otro"});
+            this.cmbComentarioFijo.Location = new System.Drawing.Point(101, 141);
+            this.cmbComentarioFijo.Name = "cmbComentarioFijo";
+            this.cmbComentarioFijo.Size = new System.Drawing.Size(210, 21);
+            this.cmbComentarioFijo.TabIndex = 13;
+            this.cmbComentarioFijo.SelectedIndexChanged += new System.EventHandler(this.cmbComentarioFijo_SelectedIndexChanged);
             // 
             // frmCalificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 176);
+            this.ClientSize = new System.Drawing.Size(317, 224);
+            this.Controls.Add(this.cmbComentarioFijo);
+            this.Controls.Add(this.txtComentario);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbCalificar);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblVendedor);
@@ -190,5 +229,8 @@
         private System.Windows.Forms.Label lblVendedor;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.ComboBox cmbCalificar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtComentario;
+        private System.Windows.Forms.ComboBox cmbComentarioFijo;
     }
 }
