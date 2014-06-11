@@ -66,6 +66,7 @@
     <Compile Include="Modelos\Cliente.cs" />
     <Compile Include="Modelos\CompraHistorial.cs" />
     <Compile Include="Modelos\CalificacionHistorial.cs" />
+    <Compile Include="Modelos\CompraSinCalificar.cs" />
     <Compile Include="Modelos\OfertaHistorial.cs" />
     <Compile Include="Modelos\Empresa.cs" />
     <Compile Include="Modelos\EstadoPublicacion.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Servicios\Clientes.cs" />
     <Compile Include="Servicios\ComprasHistorial.cs" />
     <Compile Include="Servicios\CalificacionesHistorial.cs" />
+    <Compile Include="Servicios\ComprasSinCalificar.cs" />
     <Compile Include="Servicios\OfertasHistorial.cs" />
     <Compile Include="Servicios\Preguntas.cs" />
     <Compile Include="Servicios\Empresas.cs" />
@@ -134,6 +136,12 @@
     </Compile>
     <Compile Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.Designer.cs">
       <DependentUpon>ModificarAgregarVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Calificar Vendedor\frmCalificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Calificar Vendedor\frmCalificar.Designer.cs">
+      <DependentUpon>frmCalificar.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Calificar Vendedor\frmListadoCalificacionesPendientes.cs">
       <SubType>Form</SubType>
@@ -199,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.resx">
       <DependentUpon>ModificarAgregarVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Calificar Vendedor\frmCalificar.resx">
+      <DependentUpon>frmCalificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Calificar Vendedor\frmListadoCalificacionesPendientes.resx">
       <DependentUpon>frmListadoCalificacionesPendientes.cs</DependentUpon>

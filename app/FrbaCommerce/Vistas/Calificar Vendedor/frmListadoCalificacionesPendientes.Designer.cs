@@ -28,19 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dgvCalificacionesPendientes = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalificacionesPendientes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvCalificacionesPendientes
+            // 
+            this.dgvCalificacionesPendientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCalificacionesPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCalificacionesPendientes.Location = new System.Drawing.Point(12, 12);
+            this.dgvCalificacionesPendientes.Name = "dgvCalificacionesPendientes";
+            this.dgvCalificacionesPendientes.Size = new System.Drawing.Size(650, 351);
+            this.dgvCalificacionesPendientes.TabIndex = 0;
+            this.dgvCalificacionesPendientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalificacionesPendientes_CellContentClick);
             // 
             // frmListadoCalificacionesPendientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 375);
+            this.ClientSize = new System.Drawing.Size(674, 375);
+            this.Controls.Add(this.dgvCalificacionesPendientes);
             this.Name = "frmListadoCalificacionesPendientes";
             this.Text = "Calificaciones pendientes";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCalificacionesPendientes)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvCalificacionesPendientes;
     }
 }
