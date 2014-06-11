@@ -142,6 +142,7 @@
             // 
             // cmbCalificar
             // 
+            this.cmbCalificar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCalificar.FormattingEnabled = true;
             this.cmbCalificar.Items.AddRange(new object[] {
             "1",
@@ -178,6 +179,7 @@
             // 
             // cmbComentarioFijo
             // 
+            this.cmbComentarioFijo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbComentarioFijo.FormattingEnabled = true;
             this.cmbComentarioFijo.Items.AddRange(new object[] {
             "Todo bien.",
