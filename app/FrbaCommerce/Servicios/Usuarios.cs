@@ -72,6 +72,7 @@ namespace FrbaCommerce.Servicios
         private static Usuario getClienteFromSqlReader(SqlDataReader lector)
         {
             Usuario usuario = new Usuario();
+            Rol rol = new Rol();
             usuario.id = lector.GetInt64(lector.GetOrdinal("ID"));
             usuario.username = lector.GetString(lector.GetOrdinal("USERNAME"));
             usuario.mail = lector.GetString(lector.GetOrdinal("MAIL"));
@@ -82,6 +83,8 @@ namespace FrbaCommerce.Servicios
             usuario.telefono = lector.GetString(lector.GetOrdinal("TELEFONO"));
             usuario.codigo_postal = lector.GetString(lector.GetOrdinal("CODIGO_POSTAL"));
             usuario.login_fallidos = lector.GetInt32(lector.GetOrdinal("LOGIN_FALLIDOS"));
+            rol.id = lector.GetInt32(lector.GetOrdinal("ID_ROL"));
+            usuario.rol = rol;
 
             return usuario;
         }
