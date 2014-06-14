@@ -9,17 +9,16 @@ INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
      VALUES
            ('Empresa')
 GO
-
-INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
-           ([NOMBRE])
-     VALUES
-           ('Administrativo')
            
 INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
            ([NOMBRE])
      VALUES
            ('Cliente')
 
+INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
+           ([NOMBRE])
+     VALUES
+           ('Administrativo')
 
 --	Inserts para tabla maestra ESTADO
 INSERT INTO [GD1C2014].[GOODTIMES].[ESTADO]
@@ -75,6 +74,18 @@ VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a9
 	INSERT INTO GOODTIMES.ROLES_X_USUARIO VALUES (SCOPE_IDENTITY(), 1);
 
 -- Inserts para las funcionalidades
+
+DECLARE @func_facturar int
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('FACTURAR_PUBLICACIONES');
+SET @func_facturar = SCOPE_IDENTITY()
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (1, @func_facturar);
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (2, @func_facturar);
+
 insert into GOODTIMES.FUNCIONALIDAD 
 VALUES ('GENERAR_PUBLICACION');
 
@@ -87,23 +98,27 @@ VALUES ('MIS_PUBLICACIONES');
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
 VALUES (1, SCOPE_IDENTITY());
 
+DECLARE @func_historial int
 insert into GOODTIMES.FUNCIONALIDAD 
 VALUES ('HISTORIAL');
+SET @func_historial = SCOPE_IDENTITY()
 
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
-VALUES (1, SCOPE_IDENTITY());
+VALUES (2, @func_historial);
 
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (1, @func_historial);
+
+DECLARE @func_calificar int
 insert into GOODTIMES.FUNCIONALIDAD 
 VALUES ('CALIFICAR');
+SET @func_calificar = SCOPE_IDENTITY()
 
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
-VALUES (1, SCOPE_IDENTITY());
-
-insert into GOODTIMES.FUNCIONALIDAD 
-VALUES ('CALIFICAR');
+VALUES (1, @func_calificar);
 
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
-VALUES (2, SCOPE_IDENTITY());
+VALUES (2, @func_calificar);
 
 insert into GOODTIMES.FUNCIONALIDAD 
 VALUES ('COMPRAR_OFERTAR');
@@ -113,12 +128,6 @@ VALUES (2, SCOPE_IDENTITY());
 
 insert into GOODTIMES.FUNCIONALIDAD 
 VALUES ('PREGUNTAS_REALIZADAS');
-
-insert into GOODTIMES.FUNCIONALIDAD_X_ROL
-VALUES (2, SCOPE_IDENTITY());
-
-insert into GOODTIMES.FUNCIONALIDAD 
-VALUES ('HISTORIAL');
 
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
 VALUES (2, SCOPE_IDENTITY());

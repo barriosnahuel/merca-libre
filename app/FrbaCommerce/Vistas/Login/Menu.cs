@@ -18,6 +18,7 @@ using FrbaCommerce.Vistas.Historial_Cliente;
 using FrbaCommerce.Vistas.Gestion_de_Preguntas;
 using FrbaCommerce.Vistas.Calificar_Vendedor;
 using FrbaCommerce.Vistas.Abm_Visibilidad;
+using FrbaCommerce.Vistas.Facturar_Publicaciones;
 
 namespace FrbaCommerce.Vistas.Login
 {
@@ -82,6 +83,10 @@ namespace FrbaCommerce.Vistas.Login
                 case Funcionalidad.CALIFICAR:
                     frmListadoCalificacionesPendientes frmListadoCalificacionesPendientesForm = new frmListadoCalificacionesPendientes();
                     frmListadoCalificacionesPendientesForm.Show();
+                    break;
+                case Funcionalidad.FACTURAR_PUBLICACIONES:
+                    frmPublicacionesAFacturar frmPublicacionesAFacturarForm = new frmPublicacionesAFacturar();
+                    frmPublicacionesAFacturarForm.Show();
                     break;
             }
         }
