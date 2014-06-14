@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using System.Threading; 
+using System.Threading;
+using FrbaCommerce.Vistas.Login; 
 
 namespace FrbaCommerce
 {
@@ -19,7 +20,7 @@ namespace FrbaCommerce
                             new ThreadExceptionEventHandler(Application_ThreadException); 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmPrincipal());
+                Application.Run(new frmLogin());
             
         }
 

@@ -67,6 +67,7 @@
     <Compile Include="Modelos\CompraHistorial.cs" />
     <Compile Include="Modelos\CalificacionHistorial.cs" />
     <Compile Include="Modelos\CompraSinCalificar.cs" />
+    <Compile Include="Modelos\Funcionalidad.cs" />
     <Compile Include="Modelos\OfertaHistorial.cs" />
     <Compile Include="Modelos\Empresa.cs" />
     <Compile Include="Modelos\EstadoPublicacion.cs" />
@@ -107,6 +108,12 @@
     </Compile>
     <Compile Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.Designer.cs">
       <DependentUpon>ListadoBusquedaEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\ABMRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\ABMRol.Designer.cs">
+      <DependentUpon>ABMRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\ABM Rol\frmAltaRol.cs">
       <SubType>Form</SubType>
@@ -174,12 +181,6 @@
     <Compile Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.Designer.cs">
       <DependentUpon>VerPublicacionesActivas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\frmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\frmPrincipal.designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modelos\Rol.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.resx">
       <DependentUpon>ListadoBusquedaEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ABM Rol\ABMRol.resx">
+      <DependentUpon>ABMRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ABM Rol\frmAltaRol.resx">
       <DependentUpon>frmAltaRol.cs</DependentUpon>
@@ -227,9 +231,6 @@
     <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.resx">
       <DependentUpon>VerPublicacionesActivas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Generar Publicacion\frmGenerarPublicacion.resx">
       <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Login\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.resx">
       <DependentUpon>RegistroPasoDosCliente.cs</DependentUpon>
@@ -317,6 +321,12 @@
     </Compile>
     <Compile Include="Vistas\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Login\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Login\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.cs">
       <SubType>Form</SubType>
