@@ -106,7 +106,7 @@ namespace FrbaCommerce
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmGenerarPublicacion form = new frmGenerarPublicacion(12353);
+            frmGenerarPublicacion form = new frmGenerarPublicacion(12354);
             form.Show();
 
         }
