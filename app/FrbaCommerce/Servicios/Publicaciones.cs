@@ -229,5 +229,35 @@ namespace FrbaCommerce.Servicios
 
             BasesDeDatos.EscribirEnBase("GoodTimes.OfertarPublicacion", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
+
+
+        public static List<Publicacion> buscarSinFacturar(long idUsuario)
+        {
+            List<Publicacion> publicaciones = new List<Publicacion>();
+
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("USER_ID", DBNull.Value));
+
+            SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarPublicacionesSinFacturar", BasesDeDatos.Tipos.StoreProcedure, parametros);
+
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Publicacion publicacion = getPublicacionFromSqlReader(lector);
+                    publicaciones.Add(publicacion);
+                }
+            }
+
+            lector.Close();
+
+            foreach (Publicacion publicacion in publicaciones)
+            {
+                terminarArmarPublicacion(publicacion);
+            }
+
+            return publicaciones;
+        }
+
     }
 }
