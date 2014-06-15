@@ -248,6 +248,9 @@
     <EmbeddedResource Include="Vistas\Historial Cliente\frmHistorial.resx">
       <DependentUpon>frmHistorial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Listado Estadistico\FrmTop5.resx">
+      <DependentUpon>FrmTop5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +314,12 @@
     </Compile>
     <Compile Include="Vistas\Historial Cliente\frmHistorial.Designer.cs">
       <DependentUpon>frmHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listado Estadistico\FrmTop5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listado Estadistico\FrmTop5.Designer.cs">
+      <DependentUpon>FrmTop5.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -386,7 +395,6 @@
     <Folder Include="Vistas\Abm Rubro\" />
     <Folder Include="Vistas\Abm Visibilidad\Editar Publicacion\" />
     <Folder Include="Vistas\Facturar Publicaciones\" />
-    <Folder Include="Vistas\Listado Estadistico\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
