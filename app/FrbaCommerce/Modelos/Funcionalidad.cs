@@ -17,6 +17,7 @@ namespace FrbaCommerce.Modelos
         ABM_EMPRESA,
         ABM_VISIBILIDAD,
         ABM_ROL,
-        FACTURAR_PUBLICACIONES
+        FACTURAR_PUBLICACIONES,
+        LISTADO_ESTADISTICO
     }
 }

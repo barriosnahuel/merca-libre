@@ -19,6 +19,7 @@ using FrbaCommerce.Vistas.Gestion_de_Preguntas;
 using FrbaCommerce.Vistas.Calificar_Vendedor;
 using FrbaCommerce.Vistas.Abm_Visibilidad;
 using FrbaCommerce.Vistas.Facturar_Publicaciones;
+using FrbaCommerce.Vistas.Listado_Estadistico;
 
 namespace FrbaCommerce.Vistas.Login
 {
@@ -87,6 +88,10 @@ namespace FrbaCommerce.Vistas.Login
                 case Funcionalidad.FACTURAR_PUBLICACIONES:
                     frmPublicacionesAFacturar frmPublicacionesAFacturarForm = new frmPublicacionesAFacturar();
                     frmPublicacionesAFacturarForm.Show();
+                    break;
+                case Funcionalidad.LISTADO_ESTADISTICO:
+                    FrmTop5 frmTop5 = new FrmTop5();
+                    frmTop5.Show();
                     break;
             }
         }

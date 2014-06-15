@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lb_visibilidad = new System.Windows.Forms.Label();
+            this.cboVisibilidades = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboEstadistica = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,8 +40,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cboVisibilidades = new System.Windows.Forms.ComboBox();
-            this.lb_visibilidad = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +49,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.lb_visibilidad);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.cboVisibilidades);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cboEstadistica);
@@ -57,11 +59,29 @@
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(20, 2);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(564, 76);
+            this.panel1.Size = new System.Drawing.Size(582, 370);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lb_visibilidad
+            // 
+            this.lb_visibilidad.AutoSize = true;
+            this.lb_visibilidad.Location = new System.Drawing.Point(347, 12);
+            this.lb_visibilidad.Name = "lb_visibilidad";
+            this.lb_visibilidad.Size = new System.Drawing.Size(125, 13);
+            this.lb_visibilidad.TabIndex = 13;
+            this.lb_visibilidad.Text = "Visibilidad de publicación";
+            // 
+            // cboVisibilidades
+            // 
+            this.cboVisibilidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboVisibilidades.FormattingEnabled = true;
+            this.cboVisibilidades.Location = new System.Drawing.Point(347, 29);
+            this.cboVisibilidades.Name = "cboVisibilidades";
+            this.cboVisibilidades.Size = new System.Drawing.Size(121, 21);
+            this.cboVisibilidades.TabIndex = 12;
             // 
             // label3
             // 
@@ -121,7 +141,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(486, 50);
+            this.button1.Location = new System.Drawing.Point(474, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -132,7 +152,7 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button2.Location = new System.Drawing.Point(509, 312);
+            this.button2.Location = new System.Drawing.Point(480, 338);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -152,38 +172,18 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 103);
+            this.dataGridView1.Location = new System.Drawing.Point(26, 63);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(564, 136);
+            this.dataGridView1.Size = new System.Drawing.Size(529, 267);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // cboVisibilidades
-            // 
-            this.cboVisibilidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboVisibilidades.FormattingEnabled = true;
-            this.cboVisibilidades.Location = new System.Drawing.Point(347, 29);
-            this.cboVisibilidades.Name = "cboVisibilidades";
-            this.cboVisibilidades.Size = new System.Drawing.Size(121, 21);
-            this.cboVisibilidades.TabIndex = 12;
-            // 
-            // lb_visibilidad
-            // 
-            this.lb_visibilidad.AutoSize = true;
-            this.lb_visibilidad.Location = new System.Drawing.Point(347, 12);
-            this.lb_visibilidad.Name = "lb_visibilidad";
-            this.lb_visibilidad.Size = new System.Drawing.Size(125, 13);
-            this.lb_visibilidad.TabIndex = 13;
-            this.lb_visibilidad.Text = "Visibilidad de publicación";
             // 
             // FrmTop5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 347);
+            this.ClientSize = new System.Drawing.Size(606, 392);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
             this.Name = "FrmTop5";
             this.Text = "Ranking";
             this.panel1.ResumeLayout(false);
