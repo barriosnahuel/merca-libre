@@ -412,7 +412,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vistas\Abm Rubro\" />
-    <Folder Include="Vistas\Abm Visibilidad\Editar Publicacion\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
