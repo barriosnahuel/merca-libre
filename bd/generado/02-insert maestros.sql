@@ -2,22 +2,23 @@ USE GD1C2014;
 GO
 
 --	Inserts para tabla maestra ROL
-INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
-           ([NOMBRE])
-     VALUES
-           ('Administrativo')
-           
-INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
-           ([NOMBRE])
-     VALUES
-           ('Cliente')
+
            
 INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
            ([NOMBRE])
      VALUES
            ('Empresa')
 GO
+           
+INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
+           ([NOMBRE])
+     VALUES
+           ('Cliente')
 
+INSERT INTO [GD1C2014].[GOODTIMES].[ROL]
+           ([NOMBRE])
+     VALUES
+           ('Administrativo')
 
 --	Inserts para tabla maestra ESTADO
 INSERT INTO [GD1C2014].[GOODTIMES].[ESTADO]
@@ -63,4 +64,96 @@ INSERT INTO [GD1C2014].[GOODTIMES].[RUBRO]
            ([DESCRIPCION])
      VALUES
            ('Cuidado personal')
+GO
+
+-- Insert de administrador, password: admin
+
+INSERT INTO GOODTIMES.USUARIO (USERNAME, PASSWORD, LOGIN_FALLIDOS, HABILITADO, ELIMINADO, MAIL, TELEFONO, DIRECCION, CODIGO_POSTAL, LOCALIDAD)
+VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 0, 1, 0, 'admin@admin.com', '1122334455', '', '', 'Buenos Aires');
+
+	INSERT INTO GOODTIMES.ROLES_X_USUARIO VALUES (SCOPE_IDENTITY(), 1);
+
+-- Inserts para las funcionalidades
+
+DECLARE @func_facturar int
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('FACTURAR_PUBLICACIONES');
+SET @func_facturar = SCOPE_IDENTITY()
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (1, @func_facturar);
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (2, @func_facturar);
+
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('GENERAR_PUBLICACION');
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (1, SCOPE_IDENTITY());
+
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('MIS_PUBLICACIONES');
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (1, SCOPE_IDENTITY());
+
+DECLARE @func_historial int
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('HISTORIAL');
+SET @func_historial = SCOPE_IDENTITY()
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (2, @func_historial);
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (1, @func_historial);
+
+DECLARE @func_calificar int
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('CALIFICAR');
+SET @func_calificar = SCOPE_IDENTITY()
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (1, @func_calificar);
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (2, @func_calificar);
+
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('COMPRAR_OFERTAR');
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (2, SCOPE_IDENTITY());
+
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('PREGUNTAS_REALIZADAS');
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (2, SCOPE_IDENTITY());
+
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('ABM_CLIENTE');
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (3, SCOPE_IDENTITY());
+
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('ABM_EMPRESA');
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (3, SCOPE_IDENTITY());
+
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('ABM_VISIBILIDAD');
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (3, SCOPE_IDENTITY());
+
+insert into GOODTIMES.FUNCIONALIDAD 
+VALUES ('ABM_ROL');
+
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (3, SCOPE_IDENTITY());
+
 GO

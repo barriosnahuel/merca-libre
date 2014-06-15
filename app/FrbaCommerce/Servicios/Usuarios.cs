@@ -83,7 +83,7 @@ namespace FrbaCommerce.Servicios
             usuario.telefono = lector.GetString(lector.GetOrdinal("TELEFONO"));
             usuario.codigo_postal = lector.GetString(lector.GetOrdinal("CODIGO_POSTAL"));
             usuario.login_fallidos = lector.GetInt32(lector.GetOrdinal("LOGIN_FALLIDOS"));
-            rol.id = lector.GetInt32(lector.GetOrdinal("ID_ROL"));
+            rol.id = lector.GetInt32(lector.GetOrdinal("ROL_ID"));
             usuario.rol = rol;
 
             return usuario;

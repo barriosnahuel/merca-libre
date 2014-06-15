@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Servicios;
 using FrbaCommerce.Util;
+using FrbaCommerce.Registro_de_Usuario;
 
 namespace FrbaCommerce.Vistas.Login
 {
@@ -31,9 +32,11 @@ namespace FrbaCommerce.Vistas.Login
 
                     case 0:
                         Session.usuario = Usuarios.buscarUsuarioPorUsername(usuario.Text);
-                        frmPrincipal formPrincipal = new frmPrincipal();
-                        formPrincipal.Show();
-                        this.Close();
+                        Menu menu = new Menu(this);
+                        menu.Show();
+                        usuario.Text = "";
+                        contrasenia.Text = "";
+                        this.Hide();
                         break;
                     case 1:
                         MessageBox.Show("Contraseña incorrecta." ,"Error");
@@ -45,16 +48,16 @@ namespace FrbaCommerce.Vistas.Login
                         MessageBox.Show("Usuario alcanzo el límite de intentos.", "Error");
                         break;
                 }
-
-
-
             }
-
         }
 
-        private void cancelar_Click(object sender, EventArgs e)
+        private void registrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            usuario.Text = "";
+            contrasenia.Text = "";
+            RegistroPasoUno form = new RegistroPasoUno();
+            form.Show();
         }
+
     }
 }

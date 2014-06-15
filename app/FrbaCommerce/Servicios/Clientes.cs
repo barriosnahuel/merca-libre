@@ -81,6 +81,9 @@ namespace FrbaCommerce.Servicios
             SqlParameter parametro = new SqlParameter("@PASSWORD", SqlDbType.VarChar, 100);
             parametro.Value = cliente.password;
             parametros.Add(parametro);
+            parametro = new SqlParameter("@ID_CLIENTE_CREADO", SqlDbType.VarChar, 100);
+            parametro.Value = DBNull.Value;
+            parametros.Add(parametro);
 
             BasesDeDatos.EscribirEnBase("GoodTimes.CrearCliente", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
