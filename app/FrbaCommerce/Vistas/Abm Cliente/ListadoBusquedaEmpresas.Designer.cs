@@ -31,16 +31,6 @@
             this.add_button = new System.Windows.Forms.Button();
             this.delete_button = new System.Windows.Forms.Button();
             this.listadoEmpresas = new System.Windows.Forms.DataGridView();
-            this.modify_button = new System.Windows.Forms.Button();
-            this.clean_button = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.contacto_search = new System.Windows.Forms.TextBox();
-            this.razon_social_search = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cuit_search = new System.Windows.Forms.TextBox();
-            this.search_button = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +48,17 @@
             this.fecha_creacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modify_button = new System.Windows.Forms.Button();
+            this.clean_button = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.contacto_search = new System.Windows.Forms.TextBox();
+            this.razon_social_search = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cuit_search = new System.Windows.Forms.TextBox();
+            this.search_button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listadoEmpresas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -107,102 +108,6 @@
             this.listadoEmpresas.Name = "listadoEmpresas";
             this.listadoEmpresas.Size = new System.Drawing.Size(538, 287);
             this.listadoEmpresas.TabIndex = 41;
-            // 
-            // modify_button
-            // 
-            this.modify_button.Location = new System.Drawing.Point(317, 385);
-            this.modify_button.Name = "modify_button";
-            this.modify_button.Size = new System.Drawing.Size(113, 23);
-            this.modify_button.TabIndex = 38;
-            this.modify_button.Text = "Modificar";
-            this.modify_button.UseVisualStyleBackColor = true;
-            this.modify_button.Click += new System.EventHandler(this.modify_button_Click);
-            // 
-            // clean_button
-            // 
-            this.clean_button.Location = new System.Drawing.Point(12, 63);
-            this.clean_button.Name = "clean_button";
-            this.clean_button.Size = new System.Drawing.Size(113, 23);
-            this.clean_button.TabIndex = 37;
-            this.clean_button.Text = "Borrar todo";
-            this.clean_button.UseVisualStyleBackColor = true;
-            this.clean_button.Click += new System.EventHandler(this.clean_button_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.contacto_search);
-            this.groupBox1.Controls.Add(this.razon_social_search);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cuit_search);
-            this.groupBox1.Location = new System.Drawing.Point(12, 8);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(538, 48);
-            this.groupBox1.TabIndex = 35;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Buscar";
-            // 
-            // contacto_search
-            // 
-            this.contacto_search.Location = new System.Drawing.Point(419, 20);
-            this.contacto_search.MaxLength = 100;
-            this.contacto_search.Name = "contacto_search";
-            this.contacto_search.Size = new System.Drawing.Size(113, 20);
-            this.contacto_search.TabIndex = 17;
-            // 
-            // razon_social_search
-            // 
-            this.razon_social_search.Location = new System.Drawing.Point(82, 18);
-            this.razon_social_search.MaxLength = 100;
-            this.razon_social_search.Name = "razon_social_search";
-            this.razon_social_search.Size = new System.Drawing.Size(113, 20);
-            this.razon_social_search.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Razon social:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(365, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Contacto:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(202, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "CUIT:";
-            // 
-            // cuit_search
-            // 
-            this.cuit_search.Location = new System.Drawing.Point(243, 20);
-            this.cuit_search.MaxLength = 100;
-            this.cuit_search.Name = "cuit_search";
-            this.cuit_search.Size = new System.Drawing.Size(113, 20);
-            this.cuit_search.TabIndex = 19;
-            // 
-            // search_button
-            // 
-            this.search_button.Location = new System.Drawing.Point(437, 63);
-            this.search_button.Name = "search_button";
-            this.search_button.Size = new System.Drawing.Size(113, 23);
-            this.search_button.TabIndex = 36;
-            this.search_button.Text = "Buscar";
-            this.search_button.UseVisualStyleBackColor = true;
-            this.search_button.Click += new System.EventHandler(this.search_button_Click);
             // 
             // id
             // 
@@ -317,11 +222,118 @@
             this.password.Name = "password";
             this.password.Visible = false;
             // 
+            // modify_button
+            // 
+            this.modify_button.Location = new System.Drawing.Point(317, 385);
+            this.modify_button.Name = "modify_button";
+            this.modify_button.Size = new System.Drawing.Size(113, 23);
+            this.modify_button.TabIndex = 38;
+            this.modify_button.Text = "Modificar";
+            this.modify_button.UseVisualStyleBackColor = true;
+            this.modify_button.Click += new System.EventHandler(this.modify_button_Click);
+            // 
+            // clean_button
+            // 
+            this.clean_button.Location = new System.Drawing.Point(12, 63);
+            this.clean_button.Name = "clean_button";
+            this.clean_button.Size = new System.Drawing.Size(113, 23);
+            this.clean_button.TabIndex = 37;
+            this.clean_button.Text = "Borrar todo";
+            this.clean_button.UseVisualStyleBackColor = true;
+            this.clean_button.Click += new System.EventHandler(this.clean_button_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.contacto_search);
+            this.groupBox1.Controls.Add(this.razon_social_search);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cuit_search);
+            this.groupBox1.Location = new System.Drawing.Point(12, 8);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(538, 48);
+            this.groupBox1.TabIndex = 35;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Buscar";
+            // 
+            // contacto_search
+            // 
+            this.contacto_search.Location = new System.Drawing.Point(419, 20);
+            this.contacto_search.MaxLength = 100;
+            this.contacto_search.Name = "contacto_search";
+            this.contacto_search.Size = new System.Drawing.Size(113, 20);
+            this.contacto_search.TabIndex = 17;
+            // 
+            // razon_social_search
+            // 
+            this.razon_social_search.Location = new System.Drawing.Point(82, 18);
+            this.razon_social_search.MaxLength = 100;
+            this.razon_social_search.Name = "razon_social_search";
+            this.razon_social_search.Size = new System.Drawing.Size(113, 20);
+            this.razon_social_search.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Razon social:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(365, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Contacto:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(202, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "CUIT:";
+            // 
+            // cuit_search
+            // 
+            this.cuit_search.Location = new System.Drawing.Point(243, 20);
+            this.cuit_search.MaxLength = 100;
+            this.cuit_search.Name = "cuit_search";
+            this.cuit_search.Size = new System.Drawing.Size(113, 20);
+            this.cuit_search.TabIndex = 19;
+            // 
+            // search_button
+            // 
+            this.search_button.Location = new System.Drawing.Point(437, 63);
+            this.search_button.Name = "search_button";
+            this.search_button.Size = new System.Drawing.Size(113, 23);
+            this.search_button.TabIndex = 36;
+            this.search_button.Text = "Buscar";
+            this.search_button.UseVisualStyleBackColor = true;
+            this.search_button.Click += new System.EventHandler(this.search_button_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(11, 385);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 23);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Cambiar Password";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ListadoBusquedaEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 416);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.add_button);
             this.Controls.Add(this.delete_button);
             this.Controls.Add(this.listadoEmpresas);
@@ -370,6 +382,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_creacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn password;
+        private System.Windows.Forms.Button button1;
 
     }
 }

@@ -10,6 +10,8 @@ using FrbaCommerce.Servicios;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Vistas.Registro_de_Usuario;
 using FrbaCommerce.Util;
+using FrbaCommerce.Vistas.Abm_Cliente;
+using FrbaCommerce.Vistas.Login;
 
 namespace FrbaCommerce.Abm_Cliente
 {
@@ -75,9 +77,15 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void add_button_Click(object sender, EventArgs e)
         {
-            //TODO Definir como es el nombre de usuario "por defecto".
-            RegistroPasoDosCliente siguienteVentana = new RegistroPasoDosCliente("unUsuario", "contraseniaParaCambiar");
-            siguienteVentana.Show();
+            PreRegistroCliente form = new PreRegistroCliente();
+            form.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)listadoClientes.CurrentRow.DataBoundItem;
+            CambiarPassword form = new CambiarPassword(cliente.id);
+            form.Show();
         }
 
     }
