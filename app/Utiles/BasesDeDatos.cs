@@ -14,10 +14,9 @@ namespace Utiles
     {
 
         static SqlConnection Conexion = new SqlConnection();
-       
-      //static String connString = @"Server=localhost\SQLEXPRESS;Database=GD1C2014;User Id=gd;Password=gd2014;";
-      static String connString = @"Server=localhost\SQLSERVER2008;Database=GD1C2014;User Id=gd;Password=gd2014;";
-
+//static String connString = @"Server=localhost\SQLEXPRESS;Database=GD1C2014;User Id=gd;Password=gd2014;";
+        public static String connString = "";
+     
         public static SqlConnection ObtenerConexion()
         {
             if (Conexion.State == ConnectionState.Closed)

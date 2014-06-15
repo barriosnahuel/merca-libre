@@ -10,6 +10,7 @@ using FrbaCommerce.Modelos;
 using FrbaCommerce.Servicios;
 using FrbaCommerce.Util;
 using FrbaCommerce.Registro_de_Usuario;
+using Utiles;
 
 namespace FrbaCommerce.Vistas.Login
 {
@@ -18,6 +19,9 @@ namespace FrbaCommerce.Vistas.Login
         public frmLogin()
         {
             InitializeComponent();
+
+            BasesDeDatos.connString = Session.ConnectionString();
+
         }
 
         private void aceptar_Click(object sender, EventArgs e)
