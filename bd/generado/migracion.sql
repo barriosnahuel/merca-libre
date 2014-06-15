@@ -83,6 +83,7 @@ DECLARE @estadoPublicacionId SMALLINT
 DECLARE @visibilidadPublicacionId NUMERIC(18, 0)
 DECLARE @Publ_Buyer BIGINT
 DECLARE @Forma_pago_ID smallint
+DECLARE @ID_CREADO BIGINT
 DECLARE @currentCompraId BIGINT;
 -- ID del usuario duenio de la publicacion
 SET @Current_Publicacion_Cod = 0;
@@ -106,8 +107,8 @@ WHILE @@FETCH_STATUS = 0
                         @Publ_Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Publ_Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Publ_Cli_Piso) + ' ' +
                         CONVERT(VARCHAR, @Publ_Cli_Depto)
 
-                        EXEC [GOODTIMES].[CrearCliente] @Publ_Cli_Nombre, @Publ_Cli_Apellido, @Publ_Cli_Dni, 'DNI', @Publ_Cli_Fecha_Nac, @username, @defaultPassword, 0, 1, 0, @Publ_Cli_Mail, '', @dir, @Publ_Cli_Cod_Postal, 'Buenos Aires'
-                        SET @Publ_Owner = @@IDENTITY;
+                        EXEC [GOODTIMES].[CrearCliente] @Publ_Cli_Nombre, @Publ_Cli_Apellido, @Publ_Cli_Dni, 'DNI', @Publ_Cli_Fecha_Nac, @username, @defaultPassword, 0, 1, 0, @Publ_Cli_Mail, '', @dir, @Publ_Cli_Cod_Postal, 'Buenos Aires', @ID_CREADO OUTPUT
+                        SET @Publ_Owner = @ID_CREADO;
                     END
                 ELSE
                     BEGIN
@@ -129,8 +130,8 @@ WHILE @@FETCH_STATUS = 0
                         @Publ_Empresa_Dom_Calle + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Piso)
                         + ' ' + CONVERT(VARCHAR, @Publ_Empresa_Depto)
 
-                        EXEC [GOODTIMES].CrearEmpresa @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, '', @Publ_Empresa_Fecha_Creacion, @username, @defaultPassword, 0, 1, 0, @Publ_Empresa_Mail, '', @dir, @Publ_Empresa_Cod_Postal, 'Buenos Aires'
-                        SET @Publ_Owner = @@IDENTITY;
+                        EXEC [GOODTIMES].CrearEmpresa @Publ_Empresa_Razon_Social, @Publ_Empresa_Cuit, '', @Publ_Empresa_Fecha_Creacion, @username, @defaultPassword, 0, 1, 0, @Publ_Empresa_Mail, '', @dir, @Publ_Empresa_Cod_Postal, 'Buenos Aires', @ID_CREADO OUTPUT
+                        SET @Publ_Owner = @ID_CREADO;
                     END
                 ELSE
                     BEGIN
@@ -186,8 +187,8 @@ WHILE @@FETCH_STATUS = 0
                 BEGIN
                     SET @username = GOODTIMES.GET_UNIQUE_USERNAME(@Cli_Nombre)
                     SET @dir = @Cli_Dom_Calle + ' ' + CONVERT(VARCHAR, @Cli_Nro_Calle) + ' ' + CONVERT(VARCHAR, @Cli_Piso) + ' ' + CONVERT(VARCHAR, @Cli_Depto)
-                    EXEC GOODTIMES.CrearCliente @Cli_Nombre, @Cli_Apeliido, @Cli_Dni, 'DNI', @Cli_Fecha_Nac, @username, @defaultPassword, 0, 1, 0, @Cli_Mail, '', @dir, @Cli_Cod_Postal, 'Buenos Aires'
-                    SET @Publ_Buyer = @@IDENTITY;
+                    EXEC GOODTIMES.CrearCliente @Cli_Nombre, @Cli_Apeliido, @Cli_Dni, 'DNI', @Cli_Fecha_Nac, @username, @defaultPassword, 0, 1, 0, @Cli_Mail, '', @dir, @Cli_Cod_Postal, 'Buenos Aires', @ID_CREADO OUTPUT
+                    SET @Publ_Buyer = @ID_CREADO;
                 END
             ELSE
                 BEGIN
