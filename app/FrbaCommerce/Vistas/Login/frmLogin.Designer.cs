@@ -30,8 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.registrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.aceptar = new System.Windows.Forms.Button();
@@ -68,15 +68,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuario administrador:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Password: admin";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -85,6 +76,15 @@
             this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Username: admin";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Password: w23e";
             // 
             // registrar
             // 
