@@ -102,5 +102,19 @@ namespace FrbaCommerce.Servicios
             
             return BasesDeDatos.queryForInt("GoodTimes.login", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
         }
+
+        internal static void cambiarPassword(Int64 idUsuario, string password)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            SqlParameter parametro = new SqlParameter("@ID", SqlDbType.BigInt, 100);
+            parametro.Value = idUsuario;
+            parametros.Add(parametro);
+            parametro = new SqlParameter("@PASSWORD", SqlDbType.VarChar, 100);
+            parametro.Value = password;
+            parametros.Add(parametro);
+
+            BasesDeDatos.EscribirEnBase("GoodTimes.CambiarPasswordDeUsuario", BasesDeDatos.TiposEscritura.StoreProcedure, parametros);
+        }
     }
 }

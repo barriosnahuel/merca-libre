@@ -10,6 +10,7 @@ using FrbaCommerce.Servicios;
 using FrbaCommerce.Vistas.Registro_de_Usuario;
 using FrbaCommerce.Modelos;
 using FrbaCommerce.Util;
+using FrbaCommerce.Vistas.Login;
 
 namespace FrbaCommerce.Vistas.Abm_Cliente
 {
@@ -35,9 +36,8 @@ namespace FrbaCommerce.Vistas.Abm_Cliente
 
         private void add_button_Click(object sender, EventArgs e)
         {
-            //TODO Definir como es el nombre de usuario "por defecto".
-            RegistroPasoDosEmpresa siguienteVentana = new RegistroPasoDosEmpresa("usernamePorDefecto", "passwordpordefecto");
-            siguienteVentana.Show();
+            PreRegistroEmpresa form = new PreRegistroEmpresa();
+            form.Show();
         }
 
         private void delete_button_Click(object sender, EventArgs e)
@@ -70,6 +70,13 @@ namespace FrbaCommerce.Vistas.Abm_Cliente
                 return true;
             }
             return false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Empresa empresa = (Empresa)listadoEmpresas.CurrentRow.DataBoundItem;
+            CambiarPassword form = new CambiarPassword(empresa.id);
+            form.Show();
         }
 
     }

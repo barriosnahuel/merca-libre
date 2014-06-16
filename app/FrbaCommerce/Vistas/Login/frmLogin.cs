@@ -38,6 +38,16 @@ namespace FrbaCommerce.Vistas.Login
                         Session.usuario = Usuarios.buscarUsuarioPorUsername(usuario.Text);
                         Menu menu = new Menu(this);
                         menu.Show();
+
+                        /** Si el usuario ingresa por primera vez, se asume que tiene esa password **/
+                        String contraseniaNuevoUsuario = Utiles.Password.encriptarPassword("passwordNuevoACambiar");
+                        String contraseniaNuevoUsuarioIngresada = Utiles.Password.encriptarPassword(contrasenia.Text);
+                        if (contraseniaNuevoUsuarioIngresada == contraseniaNuevoUsuario)
+                        {
+                            CambiarPassword formCambiar = new CambiarPassword(Session.usuario.id);
+                            formCambiar.Show();
+                        }
+                        
                         usuario.Text = "";
                         contrasenia.Text = "";
                         this.Hide();

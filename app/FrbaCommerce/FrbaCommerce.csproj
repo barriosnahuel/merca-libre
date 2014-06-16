@@ -113,6 +113,18 @@
     <Compile Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.Designer.cs">
       <DependentUpon>ListadoBusquedaEmpresas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Abm Cliente\PreRegistroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\PreRegistroCliente.Designer.cs">
+      <DependentUpon>PreRegistroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\PreRegistroEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\PreRegistroEmpresa.Designer.cs">
+      <DependentUpon>PreRegistroEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\ABM Rol\ABMRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +211,12 @@
     <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.resx">
       <DependentUpon>ListadoBusquedaEmpresas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Cliente\PreRegistroCliente.resx">
+      <DependentUpon>PreRegistroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Cliente\PreRegistroEmpresa.resx">
+      <DependentUpon>PreRegistroEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\ABM Rol\ABMRol.resx">
       <DependentUpon>ABMRol.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Listado Estadistico\FrmTop5.resx">
       <DependentUpon>FrmTop5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Login\CambiarPassword.resx">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -347,6 +368,12 @@
     <Compile Include="Vistas\Listado Estadistico\FrmTop5.Designer.cs">
       <DependentUpon>FrmTop5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Login\CambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Login\CambiarPassword.Designer.cs">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,9 +449,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vistas\Abm Rubro\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
