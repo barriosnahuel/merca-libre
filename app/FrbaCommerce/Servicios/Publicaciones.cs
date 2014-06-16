@@ -236,7 +236,7 @@ namespace FrbaCommerce.Servicios
             List<Publicacion> publicaciones = new List<Publicacion>();
 
             List<SqlParameter> parametros = new List<SqlParameter>();
-            parametros.Add(new SqlParameter("USER_ID", DBNull.Value));
+            parametros.Add(new SqlParameter("USER_ID", idUsuario));
 
             SqlDataReader lector = BasesDeDatos.ObtenerDataReader("GoodTimes.BuscarPublicacionesSinFacturar", BasesDeDatos.Tipos.StoreProcedure, parametros);
 

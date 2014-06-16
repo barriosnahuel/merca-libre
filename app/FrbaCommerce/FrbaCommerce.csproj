@@ -67,6 +67,8 @@
     <Compile Include="Modelos\CompraHistorial.cs" />
     <Compile Include="Modelos\CalificacionHistorial.cs" />
     <Compile Include="Modelos\CompraSinCalificar.cs" />
+    <Compile Include="Modelos\FormaPago.cs" />
+    <Compile Include="Modelos\ItemFactura.cs" />
     <Compile Include="Modelos\Funcionalidad.cs" />
     <Compile Include="Modelos\OfertaHistorial.cs" />
     <Compile Include="Modelos\Empresa.cs" />
@@ -84,6 +86,8 @@
     <Compile Include="Servicios\ComprasHistorial.cs" />
     <Compile Include="Servicios\CalificacionesHistorial.cs" />
     <Compile Include="Servicios\ComprasSinCalificar.cs" />
+    <Compile Include="Servicios\FormasPago.cs" />
+    <Compile Include="Servicios\ItemsFactura.cs" />
     <Compile Include="Servicios\OfertasHistorial.cs" />
     <Compile Include="Servicios\Preguntas.cs" />
     <Compile Include="Servicios\Empresas.cs" />
@@ -231,6 +235,9 @@
     <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.resx">
       <DependentUpon>VerPublicacionesActivas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Facturar Publicaciones\frmFacturar.resx">
+      <DependentUpon>frmFacturar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Facturar Publicaciones\frmPublicacionesAFacturar.resx">
       <DependentUpon>frmPublicacionesAFacturar.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +292,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Vistas\Facturar Publicaciones\frmFacturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Facturar Publicaciones\frmFacturar.Designer.cs">
+      <DependentUpon>frmFacturar.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Facturar Publicaciones\frmPublicacionesAFacturar.cs">
       <SubType>Form</SubType>

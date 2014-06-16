@@ -57,7 +57,27 @@ namespace FrbaCommerce.Vistas.Facturar_Publicaciones
             dgvPublicaciones.Columns.Add(colDesde);
             dgvPublicaciones.Columns.Add(colHasta);
 
-            dgvPublicaciones.DataSource = listaPublicaciones; 
+            dgvPublicaciones.DataSource = listaPublicaciones;
+
+            for (int i = 0; i < listaPublicaciones.Count; i++)
+            {
+                cmbCantPub.Items.Insert(i, i + 1);
+            }
+            cmbCantPub.SelectedIndex = 0;
         }
+
+        private void btnVerFactura_Click(object sender, EventArgs e)
+        {
+            List<long> listaPublicaciones = new List<long>();
+            for (int i = 0; i < int.Parse(cmbCantPub.Text); i++)
+            {   
+                Publicacion unaPublicacion = (Publicacion)dgvPublicaciones.CurrentRow.DataBoundItem;
+                listaPublicaciones.Add(unaPublicacion.id);
+            }
+            frmFacturar facturarForm = new frmFacturar(listaPublicaciones);
+            facturarForm.Show();
+            this.Close();
+        }
+
     }
 }
