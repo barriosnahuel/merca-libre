@@ -185,5 +185,8 @@ VALUES ('LISTADO_ESTADISTICO');
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
 VALUES (3, SCOPE_IDENTITY());
 
+-- Forma de pago (la agrego por no estar en la migracion en ningun pago)
+INSERT INTO [GOODTIMES].[FORMA_PAGO] ([DESCRIPCION]) VALUES ('Tarjeta de credito')
+
 
 GO
