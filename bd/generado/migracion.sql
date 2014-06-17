@@ -85,6 +85,7 @@ DECLARE @Publ_Buyer BIGINT
 DECLARE @Forma_pago_ID smallint
 DECLARE @ID_CREADO BIGINT
 DECLARE @currentCompraId BIGINT;
+DECLARE @Compra_a_facturar bigint
 -- ID del usuario duenio de la publicacion
 SET @Current_Publicacion_Cod = 0;
 WHILE @@FETCH_STATUS = 0
@@ -236,12 +237,13 @@ WHILE @@FETCH_STATUS = 0
 				END
 
 				-- Guarda la factura MANTENIENDO el ID de la factura
-                INSERT INTO [GOODTIMES].[FACTURA] (ID, USUARIO_ID, FECHA, FORMA_PAGO_ID, CODIGO_TARJETA)
-                VALUES (@Factura_Nro, @Publ_Owner,@Factura_Fecha,@Forma_pago_ID,0)
+                INSERT INTO [GOODTIMES].[FACTURA] (ID, USUARIO_ID, FECHA, FORMA_PAGO_ID)
+                VALUES (@Factura_Nro, @Publ_Owner,@Factura_Fecha,@Forma_pago_ID)
 			END
 			
 			-- Agregar el item factura a la factura
-			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''
+			SET @Compra_a_facturar =(SELECT TOP 1 ID FROM GOODTIMES.COMPRA C WHERE PUBLICACION_ID = @Publicacion_Nuevo_ID AND C.CANTIDAD = @Item_Factura_Cantidad AND NOT EXISTS(SELECT 1 FROM GOODTIMES.FACTURA_ITEM WHERE COMPRA_ID = C.ID))
+			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro, @Compra_a_facturar, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''
         END
 
         FETCH NEXT FROM maestra_cursor

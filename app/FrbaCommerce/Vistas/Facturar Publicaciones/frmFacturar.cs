@@ -58,5 +58,34 @@ namespace FrbaCommerce.Vistas.Facturar_Publicaciones
 
             dgvDetalle.DataSource = listaItems;
         }
+
+        private void cmbFormaPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FormaPago fp = (FormaPago)cmbFormaPago.Items[cmbFormaPago.SelectedIndex];
+            if (fp.id == 1) // 1 es el id de tarjeta de credito
+            {
+                txtCodigo.Visible = true;
+                txtNroTarjeta.Visible = true;
+                txtTitular.Visible = true;
+                lblCod.Visible = true;
+                lblNroTarjeta.Visible = true;
+                lblTitular.Visible = true;
+            }
+            else
+            {
+                txtCodigo.Visible = false;
+                txtNroTarjeta.Visible = false;
+                txtTitular.Visible = false;
+                lblCod.Visible = false;
+                lblNroTarjeta.Visible = false;
+                lblTitular.Visible = false;
+            }
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
