@@ -38,7 +38,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label1.Location = new System.Drawing.Point(25, 19);
+            this.label1.Location = new System.Drawing.Point(92, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(304, 25);
             this.label1.TabIndex = 0;
@@ -50,12 +50,12 @@
             this.listadoFuncionalidades.FormattingEnabled = true;
             this.listadoFuncionalidades.Location = new System.Drawing.Point(30, 72);
             this.listadoFuncionalidades.Name = "listadoFuncionalidades";
-            this.listadoFuncionalidades.Size = new System.Drawing.Size(193, 24);
+            this.listadoFuncionalidades.Size = new System.Drawing.Size(306, 24);
             this.listadoFuncionalidades.TabIndex = 1;
             // 
             // ir
             // 
-            this.ir.Location = new System.Drawing.Point(229, 72);
+            this.ir.Location = new System.Drawing.Point(342, 71);
             this.ir.Name = "ir";
             this.ir.Size = new System.Drawing.Size(100, 24);
             this.ir.TabIndex = 2;
@@ -77,7 +77,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 142);
+            this.ClientSize = new System.Drawing.Size(479, 142);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ir);
             this.Controls.Add(this.listadoFuncionalidades);
