@@ -28,27 +28,33 @@ namespace FrbaCommerce.Vistas.Comprar_Ofertar
 
         private void ofertar_Click(object sender, EventArgs e)
         {
-            if (FormValidate.isUserLoggedIn())
+            if (!FormValidate.isUserLoggedIn())
             {
-                if (publicacion.usuario.id != Session.usuario.id)
-                {
-                    Int32 oferta = Convert.ToInt32(montoOferta.Text);
-                    if (publicacion.precio > oferta)
-                    {
-                        MessageBox.Show("El monto de oferta debe ser superior al precio actual.");
-                        return;
-                    }
-                    Publicaciones.ofertar(publicacion.id, oferta);
-                    Usuario usuario = Usuarios.buscarUsuarioPorID(publicacion.usuario.id);
-                    MessageBox.Show("Hiciste la oferta con exito de $ " + montoOferta.Text);
-                    precio.Text = montoOferta.Text;
-                    montoOferta.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("No podes comprar tus publicaciones");
-                }
+                return;
             }
+            if (!ClienteValidaciones.tieneCalificacionesAlDia(Session.usuario.id))
+            {
+                MessageBox.Show("Tenes mas de 5 compras sin calificar y no podes realizar mas compras/ofertas hasta que califiques las mismas.");
+                return;
+            }
+            if (publicacion.usuario.id != Session.usuario.id)
+            {
+                Int32 oferta = Convert.ToInt32(montoOferta.Text);
+                if (publicacion.precio > oferta)
+                {
+                    MessageBox.Show("El monto de oferta debe ser superior al precio actual.");
+                    return;
+                }
+                Publicaciones.ofertar(publicacion.id, oferta);
+                Usuario usuario = Usuarios.buscarUsuarioPorID(publicacion.usuario.id);
+                MessageBox.Show("Hiciste la oferta con exito de $ " + montoOferta.Text);
+                precio.Text = montoOferta.Text;
+                montoOferta.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("No podes comprar tus publicaciones");
+            }    
         }
 
     }
