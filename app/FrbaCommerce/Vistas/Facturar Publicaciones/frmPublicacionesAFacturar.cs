@@ -69,7 +69,7 @@ namespace FrbaCommerce.Vistas.Facturar_Publicaciones
         private void cmbFormaPago_SelectedIndexChanged(object sender, EventArgs e)
         {
             FormaPago fp = (FormaPago)cmbFormaPago.Items[cmbFormaPago.SelectedIndex];
-            if (fp.id == 1) // 1 es el id de tarjeta de credito
+            if (fp.id == 2) // 2 es el id de tarjeta de credito
             {
                 groupFormaPago.Visible = true;
             }
@@ -90,7 +90,7 @@ namespace FrbaCommerce.Vistas.Facturar_Publicaciones
                     unItem.idFactura = idFactura;
                     ItemsFactura.Guardar(unItem);
                 }
-                if (fp.id == 1)
+                if (fp.id == 2)
                 {
                     Tarjetas.Guardar(idFactura, txtNroTarjeta.Text, txtTitular.Text, txtCodigo.Text);
                 }
@@ -101,7 +101,7 @@ namespace FrbaCommerce.Vistas.Facturar_Publicaciones
 
         private bool formularioValido() {
             FormaPago fp = (FormaPago)cmbFormaPago.Items[cmbFormaPago.SelectedIndex];
-            if (fp.id != 1) // 1 es el id de tarjeta de credito
+            if (fp.id != 2) // 1 es el id de tarjeta de credito
             {
                 return true;
             }
