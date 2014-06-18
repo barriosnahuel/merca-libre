@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F87DEAA-7E5A-4897-BB78-E15F28C4FAE6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FrbaCommerce</RootNamespace>
+    <AssemblyName>FrbaCommerce</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modelos\Cliente.cs" />
+    <Compile Include="Modelos\CompraHistorial.cs" />
+    <Compile Include="Modelos\CalificacionHistorial.cs" />
+    <Compile Include="Modelos\CompraSinCalificar.cs" />
+    <Compile Include="Modelos\FormaPago.cs" />
+    <Compile Include="Modelos\ItemFactura.cs" />
+    <Compile Include="Modelos\Funcionalidad.cs" />
+    <Compile Include="Modelos\OfertaHistorial.cs" />
+    <Compile Include="Modelos\Empresa.cs" />
+    <Compile Include="Modelos\EstadoPublicacion.cs" />
+    <Compile Include="Modelos\Funcion.cs" />
+    <Compile Include="Modelos\Pregunta.cs" />
+    <Compile Include="Modelos\Publicacion.cs" />
+    <Compile Include="Modelos\Rubro.cs" />
+    <Compile Include="Modelos\Session.cs" />
+    <Compile Include="Modelos\TipoPublicacion.cs" />
+    <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="Modelos\Visibilidad.cs" />
+    <Compile Include="Servicios\Calificaciones.cs" />
+    <Compile Include="Servicios\Clientes.cs" />
+    <Compile Include="Servicios\ComprasHistorial.cs" />
+    <Compile Include="Servicios\CalificacionesHistorial.cs" />
+    <Compile Include="Servicios\ComprasSinCalificar.cs" />
+    <Compile Include="Servicios\Tarjetas.cs" />
+    <Compile Include="Servicios\Facturas.cs" />
+    <Compile Include="Servicios\FormasPago.cs" />
+    <Compile Include="Servicios\ItemsFactura.cs" />
+    <Compile Include="Servicios\OfertasHistorial.cs" />
+    <Compile Include="Servicios\Preguntas.cs" />
+    <Compile Include="Servicios\Empresas.cs" />
+    <Compile Include="Servicios\EstadosPublicacion.cs" />
+    <Compile Include="Servicios\Funciones.cs" />
+    <Compile Include="Servicios\Publicaciones.cs" />
+    <Compile Include="Servicios\Rubros.cs" />
+    <Compile Include="Servicios\TipoPublicaciones.cs" />
+    <Compile Include="Servicios\Usuarios.cs" />
+    <Compile Include="Servicios\Visibilidades.cs" />
+    <Compile Include="Util\ClienteValidaciones.cs" />
+    <Compile Include="Util\EmpresaValidaciones.cs" />
+    <Compile Include="Util\FormValidate.cs" />
+    <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\ListadoBusquedaClientes.Designer.cs">
+      <DependentUpon>ListadoBusquedaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.Designer.cs">
+      <DependentUpon>ListadoBusquedaEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\PreRegistroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\PreRegistroCliente.Designer.cs">
+      <DependentUpon>PreRegistroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\PreRegistroEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Cliente\PreRegistroEmpresa.Designer.cs">
+      <DependentUpon>PreRegistroEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\ABMRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\ABMRol.Designer.cs">
+      <DependentUpon>ABMRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\frmAltaRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\frmAltaRol.Designer.cs">
+      <DependentUpon>frmAltaRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\frmListadoRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\frmListadoRoles.Designer.cs">
+      <DependentUpon>frmListadoRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\frmAdministarFuncionesRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ABM Rol\frmAdministarFuncionesRol.Designer.cs">
+      <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Abm Visibilidad\ListarVisibilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Visibilidad\ListarVisibilidades.Designer.cs">
+      <DependentUpon>ListarVisibilidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.Designer.cs">
+      <DependentUpon>ModificarAgregarVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Calificar Vendedor\frmCalificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Calificar Vendedor\frmCalificar.Designer.cs">
+      <DependentUpon>frmCalificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Calificar Vendedor\frmListadoCalificacionesPendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Calificar Vendedor\frmListadoCalificacionesPendientes.Designer.cs">
+      <DependentUpon>frmListadoCalificacionesPendientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.Designer.cs">
+      <DependentUpon>VerDetallePublicacionInmediata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionSubasta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerDetallePublicacionSubasta.Designer.cs">
+      <DependentUpon>VerDetallePublicacionSubasta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerDetalleVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerDetalleVendedor.Designer.cs">
+      <DependentUpon>VerDetalleVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.Designer.cs">
+      <DependentUpon>VerPublicacionesActivas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Rol.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusquedaClientes.resx">
+      <DependentUpon>ListadoBusquedaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Cliente\ListadoBusquedaEmpresas.resx">
+      <DependentUpon>ListadoBusquedaEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Cliente\PreRegistroCliente.resx">
+      <DependentUpon>PreRegistroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Cliente\PreRegistroEmpresa.resx">
+      <DependentUpon>PreRegistroEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ABM Rol\ABMRol.resx">
+      <DependentUpon>ABMRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ABM Rol\frmAltaRol.resx">
+      <DependentUpon>frmAltaRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ABM Rol\frmListadoRoles.resx">
+      <DependentUpon>frmListadoRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ABM Rol\frmAdministarFuncionesRol.resx">
+      <DependentUpon>frmAdministarFuncionesRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Visibilidad\ListarVisibilidades.resx">
+      <DependentUpon>ListarVisibilidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Abm Visibilidad\ModificarAgregarVisibilidad.resx">
+      <DependentUpon>ModificarAgregarVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Calificar Vendedor\frmCalificar.resx">
+      <DependentUpon>frmCalificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Calificar Vendedor\frmListadoCalificacionesPendientes.resx">
+      <DependentUpon>frmListadoCalificacionesPendientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerDetallePublicacionInmediata.resx">
+      <DependentUpon>VerDetallePublicacionInmediata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerDetallePublicacionSubasta.resx">
+      <DependentUpon>VerDetallePublicacionSubasta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerDetalleVendedor.resx">
+      <DependentUpon>VerDetalleVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Comprar-Ofertar\VerPublicacionesActivas.resx">
+      <DependentUpon>VerPublicacionesActivas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Facturar Publicaciones\frmPublicacionesAFacturar.resx">
+      <DependentUpon>frmPublicacionesAFacturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Generar Publicacion\frmGenerarPublicacion.resx">
+      <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Gestion de Preguntas\CuadroPreguntar.resx">
+      <DependentUpon>CuadroPreguntar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Gestion de Preguntas\CuadroResponder.resx">
+      <DependentUpon>CuadroResponder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Gestion de Preguntas\PreguntasRealizadas.resx">
+      <DependentUpon>PreguntasRealizadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Gestion de Preguntas\ResponderPregunta.resx">
+      <DependentUpon>ResponderPregunta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Historial Cliente\frmHistorial.resx">
+      <DependentUpon>frmHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Listado Estadistico\FrmTop5.resx">
+      <DependentUpon>FrmTop5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Login\CambiarPassword.resx">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Login\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.resx">
+      <DependentUpon>RegistroPasoDosCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoDosEmpresa.resx">
+      <DependentUpon>RegistroPasoDosEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Registro de Usuario\RegistroPasoUno.resx">
+      <DependentUpon>RegistroPasoUno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Ver Publicacion\ListadoDePublicaciones.resx">
+      <DependentUpon>ListadoDePublicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Vistas\Facturar Publicaciones\frmPublicacionesAFacturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Facturar Publicaciones\frmPublicacionesAFacturar.Designer.cs">
+      <DependentUpon>frmPublicacionesAFacturar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Generar Publicacion\frmGenerarPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Generar Publicacion\frmGenerarPublicacion.Designer.cs">
+      <DependentUpon>frmGenerarPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\CuadroPreguntar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\CuadroPreguntar.Designer.cs">
+      <DependentUpon>CuadroPreguntar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\CuadroResponder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\CuadroResponder.Designer.cs">
+      <DependentUpon>CuadroResponder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\PreguntasRealizadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\PreguntasRealizadas.Designer.cs">
+      <DependentUpon>PreguntasRealizadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\ResponderPregunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Gestion de Preguntas\ResponderPregunta.Designer.cs">
+      <DependentUpon>ResponderPregunta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Historial Cliente\frmHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Historial Cliente\frmHistorial.Designer.cs">
+      <DependentUpon>frmHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listado Estadistico\FrmTop5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listado Estadistico\FrmTop5.Designer.cs">
+      <DependentUpon>FrmTop5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Login\CambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Login\CambiarPassword.Designer.cs">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Login\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Login\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosCliente.Designer.cs">
+      <DependentUpon>RegistroPasoDosCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoDosEmpresa.Designer.cs">
+      <DependentUpon>RegistroPasoDosEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoUno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Registro de Usuario\RegistroPasoUno.Designer.cs">
+      <DependentUpon>RegistroPasoUno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Roles.cs" />
+    <Compile Include="Vistas\Ver Publicacion\ListadoDePublicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Ver Publicacion\ListadoDePublicaciones.designer.cs">
+      <DependentUpon>ListadoDePublicaciones.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utiles\Utiles.csproj">
+      <Project>{8D5A5C75-FDF3-44D4-AEC7-F0606380D48A}</Project>
+      <Name>Utiles</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

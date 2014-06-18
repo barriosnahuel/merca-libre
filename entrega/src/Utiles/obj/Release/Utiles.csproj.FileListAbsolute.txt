@@ -1,0 +1,7 @@
+C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\bin\Release\Utiles.exe
+C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\bin\Release\Utiles.pdb
+C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Release\Utiles.Properties.Resources.resources
+C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Release\Utiles.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Release\Utiles.exe
+C:\Documents and Settings\Administrador\Escritorio\TP GDD\merca-libre\app\Utiles\obj\Release\Utiles.pdb
