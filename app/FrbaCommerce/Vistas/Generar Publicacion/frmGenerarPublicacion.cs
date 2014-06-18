@@ -159,7 +159,7 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
 
                 i = i + 1;
             }
-            cb_estados.SelectedIndex = 0;
+            cb_estados.SelectedIndex = 1;
 
 
         }
