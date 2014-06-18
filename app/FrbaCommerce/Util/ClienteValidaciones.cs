@@ -10,6 +10,15 @@ namespace FrbaCommerce.Util
 {
     class ClienteValidaciones
     {
+        public static Boolean tieneCalificacionesAlDia(Int64 idUsuario){
+            int cantidad = ComprasSinCalificar.BuscarCantidadSinCalificarPorUsuario(idUsuario);
+            if (cantidad > 5)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static Boolean validate(Cliente cliente, Boolean hacerValidacionExistenciaTelefonoYDni)
         {
             if (!validateEmptyFields(cliente))

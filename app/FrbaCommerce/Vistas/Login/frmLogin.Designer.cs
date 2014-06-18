@@ -140,6 +140,7 @@
             this.contrasenia.PasswordChar = '*';
             this.contrasenia.Size = new System.Drawing.Size(118, 20);
             this.contrasenia.TabIndex = 1;
+            this.contrasenia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contrasenia_KeyPress);
             // 
             // frmLogin
             // 

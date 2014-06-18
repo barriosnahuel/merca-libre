@@ -50,7 +50,7 @@ namespace FrbaCommerce.Vistas.Abm_Visibilidad
             
             Visibilidades.crearOModificar(visibilidad);
             MessageBox.Show("Acción realizada con éxito.");
-            this.Show();
+            this.Close();
         }
     }
 }

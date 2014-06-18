@@ -43,6 +43,7 @@ namespace FrbaCommerce.Vistas.Calificar_Vendedor
                     comentario = cmbComentarioFijo.Text;
                 }
                 Calificaciones.GuardarCalificacion(Session.usuario.id, compraCalificada.id, (int)(double.Parse(cmbCalificar.Text) * 2), comentario);
+                MessageBox.Show("Calificaste con éxito.");
                 this.Close();
             }            
         }

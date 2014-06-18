@@ -84,7 +84,7 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
             descripcion.Text = publicacion.descripcion;
             precio.Text = publicacion.precio.ToString();
             fechaDesde.Value = publicacion.desde;
-            fechaDesde.Value = publicacion.hasta;
+            fechaHasta.Value = publicacion.hasta;
             stock.Value = publicacion.unidades;
             admitePreguntas.Checked = publicacion.admitePregunta;
             
@@ -159,7 +159,7 @@ namespace FrbaCommerce.Vistas.Generar_Publicacion
 
                 i = i + 1;
             }
-            cb_estados.SelectedIndex = 0;
+            cb_estados.SelectedIndex = 1;
 
 
         }

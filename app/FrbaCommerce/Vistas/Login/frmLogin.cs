@@ -73,5 +73,11 @@ namespace FrbaCommerce.Vistas.Login
             form.Show();
         }
 
+        private void contrasenia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+                aceptar.PerformClick();
+        }
+
     }
 }
