@@ -38,7 +38,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label1.Location = new System.Drawing.Point(102, 46);
+            this.label1.Location = new System.Drawing.Point(92, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(304, 25);
             this.label1.TabIndex = 0;
@@ -46,17 +46,16 @@
             // 
             // listadoFuncionalidades
             // 
-            this.listadoFuncionalidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.listadoFuncionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.listadoFuncionalidades.FormattingEnabled = true;
-            this.listadoFuncionalidades.Location = new System.Drawing.Point(54, 99);
+            this.listadoFuncionalidades.Location = new System.Drawing.Point(30, 72);
             this.listadoFuncionalidades.Name = "listadoFuncionalidades";
-            this.listadoFuncionalidades.Size = new System.Drawing.Size(299, 24);
+            this.listadoFuncionalidades.Size = new System.Drawing.Size(306, 24);
             this.listadoFuncionalidades.TabIndex = 1;
             // 
             // ir
             // 
-            this.ir.Location = new System.Drawing.Point(360, 99);
+            this.ir.Location = new System.Drawing.Point(342, 71);
             this.ir.Name = "ir";
             this.ir.Size = new System.Drawing.Size(100, 24);
             this.ir.TabIndex = 2;
@@ -66,7 +65,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(437, 12);
+            this.button1.Location = new System.Drawing.Point(148, 107);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -78,7 +77,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 169);
+            this.ClientSize = new System.Drawing.Size(479, 142);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ir);
             this.Controls.Add(this.listadoFuncionalidades);

@@ -31,10 +31,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listadoVisibilidades = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.actualizar = new System.Windows.Forms.Button();
             this.agregar = new System.Windows.Forms.Button();
             this.borrar = new System.Windows.Forms.Button();
             this.modificar = new System.Windows.Forms.Button();
-            this.actualizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoVisibilidades)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -70,6 +70,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
             // 
+            // actualizar
+            // 
+            this.actualizar.Location = new System.Drawing.Point(354, 19);
+            this.actualizar.Name = "actualizar";
+            this.actualizar.Size = new System.Drawing.Size(125, 23);
+            this.actualizar.TabIndex = 5;
+            this.actualizar.Text = "Actualizar lista";
+            this.actualizar.UseVisualStyleBackColor = true;
+            this.actualizar.Click += new System.EventHandler(this.actualizar_Click);
+            // 
             // agregar
             // 
             this.agregar.Location = new System.Drawing.Point(236, 19);
@@ -99,16 +109,6 @@
             this.modificar.Text = "Modificar";
             this.modificar.UseVisualStyleBackColor = true;
             this.modificar.Click += new System.EventHandler(this.modificar_Click);
-            // 
-            // actualizar
-            // 
-            this.actualizar.Location = new System.Drawing.Point(354, 19);
-            this.actualizar.Name = "actualizar";
-            this.actualizar.Size = new System.Drawing.Size(125, 23);
-            this.actualizar.TabIndex = 5;
-            this.actualizar.Text = "Actualizar";
-            this.actualizar.UseVisualStyleBackColor = true;
-            this.actualizar.Click += new System.EventHandler(this.actualizar_Click);
             // 
             // ListarVisibilidades
             // 

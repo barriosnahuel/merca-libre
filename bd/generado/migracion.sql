@@ -54,12 +54,14 @@ DECLARE @Publ_Cli_Dni NUMERIC(18, 0),
 @Factura_Total NUMERIC(18, 2),
 @Forma_Pago_Desc NVARCHAR(255);
 
+DECLARE @comprasTempTable TABLE (COMPRA_ID BIGINT, CANTIDAD NUMERIC(18, 0), PRECIO NUMERIC(18, 2))
+
 DECLARE @defaultPassword NVARCHAR(255);
 -- La contraseña default es: 123456
 SET @defaultPassword = '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
 
 -- READ_ONLY dramatically improves the performance of the cursor.
-DECLARE maestra_cursor CURSOR
+DECLARE maestra_cursor CURSOR FAST_FORWARD
 
 FOR
     SELECT *
@@ -85,6 +87,7 @@ DECLARE @Publ_Buyer BIGINT
 DECLARE @Forma_pago_ID smallint
 DECLARE @ID_CREADO BIGINT
 DECLARE @currentCompraId BIGINT;
+DECLARE @Compra_a_facturar bigint
 -- ID del usuario duenio de la publicacion
 SET @Current_Publicacion_Cod = 0;
 WHILE @@FETCH_STATUS = 0
@@ -92,6 +95,9 @@ WHILE @@FETCH_STATUS = 0
 
         IF (@Current_Publicacion_Cod <> @Publicacion_Cod)
         BEGIN
+        
+			-- Reinicio la tabla temporal de compras
+			DELETE FROM @comprasTempTable
 
 		    SET @Current_Publicacion_Cod = @Publicacion_Cod
 
@@ -204,6 +210,8 @@ WHILE @@FETCH_STATUS = 0
 			-- Asociar COMPRA a @Publ_Buyer	
 			EXEC [GOODTIMES].[GuardarCompra] @Publ_Buyer, @Publicacion_Nuevo_ID, @Compra_Cantidad, @Compra_Fecha, @Publicacion_Precio
             SET @currentCompraId = @@IDENTITY;
+            
+            INSERT INTO @comprasTempTable (COMPRA_ID,CANTIDAD,PRECIO) VALUES (@currentCompraId, @Compra_Cantidad, CONVERT(NUMERIC(18,2),@Compra_Cantidad * @Publicacion_Precio * @Publicacion_Visibilidad_Porcentaje))
         END
         
         IF (@Cli_Dni IS NOT NULL AND @Oferta_Fecha IS NOT NULL AND @Calificacion_Codigo IS NULL)
@@ -236,12 +244,14 @@ WHILE @@FETCH_STATUS = 0
 				END
 
 				-- Guarda la factura MANTENIENDO el ID de la factura
-                INSERT INTO [GOODTIMES].[FACTURA] (ID, USUARIO_ID, FECHA, FORMA_PAGO_ID, CODIGO_TARJETA)
-                VALUES (@Factura_Nro, @Publ_Owner,@Factura_Fecha,@Forma_pago_ID,0)
+                INSERT INTO [GOODTIMES].[FACTURA] (ID, USUARIO_ID, FECHA, FORMA_PAGO_ID)
+                VALUES (@Factura_Nro, @Publ_Owner,@Factura_Fecha,@Forma_pago_ID)
 			END
 			
 			-- Agregar el item factura a la factura
-			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''
+			SET @Compra_a_facturar = (SELECT TOP 1 COMPRA_ID FROM @comprasTempTable WHERE CANTIDAD = @Item_Factura_Cantidad AND PRECIO = @Item_Factura_Monto)
+			DELETE FROM @comprasTempTable WHERE COMPRA_ID = ISNULL(@Compra_a_facturar,0)
+			EXEC [GOODTIMES].[CrearItemFactura] @Factura_Nro, @Compra_a_facturar, @Publicacion_Nuevo_ID, @Item_Factura_Cantidad, @Item_Factura_Monto, ''
         END
 
         FETCH NEXT FROM maestra_cursor

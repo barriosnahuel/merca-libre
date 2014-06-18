@@ -31,14 +31,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbFormaPago = new System.Windows.Forms.ComboBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.lblCod = new System.Windows.Forms.Label();
+            this.txtNroTarjeta = new System.Windows.Forms.TextBox();
+            this.lblNroTarjeta = new System.Windows.Forms.Label();
+            this.txtTitular = new System.Windows.Forms.TextBox();
+            this.lblTitular = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cmbFormaPago = new System.Windows.Forms.ComboBox();
             this.btnPagar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
@@ -70,12 +70,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.txtCodigo);
+            this.groupBox2.Controls.Add(this.lblCod);
+            this.groupBox2.Controls.Add(this.txtNroTarjeta);
+            this.groupBox2.Controls.Add(this.lblNroTarjeta);
+            this.groupBox2.Controls.Add(this.txtTitular);
+            this.groupBox2.Controls.Add(this.lblTitular);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbFormaPago);
             this.groupBox2.Location = new System.Drawing.Point(12, 350);
@@ -85,13 +85,53 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Forma de pago";
             // 
-            // cmbFormaPago
+            // txtCodigo
             // 
-            this.cmbFormaPago.FormattingEnabled = true;
-            this.cmbFormaPago.Location = new System.Drawing.Point(152, 22);
-            this.cmbFormaPago.Name = "cmbFormaPago";
-            this.cmbFormaPago.Size = new System.Drawing.Size(121, 21);
-            this.cmbFormaPago.TabIndex = 0;
+            this.txtCodigo.Location = new System.Drawing.Point(571, 51);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(44, 20);
+            this.txtCodigo.TabIndex = 7;
+            // 
+            // lblCod
+            // 
+            this.lblCod.AutoSize = true;
+            this.lblCod.Location = new System.Drawing.Point(461, 53);
+            this.lblCod.Name = "lblCod";
+            this.lblCod.Size = new System.Drawing.Size(104, 13);
+            this.lblCod.TabIndex = 6;
+            this.lblCod.Text = "Codigo de seguridad";
+            // 
+            // txtNroTarjeta
+            // 
+            this.txtNroTarjeta.Location = new System.Drawing.Point(290, 51);
+            this.txtNroTarjeta.Name = "txtNroTarjeta";
+            this.txtNroTarjeta.Size = new System.Drawing.Size(153, 20);
+            this.txtNroTarjeta.TabIndex = 5;
+            // 
+            // lblNroTarjeta
+            // 
+            this.lblNroTarjeta.AutoSize = true;
+            this.lblNroTarjeta.Location = new System.Drawing.Point(228, 54);
+            this.lblNroTarjeta.Name = "lblNroTarjeta";
+            this.lblNroTarjeta.Size = new System.Drawing.Size(56, 13);
+            this.lblNroTarjeta.TabIndex = 4;
+            this.lblNroTarjeta.Text = "Nro tarjeta";
+            // 
+            // txtTitular
+            // 
+            this.txtTitular.Location = new System.Drawing.Point(57, 51);
+            this.txtTitular.Name = "txtTitular";
+            this.txtTitular.Size = new System.Drawing.Size(153, 20);
+            this.txtTitular.TabIndex = 3;
+            // 
+            // lblTitular
+            // 
+            this.lblTitular.AutoSize = true;
+            this.lblTitular.Location = new System.Drawing.Point(15, 54);
+            this.lblTitular.Name = "lblTitular";
+            this.lblTitular.Size = new System.Drawing.Size(36, 13);
+            this.lblTitular.TabIndex = 2;
+            this.lblTitular.Text = "Titular";
             // 
             // label1
             // 
@@ -102,53 +142,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Seleccione forma de pago";
             // 
-            // label2
+            // cmbFormaPago
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Titular";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(57, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(290, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 20);
-            this.textBox2.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(228, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Nro tarjeta";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(461, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Codigo de seguridad";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(571, 51);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(44, 20);
-            this.textBox3.TabIndex = 7;
+            this.cmbFormaPago.FormattingEnabled = true;
+            this.cmbFormaPago.Location = new System.Drawing.Point(152, 22);
+            this.cmbFormaPago.Name = "cmbFormaPago";
+            this.cmbFormaPago.Size = new System.Drawing.Size(121, 21);
+            this.cmbFormaPago.TabIndex = 0;
+            this.cmbFormaPago.SelectedIndexChanged += new System.EventHandler(this.cmbFormaPago_SelectedIndexChanged);
             // 
             // btnPagar
             // 
@@ -158,6 +159,7 @@
             this.btnPagar.TabIndex = 2;
             this.btnPagar.Text = "Pagar";
             this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // frmFacturar
             // 
@@ -182,12 +184,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvDetalle;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label lblCod;
+        private System.Windows.Forms.TextBox txtNroTarjeta;
+        private System.Windows.Forms.Label lblNroTarjeta;
+        private System.Windows.Forms.TextBox txtTitular;
+        private System.Windows.Forms.Label lblTitular;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbFormaPago;
         private System.Windows.Forms.Button btnPagar;
