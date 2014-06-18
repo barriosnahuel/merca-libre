@@ -15,7 +15,7 @@ namespace FrbaCommerce.Modelos
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load("../../../app.config");
             XmlNodeList fecha = xDoc.GetElementsByTagName("FechaAhora");
-            return DateTime.Parse(fecha[0].InnerXml.ToString());
+            return DateTime.ParseExact(fecha[0].InnerXml.ToString(), "dd/MM/yyyy HH:mm", null);
         }
 
         public static String ConnectionString()

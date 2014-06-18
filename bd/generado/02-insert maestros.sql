@@ -87,15 +87,17 @@ VALUES (2, @func_facturar);
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
 VALUES (3, @func_facturar);
 
-DECLARE @func_x_rol int
+DECLARE @func_generar int
 insert into GOODTIMES.FUNCIONALIDAD 
 VALUES ('GENERAR_PUBLICACION');
-set @func_x_rol = SCOPE_IDENTITY()
+set @func_generar = SCOPE_IDENTITY()
 
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
-VALUES (1, @func_x_rol);
+VALUES (1, @func_generar);
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
-VALUES (3, @func_x_rol);
+VALUES (2, @func_generar);
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (3, @func_generar);
 
 DECLARE @func_MIS_PUBLICACIONES int
 insert into GOODTIMES.FUNCIONALIDAD 
@@ -103,7 +105,9 @@ VALUES ('MIS_PUBLICACIONES');
 set @func_MIS_PUBLICACIONES = SCOPE_IDENTITY()
 
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
-VALUES (1, SCOPE_IDENTITY());
+VALUES (1, @func_MIS_PUBLICACIONES);
+insert into GOODTIMES.FUNCIONALIDAD_X_ROL
+VALUES (2, @func_MIS_PUBLICACIONES);
 insert into GOODTIMES.FUNCIONALIDAD_X_ROL
 VALUES (3, @func_MIS_PUBLICACIONES);
 
