@@ -81,11 +81,6 @@
             // stock
             // 
             this.stock.Location = new System.Drawing.Point(129, 133);
-            this.stock.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.stock.Name = "stock";
             this.stock.Size = new System.Drawing.Size(53, 20);
             this.stock.TabIndex = 3;
