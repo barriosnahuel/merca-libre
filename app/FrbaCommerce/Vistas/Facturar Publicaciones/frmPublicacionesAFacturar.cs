@@ -17,51 +17,48 @@ namespace FrbaCommerce.Vistas.Facturar_Publicaciones
         {
             InitializeComponent();
 
-            buscarPublicaciones();
+            buscarComprasVisibilidad();
+            obtenerFormasPago();
         }
 
-        private void buscarPublicaciones()
+        private void obtenerFormasPago()
         {
-            List<Publicacion> listaPublicaciones = Publicaciones.buscarSinFacturar(Session.usuario.id);
+            cmbFormaPago.DisplayMember = "descripcion";
+            cmbFormaPago.DataSource = FormasPago.ObtenerTodas();
+        }
 
-            if (listaPublicaciones.Count > 0)
+        private void buscarComprasVisibilidad()
+        {
+            List<ItemFactura> listaItems = ItemsFactura.ObtenerItemsSinFacturar(Session.usuario.id);
+
+            if (listaItems.Count > 0)
             {
                 dgvPublicaciones.AutoGenerateColumns = false;
 
-                DataGridViewTextBoxColumn colNro = new DataGridViewTextBoxColumn();
-                colNro.DataPropertyName = "id";
-                colNro.HeaderText = "Nro publicacion";
+                DataGridViewTextBoxColumn colFecha = new DataGridViewTextBoxColumn();
+                colFecha.DataPropertyName = "fecha";
+                colFecha.HeaderText = "Fecha";
 
-                DataGridViewTextBoxColumn colDescripcion = new DataGridViewTextBoxColumn();
-                colDescripcion.DataPropertyName = "descripcion";
-                colDescripcion.HeaderText = "Descripcion";
+                DataGridViewTextBoxColumn colCantidad = new DataGridViewTextBoxColumn();
+                colCantidad.DataPropertyName = "cantidad";
+                colCantidad.HeaderText = "Cantidad";
 
-                DataGridViewTextBoxColumn colUnidades = new DataGridViewTextBoxColumn();
-                colUnidades.DataPropertyName = "unidades";
-                colUnidades.HeaderText = "Unidades";
+                DataGridViewTextBoxColumn colMonto = new DataGridViewTextBoxColumn();
+                colMonto.DataPropertyName = "monto";
+                colMonto.HeaderText = "Monto";
 
-                DataGridViewTextBoxColumn colPrecio = new DataGridViewTextBoxColumn();
-                colPrecio.DataPropertyName = "precio";
-                colPrecio.HeaderText = "Precio unidad";
+                DataGridViewTextBoxColumn colDetalle = new DataGridViewTextBoxColumn();
+                colDetalle.DataPropertyName = "detalle";
+                colDetalle.HeaderText = "Detalle";
 
-                DataGridViewTextBoxColumn colDesde = new DataGridViewTextBoxColumn();
-                colDesde.DataPropertyName = "desde";
-                colDesde.HeaderText = "Desde";
+                dgvPublicaciones.Columns.Add(colFecha);
+                dgvPublicaciones.Columns.Add(colDetalle);
+                dgvPublicaciones.Columns.Add(colCantidad);
+                dgvPublicaciones.Columns.Add(colMonto);
 
-                DataGridViewTextBoxColumn colHasta = new DataGridViewTextBoxColumn();
-                colHasta.DataPropertyName = "hasta";
-                colHasta.HeaderText = "Hasta";
+                dgvPublicaciones.DataSource = listaItems;
 
-                dgvPublicaciones.Columns.Add(colNro);
-                dgvPublicaciones.Columns.Add(colDescripcion);
-                dgvPublicaciones.Columns.Add(colUnidades);
-                dgvPublicaciones.Columns.Add(colPrecio);
-                dgvPublicaciones.Columns.Add(colDesde);
-                dgvPublicaciones.Columns.Add(colHasta);
-
-                dgvPublicaciones.DataSource = listaPublicaciones;
-
-                for (int i = 0; i < listaPublicaciones.Count; i++)
+                for (int i = 0; i < listaItems.Count; i++)
                 {
                     cmbCantPub.Items.Insert(i, i + 1);
                 }
@@ -69,18 +66,85 @@ namespace FrbaCommerce.Vistas.Facturar_Publicaciones
             }
         }
 
-        private void btnVerFactura_Click(object sender, EventArgs e)
+        private void cmbFormaPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<long> listaPublicaciones = new List<long>();
-            for (int i = 0; i < int.Parse(cmbCantPub.Text); i++)
-            {   
-                Publicacion unaPublicacion = (Publicacion)dgvPublicaciones.CurrentRow.DataBoundItem;
-                listaPublicaciones.Add(unaPublicacion.id);
+            FormaPago fp = (FormaPago)cmbFormaPago.Items[cmbFormaPago.SelectedIndex];
+            if (fp.id == 1) // 1 es el id de tarjeta de credito
+            {
+                groupFormaPago.Visible = true;
             }
-            frmFacturar facturarForm = new frmFacturar(listaPublicaciones);
-            facturarForm.Show();
-            this.Close();
+            else
+            {
+                groupFormaPago.Visible = false;
+            }
         }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            if (formularioValido()) {
+                FormaPago fp = (FormaPago)cmbFormaPago.Items[cmbFormaPago.SelectedIndex];
+                long idFactura = Facturas.guardar(Session.usuario.id, Session.fechaAhora(), int.Parse(fp.id.ToString()));
+                for (int i = 0; i < int.Parse(cmbCantPub.Text); i++)
+                {
+                    ItemFactura unItem = (ItemFactura)dgvPublicaciones.Rows[i].DataBoundItem;
+                    unItem.idFactura = idFactura;
+                    ItemsFactura.Guardar(unItem);
+                }
+                if (fp.id == 1)
+                {
+                    Tarjetas.Guardar(idFactura, txtNroTarjeta.Text, txtTitular.Text, txtCodigo.Text);
+                }
+                MessageBox.Show("Items pagados!");
+                this.Close();
+            }
+        }
+
+        private bool formularioValido() {
+            FormaPago fp = (FormaPago)cmbFormaPago.Items[cmbFormaPago.SelectedIndex];
+            if (fp.id != 1) // 1 es el id de tarjeta de credito
+            {
+                return true;
+            }
+            else
+            {
+                String errores = "";
+                if (txtTitular.Text == "")
+                {
+                    errores += "Complete el titular. ";
+                }
+                if (txtNroTarjeta.Text == "")
+                {
+                    errores += "Complete la tarjeta de credito. ";
+                }
+                if (txtCodigo.Text == "")
+                {
+                    errores += "Complete el codigo de seguridad. ";
+                }
+
+                if (errores != "")
+                {
+                    MessageBox.Show(errores);
+                    return false;                   
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        private void txtSoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
 
     }
 }
